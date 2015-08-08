@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cd971688ac0d7782b21aa2b3b1110b11";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vmware搭建Redis主从配置实验环境 | qh&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vmware搭建Redis主从配置实验环境">
+<meta property="og:url" content="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/index.html">
+<meta property="og:site_name" content="qh's blog">
+<meta property="og:description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-11-30.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-27-10.png">
+<meta property="og:updated_time" content="2015-08-08T07:40:06.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vmware搭建Redis主从配置实验环境">
+<meta name="twitter:description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系">
+  
+    <link rel="alternative" href="/atom.xml" title="qh&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qh&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">thinking before action</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" title="Github" href="https://github.com/gitqh/gitqh.github.io"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="gitqh.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-Redis_MasterSlave_Deploy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/08/Redis_MasterSlave_Deploy/" class="article-date">
+  <time datetime="2015-08-08T07:40:06.826Z" itemprop="datePublished">2015-08-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vmware搭建Redis主从配置实验环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> Redis </strong>（REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括<strong>string</strong>(字符串)、<strong>list</strong>(链表)、<strong>set</strong>(集合)、<strong>zset</strong>(sorted set：有序集合)和<strong>hash</strong>（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系统，能支持每秒15万以上的读写速率。</p>
+<p>本文记录了自己在vmware虚拟机中搭建Redis主从集群的经验，希望能为想深入学习Redis的朋友提供一些帮助。</p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  部署环境说明 </a></p>
+<p><a href="#chart2">2.  Vmware准备 </a></p>
+<p><a href="#chart3">3.  Redis下载 </a></p>
+<p><a href="#chart4">4.  Redis编译安装 </a></p>
+<p><a href="#chart5">5.  克隆搭建从服务器 </a></p>
+<p><a href="#chart6">6.  Redis配置 </a></p>
+<p><a href="#chart7">7.  Redis服务启动 </a></p>
+<p><a href="#chart8">8.  Redis测试 </a></p>
+<hr>
+<a id="more"></a>
+<h2 id="1-安装环境说明"><a name="chart1">1.安装环境说明</a></h2><p>目的：搭建一主两从的Redis集群环境</p>
+<p>版本说明：</p>
+<ul>
+<li><p><code>Vmware：11.1.2</code></p>
+</li>
+<li><p><code>CentOS：6.5</code></p>
+</li>
+<li><p><code>Redis：3.0.3</code></p>
+</li>
+</ul>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="2-_Vmware准备"><a name="chart2">2. Vmware准备</a></h2><ul>
+<li><p>使用Vmware新建一台虚拟机，安装CentOS6.5（或者克隆之前安装过的某台虚拟机），作为Redis主Server</p>
+</li>
+<li><p>修改主Server的网络配置，Vmware克隆的虚拟机会出现无法找到eth0网卡的问题</p>
+<ul>
+<li><p>原因：很多Linux distribution使用udev动态管理设备文件，并根据设备的信息对其进行持久化命名。例如在 Debian etch中，udev会在系统引导的过程中识别网卡，将mac地址和网卡名称对应起来记录在udev的规则脚本中。而VMware会自动生成虚拟机的mac地址。这样，由于基本系统的虚拟机已经记录了该虚拟机的网卡mac地址对应于网卡eth0，在克隆出的虚拟机中由于mac地址发生改变，udev会自动将该mac对应于网卡eth1。以此类推，udev会记录所有已经识别的mac与网卡名的关系，所以每次克隆网卡名称会自动加1，而其实kernel仅仅只识别到一张网卡，跟网卡名相关的网络配置也未发生任何变化。</p>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li><p>执行命令<code>vi /etc/udev/rules.d/70-persistent-net.rules</code>，删除跟NAME=”eth0″相关的行，将eth1相关信息中的eth1替换为eth0</p>
+</li>
+<li><p>接着执行命令<code>reboot</code>,重启系统：</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关闭防火墙</p>
+</li>
+</ul>
+<p>切换至命令行界面，执行<code>Service iptables stop</code>（注意：该方法重启后失效）</p>
+<ul>
+<li>查看主机IP</li>
+</ul>
+<p>执行命令<code>ifconfig</code>，记录主机的局域网IP，本机测试IP为192.168.1.102</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-11-30.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="3-_Redis下载"><a name="chart3">3. Redis下载</a></h2><p>Redis的下载地址：<a href="http://redis.io/download" target="_blank" rel="external">http://redis.io/download</a>，建议下载Stable稳定版<strong>redis-3.0.3.tar.gz</strong></p>
+<p>下载后可使用Vmware Tools或者Xftp等工具发送到虚拟机中</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="4-_Redis编译安装"><a name="chart4">4. Redis编译安装</a></h2><ul>
+<li>解压缩：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tar xzvf redis-<span class="number">2.0</span>.<span class="number">0</span>-rc4.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编译：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ./src</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>  安装完成后，会在src目录下生成可执行文件，分别是redis-server、redis-cli、redis-benchmark、redis-stat，它们的作用如下：</p>
+<blockquote>
+<ul>
+<li>redis-server：Redis服务器的daemon启动程序</li>
+<li>redis-cli：Redis命令行操作工具。当然，你也可以用telnet根据其纯文本协议来操作</li>
+<li>redis-benchmark：Redis性能测试工具，测试Redis在你的系统及你的配置下的读写性能</li>
+<li>redis-stat：Redis状态检测工具，可以检测Redis当前状态参数及延迟状况</li>
+</ul>
+</blockquote>
+<ul>
+<li>拷贝：</li>
+</ul>
+<p>为了便于管理，我们建立如下目录<code>/home/redis/bin</code>与<code>/home/redis/etc</code>，将可执行文件及配置文件redis.conf分别拷贝至bin与etc目录下</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-27-10.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="5-_克隆搭建从服务器"><a name="chart5">5. 克隆搭建从服务器</a></h2><p>将主Server关机后，克隆两台从Server，修改网络配置并关闭防火墙。</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="6-_优化系统配置"><a name="chart6">6. 优化系统配置</a></h2><p>查看系统配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>添加<code>vm.overcommit_memory=1</code></p>
+<p>刷新配置使之生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl vm.overcommit_memory=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>补充介绍：</p>
+<ul>
+<li>如果内存情况比较紧张的话，需要设定内核参数：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/vm/overcommit_memory</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>内核参数说明如下：</p>
+<p><code>&gt;overcommit_memory</code>文件指定了内核针对内存分配的策略，其值可以是0、1、2。</p>
+<ul>
+<li><p>0， 表示内核将检查是否有足够的可用内存供应用进程使用；如果有足够的可用内存，内存申请允许；否则，内存申请失败，并把错误返回给应用进程。</p>
+</li>
+<li><p>1， 表示内核允许分配所有的物理内存，而不管当前的内存状态如何。</p>
+</li>
+<li><p>2， 表示内核允许分配超过所有物理内存和交换空间总和的内存</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="7-_Redis配置"><a name="chart7">7. Redis配置</a></h2><p>编辑<code>redis.conf</code>配置文件（/etc/redis.conf），按需求做出适当调整，主要参数意义如下所示：</p>
+<blockquote>
+<ul>
+<li><code>daemonize：是否以后台daemon方式运行</code></li>
+<li><code>pidfile：pid文件位置</code></li>
+<li><code>port：监听的端口号</code></li>
+<li><code>timeout：请求超时时间</code></li>
+<li><code>loglevel：log信息级别</code></li>
+<li><code>logfile：log文件位置</code></li>
+<li><code>databases：开启数据库的数量</code></li>
+<li><code>save X X：保存快照的频率，第一个X表示多长时间，第二个X表示执行多少次写操作。在一定时间内执行一定数量的写操作时，自动保存快照。可设置多个条件。</code></li>
+<li><code>rdbcompression：是否使用压缩</code></li>
+<li><code>dbfilename：数据快照文件名（只是文件名，不包括目录）</code></li>
+<li><code>dir：数据快照的保存目录（这个是目录）</code></li>
+<li><code>appendonly：是否开启appendonlylog，开启的话每次写操作会记一条log，这会提高数据抗风险能力，但影响效率。</code></li>
+<li><code>appendfsync：appendonlylog如何同步到磁盘（三个选项，分别是每次写都强制调用fsync、每秒启用一次fsync、不调用fsync等待系统自己同步）</code></li>
+<li><code>masterauth：主Server的密码</code></li>
+</ul>
+</blockquote>
+<p>此处修改主服务器的选项为后台启动，密码为123456`</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes</span><br><span class="line">requirepass <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<p>修改从服务器的选项为后台启动，slaveof填写主机IP，端口默认为6379，密码为123456</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes</span><br><span class="line">slaveof <span class="number">192.168</span>.<span class="number">1.102</span> <span class="number">6379</span></span><br><span class="line">masterauth <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="7-_Redis服务启动"><a name="chart7">7. Redis服务启动</a></h2><p>在一主两从三台虚拟机上分别执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/redis/bin/redis-server /home/redis/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<p>可通过命令查看是否正常启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#检测后台进程是否存在</span></span><br><span class="line">ps -ef |grep redis</span><br><span class="line"><span class="comment">#检测6379端口是否在监听</span></span><br><span class="line">netstat -lntp | grep <span class="number">6379</span></span><br></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="8-_Redis测试"><a name="chart8">8. Redis测试</a></h2><p>执行命令启动redis命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/redis/bin/redis-cli</span><br></pre></td></tr></table></figure>
+<p>在主Server上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> name jack</span><br></pre></td></tr></table></figure>
+<p>然后在从Server上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get name</span><br></pre></td></tr></table></figure>
+<p>如能正确返回name值则说明主从环境搭建成功</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/" data-id="cid2r4v7g000h107366umbpnm" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis-Master—Slave/">Redis Master—Slave</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/05/Windows_delete/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">解决Windows文件名过长无法删除问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/08/Redis_MasterSlave_Deploy/" data-title="Vmware搭建Redis主从配置实验环境" data-url="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Virtualization/">Virtualization</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis-Master—Slave/">Redis Master—Slave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/">Software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Redis-Master—Slave/" style="font-size: 10px;">Redis Master—Slave</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Sublime-Text/" style="font-size: 20px;">Sublime Text</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/08/Redis_MasterSlave_Deploy/">Vmware搭建Redis主从配置实验环境</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Windows_delete/">解决Windows文件名过长无法删除问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Tools_software_I/">程序员开发利器软件篇（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Sublime_plugin/">Sublime Text 插件篇</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Sublime_basic/">Sublime Text 入门篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://tool.oschina.net/apidocs" target="_blank">常用API文档</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 qh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+      .
+      Hosted by <a href="https://gitcafe.com" target="_blank">GitCafe Pages</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gitqh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

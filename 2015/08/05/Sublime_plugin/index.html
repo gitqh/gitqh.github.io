@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cd971688ac0d7782b21aa2b3b1110b11";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sublime Text 插件篇 | qh&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。
+建议：阅读本文前，请先阅读Sublime Text 入门篇
+
+目录1.  格式化（Format）
+2.  智能提示（Intelligent Prompt）
+3.  编码（Encoding）
+4.  版本控制（Version C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 插件篇">
+<meta property="og:url" content="http://gitqh.github.io/2015/08/05/Sublime_plugin/index.html">
+<meta property="og:site_name" content="qh's blog">
+<meta property="og:description" content="Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。
+建议：阅读本文前，请先阅读Sublime Text 入门篇
+
+目录1.  格式化（Format）
+2.  智能提示（Intelligent Prompt）
+3.  编码（Encoding）
+4.  版本控制（Version C">
+<meta property="og:image" content="http://gitqh.github.io/temp/sublime_plugin/align.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_spac.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_jsFormat.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_highlight.gif">
+<meta property="og:image" content="http://gitqh.github.io/temp/sublime_plugin/jquery.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_autofilename.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_03144051_IHwI.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_uy67y.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_git.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_iY1DDCRG5TsyR.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_function-template.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_c1608aa0gw1e9dmrd3vxpg209y08d75x.gif">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_diff.gif">
+<meta property="og:updated_time" content="2015-07-31T13:52:31.516Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text 插件篇">
+<meta name="twitter:description" content="Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。
+建议：阅读本文前，请先阅读Sublime Text 入门篇
+
+目录1.  格式化（Format）
+2.  智能提示（Intelligent Prompt）
+3.  编码（Encoding）
+4.  版本控制（Version C">
+  
+    <link rel="alternative" href="/atom.xml" title="qh&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qh&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">thinking before action</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" title="Github" href="https://github.com/gitqh/gitqh.github.io"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="gitqh.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-Sublime_plugin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/05/Sublime_plugin/" class="article-date">
+  <time datetime="2015-08-05T14:52:56.932Z" itemprop="datePublished">2015-08-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sublime Text 插件篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
+<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2015/07/31/Sublime_basic/">Sublime Text 入门篇</a></p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  格式化（Format）</a></p>
+<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
+<p><a href="#chart3">3.  编码（Encoding）</a></p>
+<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
+<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
+<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
+<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
+<hr>
+<a id="more"></a>
+<h2 id="1-格式化（Format）"><a name="chart1">1.格式化（Format）</a></h2><h3 id="Alignment"><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="external">Alignment</a></h3><ul>
+<li><p>简介：变量定义太多，可以一键使 “=” 对齐</p>
+</li>
+<li><p>使用：默认快捷键 <code>Ctrl + Alt + A</code> 与qq截屏快捷键冲突，可以设置其他快捷键如 <code>Ctrl + Shift + Alt + A</code></p>
+</li>
+</ul>
+<p><img src="/temp/sublime_plugin/align.gif" alt=""></p>
+<h3 id="TrailingSpacers"><a href="https://github.com/SublimeText/TrailingSpaces" target="_blank" rel="external">TrailingSpacers</a></h3><ul>
+<li><p>简介：TrailingSpacers这款插件可以高亮显示多余的空格及空行，并可以一键删除。</p>
+</li>
+<li><p>使用：安装插件需重启Sublime，可在快捷键配置文件Key Binding-User中设置快捷键 <code>Ctrl + Alt + D</code></p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_spac.gif" alt=""></p>
+<h3 id="JSFormat"><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="external">JSFormat</a></h3><ul>
+<li><p>简介：JSFormat插件可以帮助我们将经过压缩或混淆处理的js代码处理为标准格式，包括换行及缩进。</p>
+</li>
+<li><p>使用：在已压缩的JS文件中，右键选择jsFormat或者使用自定义快捷键 <code>Ctrl + Alt + L</code></p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">    "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_jsFormat.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="智能提示（Intelligent_Prompt）"><a name="chart2">智能提示（Intelligent Prompt）</a></h2><h3 id="LESS"><a href="https://packagecontrol.io/packages/LESS" target="_blank" rel="external">LESS</a></h3><ul>
+<li><p>简介：使用该插件，可以支持less语法高亮</p>
+</li>
+<li><p>使用：打开.less文件或者使用快捷键 <code>Ctrl + Shift + P</code>，输入SSL</p>
+</li>
+</ul>
+<h3 id="Bracket_Highlighter"><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">Bracket Highlighter</a></h3><ul>
+<li><p>简介：可匹配[], (), {}, “”, ”, <tag></tag>，高亮标记，便于查看起始和结束标记</p>
+</li>
+<li><p>使用：点击对应代码</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_highlight.gif" alt=""></p>
+<h3 id="jQuery"><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="external">jQuery</a></h3><ul>
+<li><p>简介：对jQuery函数进行智能提示</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="/temp/sublime_plugin/jquery.gif" alt=""></p>
+<h3 id="AutoFileName"><a href="https://packagecontrol.io/packages/AutoFileName" target="_blank" rel="external">AutoFileName</a></h3><ul>
+<li><p>简介：自动完成文件名的输入，如图片选取等</p>
+</li>
+<li><p>使用：输入”/”即可看到相对于本项目文件夹的其他文件</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_autofilename.gif" alt=""></p>
+<h3 id="AngularJS">AngularJS</h3><ul>
+<li>简介：对AngularJS函数进行智能提示</li>
+</ul>
+<h3 id="JSLint"><a href="">JSLint</a></h3><ul>
+<li><p>简介：对js代码进行质量检测</p>
+</li>
+<li><p>使用：按下 <code>Shift + Ctrl + P</code> 调出命令面板，找到JSLint: Run JSLint，按下Enter，JSLint会输出结果到状态栏</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_03144051_IHwI.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="编码（Encoding）"><a name="chart3">编码（Encoding）</a></h2><h3 id="ConvertToUTF8"><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="external">ConvertToUTF8</a></h3><ul>
+<li><p>简介：Sublime Text默认不支持UTF8编码，通过本插件可以将GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等编码格式文件自动转换为UTF8格式。</p>
+</li>
+<li><p>使用：安装插件自动转换为UTF8格式</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_uy67y.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="版本控制（Version_Control）"><a name="chart4">版本控制（Version Control）</a></h2><h3 id="Git"><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="external">Git</a></h3><ul>
+<li><p>简介：实现了Git的基本功能</p>
+</li>
+<li><p>使用：<a href="https://github.com/kemayo/sublime-text-git/wiki" target="_blank" rel="external">https://github.com/kemayo/sublime-text-git/wiki</a></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_git.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="前端必备（Web_UI）"><a name="chart5">前端必备（Web UI）</a></h2><h3 id="Emmet"><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">Emmet</a></h3><ul>
+<li><p>简介：Emmet前身是前端神器zen coding，可以大幅度提高前端开发效率。你可以使用仿CSS选择器的语法来动态生成代码，编写HTML/CSS时有较明显的优势。</p>
+</li>
+<li><p>使用：使用方法请参照教程<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="external">http://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
+</li>
+</ul>
+<h3 id="ColorPicker"><a href="https://github.com/weslly/ColorPicker" target="_blank" rel="external">ColorPicker</a></h3><ul>
+<li><p>简介：需要输入颜色时，可直接调出windows调色板选取颜色</p>
+</li>
+<li><p>使用：快捷键Windows: <code>Ctrl + Shift + C</code></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_iY1DDCRG5TsyR.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="功能增强（Enhancement）"><a name="chart6">功能增强（Enhancement）</a></h2><h3 id="Markdown_Preview"><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">Markdown Preview</a></h3><ul>
+<li><p>简介：可以直接打开浏览器预览markdown文件</p>
+</li>
+<li><p>使用：安装完插件重启后，按 <code>Ctrl + Shift + P</code> ，选择Set Syntax:Markdown</p>
+</li>
+</ul>
+<h3 id="DocBlockr"><a href="https://github.com/NikhilKalige/docblockr" target="_blank" rel="external">DocBlockr</a></h3><ul>
+<li><p>简介：生成注释，包括函数名，参数，返回值等</p>
+</li>
+<li><p>使用：输入/<em>、/*</em>然后回车，还有很多用法，请参照<a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="external">https://sublime.wbond.net/packages/DocBlockr</a></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_function-template.gif" alt=""></p>
+<h3 id="IMESupport"><a href="https://github.com/chikatoike/IMESupport" target="_blank" rel="external">IMESupport</a></h3><ul>
+<li><p>简介：使用中文输入法时，可以实现光标跟随（默认不可以）</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_c1608aa0gw1e9dmrd3vxpg209y08d75x.gif" alt=""></p>
+<h3 id="SideBarEnhancements"><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="external">SideBarEnhancements</a></h3><ul>
+<li><p>简介：SideBarEnhancements是一个可以自定义打开方式快捷键的工具包。他可以定义不同的快捷键打开不同的浏览器。</p>
+</li>
+<li><p>使用：安装插件并重启后，配置用户快捷键</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "keys": ["f4"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Mozilla Firefox/firefox.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "keys": ["f5"], "command": "side_bar_files_open_with",</span><br><span class="line">         "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files/Internet Explorer/iexplore.exe",</span><br><span class="line">            "extensions":" .*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "keys": ["f6"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileDiffs"><a href="https://github.com/colinta/SublimeFileDiffs" target="_blank" rel="external">FileDiffs</a></h3><ul>
+<li><p>简介：比较当前文件与选中的代码、剪切板中代码、另一文件、未保存文件之间的差别。</p>
+</li>
+<li><p>使用：右键标签页，出现FileDiffs Menu或者Diff with Tab，对应文件比较即可</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_diff.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="个人插件快捷键配置（Personal_Settings）"><a name="chart7">个人插件快捷键配置（Personal Settings）</a></h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[</span><br><span class="line">    // layout</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+q"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+w"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+e"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+r"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+y"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+u"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+t"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>":</span><br><span class="line">            <span class="value">[</span><br><span class="line">                [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">            ]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f4"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f5"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">         "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">" .*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f6"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">     </span>&#125;,</span><br><span class="line">    //删除多余空格</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //是否开启TrailingSpacer</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+o"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"toggle_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //自动对齐</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+shift+a"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"alignment"</span> </span>&#125;,</span><br><span class="line">    //文件夹中查找内容</span><br><span class="line">    &#123;"<span class="attribute">keys</span>":<span class="value">[<span class="string">"ctrl+alt+f"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"show_panel"</span></span>, "<span class="attribute">args</span>": <span class="value">&#123;"<span class="attribute">panel</span>": <span class="value"><span class="string">"find_in_files"</span></span>&#125;</span>&#125;,</span><br><span class="line"></span><br><span class="line">    //代码跳转</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"navigate_to_definition"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+q"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"jump_prev"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+e"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">     //一键格式化js代码</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">        "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gitqh.github.io/2015/08/05/Sublime_plugin/" data-id="cid2r4v7a000a1073k40b47ra" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://gitqh.github.io/2015/08/05/Sublime_plugin/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/05/Tools_software_I/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          程序员开发利器软件篇（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/05/Sublime_basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Sublime Text 入门篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/05/Sublime_plugin/" data-title="Sublime Text 插件篇" data-url="http://gitqh.github.io/2015/08/05/Sublime_plugin/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Virtualization/">Virtualization</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis-Master—Slave/">Redis Master—Slave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/">Software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Redis-Master—Slave/" style="font-size: 10px;">Redis Master—Slave</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Sublime-Text/" style="font-size: 20px;">Sublime Text</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/08/Redis_MasterSlave_Deploy/">Vmware搭建Redis主从配置实验环境</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Windows_delete/">解决Windows文件名过长无法删除问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Tools_software_I/">程序员开发利器软件篇（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Sublime_plugin/">Sublime Text 插件篇</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/Sublime_basic/">Sublime Text 入门篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://tool.oschina.net/apidocs" target="_blank">常用API文档</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 qh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+      .
+      Hosted by <a href="https://gitcafe.com" target="_blank">GitCafe Pages</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gitqh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>
