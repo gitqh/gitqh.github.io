@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   
   <title><![CDATA[qh's blog]]></title>
-  <subtitle><![CDATA[thinking before action]]></subtitle>
+  <subtitle><![CDATA[think twice before action]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://gitqh.github.io//"/>
-  <updated>2015-08-08T07:40:06.826Z</updated>
+  <updated>2015-08-08T08:22:47.091Z</updated>
   <id>http://gitqh.github.io//</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title><![CDATA[Vmware搭建Redis主从配置实验环境]]></title>
     <link href="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/"/>
     <id>http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/</id>
-    <published>2015-08-08T07:40:06.826Z</published>
-    <updated>2015-08-08T07:40:06.826Z</updated>
+    <published>2015-08-08T08:22:47.091Z</published>
+    <updated>2015-08-08T08:22:47.091Z</updated>
     <content type="html"><![CDATA[<p><strong> Redis </strong>（REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括<strong>string</strong>(字符串)、<strong>list</strong>(链表)、<strong>set</strong>(集合)、<strong>zset</strong>(sorted set：有序集合)和<strong>hash</strong>（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系统，能支持每秒15万以上的读写速率。</p>
 <p>本文记录了自己在vmware虚拟机中搭建Redis主从集群的经验，希望能为想深入学习Redis的朋友提供一些帮助。</p>
 <hr>
