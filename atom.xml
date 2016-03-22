@@ -5,7 +5,7 @@
   <subtitle><![CDATA[think twice before action]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://gitqh.github.io//"/>
-  <updated>2015-08-08T08:22:47.091Z</updated>
+  <updated>2016-03-22T08:53:58.932Z</updated>
   <id>http://gitqh.github.io//</id>
   
   <author>
@@ -14,6 +14,447 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Sublime Text 插件篇]]></title>
+    <link href="http://gitqh.github.io/2016/03/22/Sublime_plugin/"/>
+    <id>http://gitqh.github.io/2016/03/22/Sublime_plugin/</id>
+    <published>2016-03-22T08:53:58.932Z</published>
+    <updated>2016-03-22T08:53:58.932Z</updated>
+    <content type="html"><![CDATA[<p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
+<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a></p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  格式化（Format）</a></p>
+<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
+<p><a href="#chart3">3.  编码（Encoding）</a></p>
+<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
+<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
+<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
+<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
+<hr>
+<a id="more"></a>
+<h2 id="1-格式化（Format）"><a name="chart1">1.格式化（Format）</a></h2><h3 id="Alignment"><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="external">Alignment</a></h3><ul>
+<li><p>简介：变量定义太多，可以一键使 “=” 对齐</p>
+</li>
+<li><p>使用：默认快捷键 <code>Ctrl + Alt + A</code> 与qq截屏快捷键冲突，可以设置其他快捷键如 <code>Ctrl + Shift + Alt + A</code></p>
+</li>
+</ul>
+<p><img src="/temp/sublime_plugin/align.gif" alt=""></p>
+<h3 id="TrailingSpacers"><a href="https://github.com/SublimeText/TrailingSpaces" target="_blank" rel="external">TrailingSpacers</a></h3><ul>
+<li><p>简介：TrailingSpacers这款插件可以高亮显示多余的空格及空行，并可以一键删除。</p>
+</li>
+<li><p>使用：安装插件需重启Sublime，可在快捷键配置文件Key Binding-User中设置快捷键 <code>Ctrl + Alt + D</code></p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_spac.gif" alt=""></p>
+<h3 id="JSFormat"><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="external">JSFormat</a></h3><ul>
+<li><p>简介：JSFormat插件可以帮助我们将经过压缩或混淆处理的js代码处理为标准格式，包括换行及缩进。</p>
+</li>
+<li><p>使用：在已压缩的JS文件中，右键选择jsFormat或者使用自定义快捷键 <code>Ctrl + Alt + L</code></p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">    "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果：</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_jsFormat.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="智能提示（Intelligent_Prompt）"><a name="chart2">智能提示（Intelligent Prompt）</a></h2><h3 id="LESS"><a href="https://packagecontrol.io/packages/LESS" target="_blank" rel="external">LESS</a></h3><ul>
+<li><p>简介：使用该插件，可以支持less语法高亮</p>
+</li>
+<li><p>使用：打开.less文件或者使用快捷键 <code>Ctrl + Shift + P</code>，输入SSL</p>
+</li>
+</ul>
+<h3 id="Bracket_Highlighter"><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">Bracket Highlighter</a></h3><ul>
+<li><p>简介：可匹配[], (), {}, “”, ”, <tag></tag>，高亮标记，便于查看起始和结束标记</p>
+</li>
+<li><p>使用：点击对应代码</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_highlight.gif" alt=""></p>
+<h3 id="jQuery"><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="external">jQuery</a></h3><ul>
+<li><p>简介：对jQuery函数进行智能提示</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="/temp/sublime_plugin/jquery.gif" alt=""></p>
+<h3 id="AutoFileName"><a href="https://packagecontrol.io/packages/AutoFileName" target="_blank" rel="external">AutoFileName</a></h3><ul>
+<li><p>简介：自动完成文件名的输入，如图片选取等</p>
+</li>
+<li><p>使用：输入”/”即可看到相对于本项目文件夹的其他文件</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_autofilename.gif" alt=""></p>
+<h3 id="AngularJS">AngularJS</h3><ul>
+<li>简介：对AngularJS函数进行智能提示</li>
+</ul>
+<h3 id="JSLint"><a href="">JSLint</a></h3><ul>
+<li><p>简介：对js代码进行质量检测</p>
+</li>
+<li><p>使用：按下 <code>Shift + Ctrl + P</code> 调出命令面板，找到JSLint: Run JSLint，按下Enter，JSLint会输出结果到状态栏</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_03144051_IHwI.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="编码（Encoding）"><a name="chart3">编码（Encoding）</a></h2><h3 id="ConvertToUTF8"><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="external">ConvertToUTF8</a></h3><ul>
+<li><p>简介：Sublime Text默认不支持UTF8编码，通过本插件可以将GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等编码格式文件自动转换为UTF8格式。</p>
+</li>
+<li><p>使用：安装插件自动转换为UTF8格式</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_uy67y.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="版本控制（Version_Control）"><a name="chart4">版本控制（Version Control）</a></h2><h3 id="Git"><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="external">Git</a></h3><ul>
+<li><p>简介：实现了Git的基本功能</p>
+</li>
+<li><p>使用：<a href="https://github.com/kemayo/sublime-text-git/wiki" target="_blank" rel="external">https://github.com/kemayo/sublime-text-git/wiki</a></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_git.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="前端必备（Web_UI）"><a name="chart5">前端必备（Web UI）</a></h2><h3 id="Emmet"><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">Emmet</a></h3><ul>
+<li><p>简介：Emmet前身是前端神器zen coding，可以大幅度提高前端开发效率。你可以使用仿CSS选择器的语法来动态生成代码，编写HTML/CSS时有较明显的优势。</p>
+</li>
+<li><p>使用：使用方法请参照教程<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="external">http://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
+</li>
+</ul>
+<h3 id="ColorPicker"><a href="https://github.com/weslly/ColorPicker" target="_blank" rel="external">ColorPicker</a></h3><ul>
+<li><p>简介：需要输入颜色时，可直接调出windows调色板选取颜色</p>
+</li>
+<li><p>使用：快捷键Windows: <code>Ctrl + Shift + C</code></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_iY1DDCRG5TsyR.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="功能增强（Enhancement）"><a name="chart6">功能增强（Enhancement）</a></h2><h3 id="Markdown_Preview"><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">Markdown Preview</a></h3><ul>
+<li><p>简介：可以直接打开浏览器预览markdown文件</p>
+</li>
+<li><p>使用：安装完插件重启后，按 <code>Ctrl + Shift + P</code> ，选择Set Syntax:Markdown</p>
+</li>
+</ul>
+<h3 id="DocBlockr"><a href="https://github.com/NikhilKalige/docblockr" target="_blank" rel="external">DocBlockr</a></h3><ul>
+<li><p>简介：生成注释，包括函数名，参数，返回值等</p>
+</li>
+<li><p>使用：输入/<em>、/*</em>然后回车，还有很多用法，请参照<a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="external">https://sublime.wbond.net/packages/DocBlockr</a></p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_function-template.gif" alt=""></p>
+<h3 id="IMESupport"><a href="https://github.com/chikatoike/IMESupport" target="_blank" rel="external">IMESupport</a></h3><ul>
+<li><p>简介：使用中文输入法时，可以实现光标跟随（默认不可以）</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_c1608aa0gw1e9dmrd3vxpg209y08d75x.gif" alt=""></p>
+<h3 id="SideBarEnhancements"><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="external">SideBarEnhancements</a></h3><ul>
+<li><p>简介：SideBarEnhancements是一个可以自定义打开方式快捷键的工具包。他可以定义不同的快捷键打开不同的浏览器。</p>
+</li>
+<li><p>使用：安装插件并重启后，配置用户快捷键</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "keys": ["f4"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Mozilla Firefox/firefox.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "keys": ["f5"], "command": "side_bar_files_open_with",</span><br><span class="line">         "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files/Internet Explorer/iexplore.exe",</span><br><span class="line">            "extensions":" .*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "keys": ["f6"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileDiffs"><a href="https://github.com/colinta/SublimeFileDiffs" target="_blank" rel="external">FileDiffs</a></h3><ul>
+<li><p>简介：比较当前文件与选中的代码、剪切板中代码、另一文件、未保存文件之间的差别。</p>
+</li>
+<li><p>使用：右键标签页，出现FileDiffs Menu或者Diff with Tab，对应文件比较即可</p>
+</li>
+<li><p>效果：</p>
+</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_diff.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="个人插件快捷键配置（Personal_Settings）"><a name="chart7">个人插件快捷键配置（Personal Settings）</a></h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[</span><br><span class="line">    // layout</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+q"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+w"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+e"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+r"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+y"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+u"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+t"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>":</span><br><span class="line">            <span class="value">[</span><br><span class="line">                [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">            ]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f4"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f5"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">         "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">" .*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f6"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">     </span>&#125;,</span><br><span class="line">    //删除多余空格</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //是否开启TrailingSpacer</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+o"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"toggle_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //自动对齐</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+shift+a"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"alignment"</span> </span>&#125;,</span><br><span class="line">    //文件夹中查找内容</span><br><span class="line">    &#123;"<span class="attribute">keys</span>":<span class="value">[<span class="string">"ctrl+alt+f"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"show_panel"</span></span>, "<span class="attribute">args</span>": <span class="value">&#123;"<span class="attribute">panel</span>": <span class="value"><span class="string">"find_in_files"</span></span>&#125;</span>&#125;,</span><br><span class="line"></span><br><span class="line">    //代码跳转</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"navigate_to_definition"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+q"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"jump_prev"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+e"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">     //一键格式化js代码</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">        "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
+<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a></p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  格式化（Format）</a></p>
+<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
+<p><a href="#chart3">3.  编码（Encoding）</a></p>
+<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
+<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
+<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
+<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
+<hr>]]>
+    
+    </summary>
+    
+      <category term="Sublime Text" scheme="http://gitqh.github.io/tags/Sublime-Text/"/>
+    
+      <category term="Tools" scheme="http://gitqh.github.io/categories/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Sublime Text 入门篇]]></title>
+    <link href="http://gitqh.github.io/2016/03/22/Sublime_basic/"/>
+    <id>http://gitqh.github.io/2016/03/22/Sublime_basic/</id>
+    <published>2016-03-22T08:53:57.906Z</published>
+    <updated>2016-03-22T08:53:57.906Z</updated>
+    <content type="html"><![CDATA[<p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  安装（Installation）</a></p>
+<p><a href="#chart2">2.  窗口（Window）</a></p>
+<p><a href="#chart3">3.  主题（Theme）</a></p>
+<p><a href="#chart4">4.  编辑（Editing）</a></p>
+<p><a href="#chart5">5.  插件（Plug-in）</a></p>
+<p><a href="#chart6">6.  编码（Coding）</a></p>
+<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
+<p><a href="#chart8">8.  引用（General）</a></p>
+<hr>
+<a id="more"></a>
+<h2 id="安装（Installation）"><a name="chart1">安装（Installation）</a></h2><p>目前最新的版本是<a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text3</a>，在Sublime官网可以下载，本文以windows环境下安装为例。注意，如果需要右键单击文件时能够直接使用Sublime Text打开，可在安装时勾选Add to explorer context menu。</p>
+<h3 id="添加到App_Paths">添加到App Paths</h3><p>使用windows快捷键 <code>Win + R</code> 运行<strong>Regedit</strong>打开注册表，</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-13_23-47-12.png" alt=""></p>
+<p>查找到目录<strong>HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/App Paths</strong>，新建项，命名为sub.exe，项值填写sublime的安装位置（例如 C:\Program Files\Sublime Text 3\sublime_text.exe），</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-14_22-26-19.png" alt=""></p>
+<p>之后可以使用windows快捷键 <code>Win + R</code>运行<strong>sub</strong>直接启动Sublime Text。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-18_19-20-33.png" alt=""></p>
+<h3 id="安装Package_Control">安装Package Control</h3><p>Package Control作为Sublime Text的插件管理器，可以方便的安装、查看、卸载Sublime Text中的插件，Sublime Text3安装方法如下：</p>
+<ul>
+<li><p>使用 <code>Ctrl + `</code> 打开Sublime Text控制台。</p>
+</li>
+<li><p>将下面的代码粘贴到控制台里：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'7183a2d3e96f11eeadd761d777e62404'</span> + <span class="string">'e330c659d4bb41d3bdf022e94cab3cd0'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后，使用 <code>Ctrl + Shift + P</code> 打开命令板，输入PC出现Package Control，可依照提示进行相应的操作。</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-15-12-45.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="窗口与标签（Windows_And_Tabs）"><a name="chart2">窗口与标签（Windows And Tabs）</a></h2><p>Sublime Text是一个多窗口多标签编辑器，可以同时打开多个窗口，也可以在一个窗口中打开多个标签。（注：Sublime Text部分快捷键与搜狗输入法快捷键冲突，个人建议禁用全部搜狗输入法快捷键）。</p>
+<h3 id="窗口（Window）">窗口（Window）</h3><p>使用快捷键 <code>Ctrl + Shift + N</code> 创建一个新窗口；使用快捷键 <code>Alt + F4</code> 关闭Sublime Text</p>
+<p>编码时分屏是最常用的功能，使用快捷键 <code>Alt + Shift + 2</code> 进行左右分屏， <code>Alt + Shift + 8</code> 进行上下分屏， <code>Alt + Shift + 5</code> 进行上下左右分屏（即分为四屏）。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_lAvhuX6.gif" alt=""></p>
+<h3 id="标签（Tab）">标签（Tab）</h3><p>标签部分的快捷键与大部分浏览器标签快捷键类似，使用 <code>Ctrl + N</code> 在当前窗口创建一个新标签， <code>Ctrl + W</code> 关闭当前标签， <code>Ctrl + Tab</code> 切换到下一个标签（右侧标签）， <code>Ctrl + Shift + Tab</code> 切换到上一个标签（左侧标签）， <code>Ctrl + Shift + T</code> 恢复刚关闭的标签。</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="主题（Theme）"><a name="chart3">主题（Theme）</a></h2><p>Sublime Text有很多第三方主题：<a href="[https://sublime.wbond.net/browse/labels/theme]">[https://sublime.wbond.net/browse/labels/theme]</a>，可按照自己喜好下载</p>
+<h3 id="设置（Settings）">设置（Settings）</h3><p>可增加如下设置，优化显示效果：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 设置Sans-serif（无衬线）等宽字体，以便阅读</span><br><span class="line">"font_face": "YaHei Consolas Hybrid",</span><br><span class="line">"font_size": 12,</span><br><span class="line">// 使光标闪动更加柔和</span><br><span class="line">"caret_style": "phase",</span><br><span class="line">// 高亮当前行</span><br><span class="line">"highlight_line": true,</span><br><span class="line">// 高亮有修改的标签</span><br><span class="line">"highlight_modified_tabs": true,</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="编辑（Editing）"><a name="chart4">编辑（Editing）</a></h2><h3 id="文件夹（Folders）">文件夹（Folders）</h3><p>Sublime Text在 <code>File</code> 下选择 <code>Open Folder</code> 可以打开侧边栏，侧边栏列出了当前打开的文件和文件夹的文件，使用 <code>Ctrl + K</code> , <code>Ctrl + B</code> 显示或隐藏侧栏，使用 <code>Ctrl + P</code> 可以快速跳转到文件夹里的文件。</p>
+<h3 id="基本操作(Basic_Operation)">基本操作(Basic Operation)</h3><p><code>Ctrl + Enter</code> 在当前行下面新增一行然后跳至该行； <code>Ctrl + Shift + Enter</code> 在当前行上面增加一行并跳至该行。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_rvzS9Ok.gif" alt=""></p>
+<p><code>Ctrl + ←/→</code> 进行逐词移动，相应的， <code>Ctrl + Shift + ←/→</code> 进行逐词选择。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_jFnTDl3.gif" alt=""></p>
+<p><code>Ctrl + ↑/↓</code> 移动当前显示区域， <code>Ctrl + Shift + ↑/↓</code> 移动当前行。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_v31pd3k.gif" alt=""></p>
+<p><code>alt + .</code> ：自动补全标签</p>
+<p><code>Ctrl + d</code> :删除整行</p>
+<h3 id="选择（Selecting）">选择（Selecting）</h3><p>Sublime Text的一大亮点是支持多重选择——同时选择多个区域，然后同时进行编辑。</p>
+<p><code>Ctrl + D</code> 选择当前光标所在的词并高亮该词所有出现的位置，再次 <code>Ctrl + D</code> 选择该词出现的下一个位置，在多重选词的过程中，使用 <code>Ctrl + K</code> 进行跳过，使用 <code>Ctrl + U</code> 进行回退，使用 <code>Esc</code> 退出多重编辑。</p>
+<p><code>Ctrl + Shift + L</code> 可以将当前选中区域打散，然后进行同时编辑， <code>Ctrl + J</code> 可以把当前选中区域合并为一行。</p>
+<h3 id="查找替换（Finding_And_Replacing）">查找替换（Finding And Replacing）</h3><p>Sublime Text的查找功能主要包括<strong>快速查找</strong>、<strong>标准查找</strong>和<strong>文件夹查找</strong>三种类型。</p>
+<h4 id="快速查找替换">快速查找替换</h4><p>我们可以使用 <code>Shift + ←/→</code> 或 <code>Ctrl + D</code> 选中关键字，然后 <code>F3</code> 跳到其下一个出现位置， <code>Shift + F3</code> 跳到其上一个出现位置，此外还可以用 <code>Alt + F3</code> 选中其出现的所有位置（之后可以进行多重编辑，也就是快速替换）。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_6AaBiRS.jpg" alt=""></p>
+<h4 id="标准查找替换">标准查找替换</h4><p>当搜索某个已知但不在当前显示区域的关键字，这时可以使用 <code>Ctrl + F</code> 调出搜索框进行搜索，使用 <code>Ctrl + H</code> 进行替换。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_4NnE9SN.jpg" alt=""></p>
+<h5 id="关键字查找替换">关键字查找替换</h5><p>在搜索框输入关键字后 <code>Enter</code> 跳至关键字当前光标的下一个位置， <code>Shift + Enter</code> 跳至上一个位置，<code>Alt + Enter</code> 选中其出现的所有位置。</p>
+<p>Sublime Text的查找有不同的模式： <code>Alt + C</code> 切换大小写敏感（Case-sensitive）模式， <code>Alt + W</code> 切换整字匹配（Whole matching）模式，除此之外Sublime Text还支持在选中范围内搜索（Search in selection），这个功能没有对应的快捷键，但可以通过以下配置项自动开启:</p>
+<p><code>&quot;auto_find_in_selection&quot;: true</code></p>
+<h5 id="正则表达式查找替换">正则表达式查找替换</h5><p>Sublime Text中使用 <code>Alt + R</code> 切换正则匹配模式的开启/关闭。Sublime Text的使用<a href="http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html" target="_blank" rel="external">Boost里的Perl正则表达式风格</a>。</p>
+<p>关于正则表达式本文不做详述，请参照<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">正则表达式30分钟入门教程</a>。</p>
+<h4 id="文件夹查找替换">文件夹查找替换</h4><p>使用 <code>Ctrl + Shift + F</code> 开启文件夹查找替换（注意此快捷键和搜狗输入法的简繁切换快捷键有冲突）。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_05Fchle.jpg" alt=""></p>
+<h3 id="跳转（Jumping）">跳转（Jumping）</h3><p>实际编码中，跳转是非常实用的一个功能，可以有效的帮你脱离鼠标，更快的提高工作效率。跳转主要分为<strong>跳转到文件</strong>、<strong>跳转到符号</strong>、<strong>跳转到某行</strong>、<strong>组合跳转</strong>四中类型。</p>
+<h4 id="跳转到文件">跳转到文件</h4><p><code>Ctrl + P</code> 会列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后 <code>Enter</code> 跳转至该文件。</p>
+<p>需要注意的是，Sublime Text使用模糊字符串匹配（Fuzzy String Matching），可以通过文件名的前缀、首字母或是某部分进行匹配：例如，<code>EIS</code> 、 <code>Eclip</code> 和 <code>Stupid</code> 都可以匹配 <code>EclipseIsStupid.java</code> 。</p>
+<h4 id="跳转到符号">跳转到符号</h4><p><code>Ctrl + R</code> 可以列出当前文件中的符号（例如类名和函数名，但无法精确到变量名），输入符号名称 <code>Enter</code> 即可以跳转到该处。此外，还可以使用 <code>F12</code> 快速跳转到当前光标所在符号的定义处。</p>
+<h4 id="跳转到某行">跳转到某行</h4><p><code>Ctrl + G</code> 然后输入行号以跳转到指定行</p>
+<h4 id="组合跳转">组合跳转</h4><p>在 <code>Ctrl + P</code> 匹配到文件后，我们可以进行后续输入以跳转到更精确的位置：</p>
+<ul>
+<li><p><code>@</code> 符号跳转：输入 <code>@symbol</code> 跳转到 <code>symbol</code> 符号所在的位置</p>
+</li>
+<li><p><code>#</code> 关键字跳转：输入 <code>#keyword</code> 跳转到 <code>keyword</code> 所在的位置</p>
+</li>
+<li><p><code>:</code> 行号跳转：输入 <code>:80</code> 跳转到文件的第80行。</p>
+</li>
+</ul>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="插件（Plug-in）"><a name="chart5">插件（Plug-in）</a></h2><p>请参照<a href="/2016/03/22/Sublime_plugin">Sublime Text插件篇</a>。</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="编码（Coding）"><a name="chart6">编码（Coding）</a></h2><h3 id="代码规范（Code_Style_Guideline）">代码规范（Code Style Guideline）</h3><p>可参照如下进行设置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 设置tab的大小为2</span><br><span class="line">"tab_size": 2,</span><br><span class="line">// 使用空格代替tab</span><br><span class="line">"translate_tabs_to_spaces": true,</span><br><span class="line">// 添加行宽标尺</span><br><span class="line">"rulers": [80, 100],</span><br><span class="line">// 显示空白字符</span><br><span class="line">"draw_white_space": "all",</span><br><span class="line">// 保存时自动去除行末空白</span><br><span class="line">"trim_trailing_white_space_on_save": true,</span><br><span class="line">// 保存时自动增加文件末尾换行</span><br><span class="line">"ensure_newline_at_eof_on_save": true,</span><br></pre></td></tr></table></figure>
+<h3 id="格式化（Formatting）">格式化（Formatting）</h3><p>Sublime Text基本的手动格式化操作包括： <code>Ctrl + [</code> 向左缩进， <code>Ctrl + ]</code> 向右缩进，此外 <code>Ctrl + Shift + V</code> 可以以当前缩进粘贴代码。</p>
+<h3 id="自动完成（Auto_Completion）">自动完成（Auto Completion）</h3><p>Sublime Text 支持一定的自动完成，按 <code>Tab</code> 自动补全。</p>
+<h3 id="括号（Brackets）">括号（Brackets）</h3><p>编写代码时会碰到大量的括号，利用 <code>Ctrl + M</code> 可以快速的在起始括号和结尾括号间切换， <code>Ctrl + Shift + M</code> 则可以快速选择括号间的内容，对于缩进型语言（例如Python）则可以使用 <code>Ctrl + Shift + J</code> 。</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_oxWjAo9.gif" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="快捷键（Shortcuts）"><a name="chart7">快捷键（Shortcuts）</a></h2><p>下面列出的快捷键为windows平台下的快捷键，Linux与OS X快捷键请参考<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_win.html" target="_blank" rel="external">Windows/Linux快捷键</a>和<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_osx.html" target="_blank" rel="external">OS X快捷键</a>。</p>
+<h3 id="通用（General）">通用（General）</h3><ul>
+<li><p><code>↑↓←→</code> :上下左右移动光标</p>
+</li>
+<li><p><code>Alt</code> :调出菜单</p>
+</li>
+<li><p><code>Ctrl + Shift + P</code> :调出命令板（Command Palette）</p>
+</li>
+<li><p><code>Ctrl + `</code> :调出控制台</p>
+</li>
+</ul>
+<h3 id="编辑（Editing）-1">编辑（Editing）</h3><ul>
+<li><p><code>Ctrl + Enter</code> :在当前行下面新增一行然后跳至该行</p>
+</li>
+<li><p><code>Ctrl + Shift + Enter</code> :在当前行上面增加一行并跳至该行</p>
+</li>
+<li><p><code>Ctrl + ←/→</code> :进行逐词移动</p>
+</li>
+<li><p><code>Ctrl + Shift + ←/→</code> :进行逐词选择</p>
+</li>
+<li><p><code>Ctrl + ↑/↓</code> :移动当前显示区域</p>
+</li>
+<li><p><code>Ctrl + Shift + ↑/↓</code> :移动当前行</p>
+</li>
+</ul>
+<h3 id="选择（Selecting）-1">选择（Selecting）</h3><ul>
+<li><p><code>Ctrl + D</code> :选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + D选择该词出现的下一个位置，在多重选词的过程中，使用 <code>Ctrl + K</code> 进行跳过，使用 <code>Ctrl + U</code> 进行回退，使用 <code>Esc</code> 退出多重编辑</p>
+</li>
+<li><p><code>Ctrl + Shift + L</code> :将当前选中区域打散</p>
+</li>
+<li><p><code>Ctrl + J</code> :把当前选中区域合并为一行</p>
+</li>
+<li><p><code>Ctrl + M</code> :在起始括号和结尾括号间切换</p>
+</li>
+<li><p><code>Ctrl + Shift + M</code> :快速选择括号间的内容</p>
+</li>
+<li><p><code>Ctrl + Shift + J</code> :快速选择同缩进的内容</p>
+</li>
+<li><p><code>Ctrl + Shift + Space</code> :快速选择当前作用域（Scope）的内容</p>
+</li>
+</ul>
+<h3 id="查找替换（Finding_And_Replacing）-1">查找替换（Finding And Replacing）</h3><ul>
+<li><p><code>F3</code> :跳至当前关键字下一个位置</p>
+</li>
+<li><p><code>Shift + F3</code> :跳到当前关键字上一个位置</p>
+</li>
+<li><p><code>Alt + F3</code> :选中当前关键字出现的所有位置</p>
+</li>
+<li><p><code>Ctrl + Shift + F</code> :多文件搜索及替换</p>
+</li>
+<li><p><code>Ctrl + F/H</code> :进行标准查找/替换，之后` :</p>
+<ul>
+<li><p><code>Alt + C</code> :切换大小写敏感（Case-sensitive）模式</p>
+</li>
+<li><p><code>Alt + W</code> :切换整字匹配（Whole matching）模式</p>
+</li>
+<li><p><code>Alt + R</code> :切换正则匹配（Regex matching）模式</p>
+</li>
+<li><p><code>Ctrl + Shift + H</code> :替换当前关键字</p>
+</li>
+<li><p><code>Ctrl + Alt + Enter</code> :替换所有关键字匹配</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="跳转（Jumping）-1">跳转（Jumping）</h3><ul>
+<li><p><code>Ctrl + P</code> :跳转到指定文件，输入文件名后可以` :</p>
+<ul>
+<li><p><code>@ 符号跳转</code> :输入@symbol跳转到symbol符号所在的位置</p>
+</li>
+<li><p><code># 关键字跳转</code> :输入#keyword跳转到keyword所在的位置</p>
+</li>
+<li><p><code>: 行号跳转</code> :输入:12跳转到文件的第12行。</p>
+</li>
+</ul>
+</li>
+<li><p><code>Ctrl + R</code> :跳转到指定符号</p>
+</li>
+<li><p><code>Ctrl + G</code> :跳转到指定行号</p>
+</li>
+</ul>
+<h3 id="窗口（Window）-1">窗口（Window）</h3><ul>
+<li><p><code>Ctrl + Shift + N</code> :创建一个新窗口</p>
+</li>
+<li><p><code>Ctrl + N</code> :在当前窗口创建一个新标签</p>
+</li>
+<li><p><code>Ctrl + W</code> :关闭当前标签，当窗口内没有标签时会关闭该窗口</p>
+</li>
+<li><p><code>Ctrl + Shift + T</code> :恢复刚刚关闭的标签</p>
+</li>
+<li><p><code>Ctrl + Tab</code> :切换到下一个标签（右侧标签）</p>
+</li>
+<li><p><code>Ctrl + Shift + Tab</code> :切换到上一个标签（左侧标签）</p>
+</li>
+<li><p><code>Ctrl + Shift + T</code> :恢复刚刚关闭的标签</p>
+</li>
+</ul>
+<h3 id="屏幕（Screen）">屏幕（Screen）</h3><ul>
+<li><p><code>F11</code> :切换普通全屏</p>
+</li>
+<li><p><code>Shift + F11</code> :切换无干扰全屏</p>
+</li>
+<li><p><code>Alt + Shift + 2</code> :进行左右分屏</p>
+</li>
+<li><p><code>Alt + Shift + 8</code> :进行上下分屏</p>
+</li>
+<li><p><code>`Alt + Shift + 5</code> :`进行上下左右分屏<br>分屏之后，使用Ctrl + 数字键跳转到指定屏，使用Ctrl + Shift + 数字键将当前屏移动到指定屏</p>
+</li>
+</ul>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="引用（Reference）"><a name="chart8">引用（Reference）</a></h2><p>本文撰写的过程中，参考了以下几位博主的文章，在此附上引用，并致谢：</p>
+<ul>
+<li><p><a href="http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html" target="_blank" rel="external">http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html</a></p>
+</li>
+<li><p><a href="http://caibaojian.com/sublime-text2-toturial.html" target="_blank" rel="external">http://caibaojian.com/sublime-text2-toturial.html</a></p>
+</li>
+<li><p><a href="http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/" target="_blank" rel="external">http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/</a></p>
+</li>
+</ul>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
+<hr>
+<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  安装（Installation）</a></p>
+<p><a href="#chart2">2.  窗口（Window）</a></p>
+<p><a href="#chart3">3.  主题（Theme）</a></p>
+<p><a href="#chart4">4.  编辑（Editing）</a></p>
+<p><a href="#chart5">5.  插件（Plug-in）</a></p>
+<p><a href="#chart6">6.  编码（Coding）</a></p>
+<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
+<p><a href="#chart8">8.  引用（General）</a></p>
+<hr>]]>
+    
+    </summary>
+    
+      <category term="Sublime Text" scheme="http://gitqh.github.io/tags/Sublime-Text/"/>
+    
+      <category term="Tools" scheme="http://gitqh.github.io/categories/Tools/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Vmware搭建Redis主从配置实验环境]]></title>
@@ -387,447 +828,6 @@
     </summary>
     
       <category term="Software" scheme="http://gitqh.github.io/tags/Software/"/>
-    
-      <category term="Tools" scheme="http://gitqh.github.io/categories/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Sublime Text 插件篇]]></title>
-    <link href="http://gitqh.github.io/2015/08/05/Sublime_plugin/"/>
-    <id>http://gitqh.github.io/2015/08/05/Sublime_plugin/</id>
-    <published>2015-08-05T14:52:56.932Z</published>
-    <updated>2015-07-31T13:52:31.516Z</updated>
-    <content type="html"><![CDATA[<p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
-<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2015/07/31/Sublime_basic/">Sublime Text 入门篇</a></p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  格式化（Format）</a></p>
-<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
-<p><a href="#chart3">3.  编码（Encoding）</a></p>
-<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
-<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
-<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
-<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
-<hr>
-<a id="more"></a>
-<h2 id="1-格式化（Format）"><a name="chart1">1.格式化（Format）</a></h2><h3 id="Alignment"><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="external">Alignment</a></h3><ul>
-<li><p>简介：变量定义太多，可以一键使 “=” 对齐</p>
-</li>
-<li><p>使用：默认快捷键 <code>Ctrl + Alt + A</code> 与qq截屏快捷键冲突，可以设置其他快捷键如 <code>Ctrl + Shift + Alt + A</code></p>
-</li>
-</ul>
-<p><img src="/temp/sublime_plugin/align.gif" alt=""></p>
-<h3 id="TrailingSpacers"><a href="https://github.com/SublimeText/TrailingSpaces" target="_blank" rel="external">TrailingSpacers</a></h3><ul>
-<li><p>简介：TrailingSpacers这款插件可以高亮显示多余的空格及空行，并可以一键删除。</p>
-</li>
-<li><p>使用：安装插件需重启Sublime，可在快捷键配置文件Key Binding-User中设置快捷键 <code>Ctrl + Alt + D</code></p>
-</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_spac.gif" alt=""></p>
-<h3 id="JSFormat"><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="external">JSFormat</a></h3><ul>
-<li><p>简介：JSFormat插件可以帮助我们将经过压缩或混淆处理的js代码处理为标准格式，包括换行及缩进。</p>
-</li>
-<li><p>使用：在已压缩的JS文件中，右键选择jsFormat或者使用自定义快捷键 <code>Ctrl + Alt + L</code></p>
-</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">    "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">    "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>效果：</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_jsFormat.gif" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="智能提示（Intelligent_Prompt）"><a name="chart2">智能提示（Intelligent Prompt）</a></h2><h3 id="LESS"><a href="https://packagecontrol.io/packages/LESS" target="_blank" rel="external">LESS</a></h3><ul>
-<li><p>简介：使用该插件，可以支持less语法高亮</p>
-</li>
-<li><p>使用：打开.less文件或者使用快捷键 <code>Ctrl + Shift + P</code>，输入SSL</p>
-</li>
-</ul>
-<h3 id="Bracket_Highlighter"><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">Bracket Highlighter</a></h3><ul>
-<li><p>简介：可匹配[], (), {}, “”, ”, <tag></tag>，高亮标记，便于查看起始和结束标记</p>
-</li>
-<li><p>使用：点击对应代码</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_highlight.gif" alt=""></p>
-<h3 id="jQuery"><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="external">jQuery</a></h3><ul>
-<li><p>简介：对jQuery函数进行智能提示</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="/temp/sublime_plugin/jquery.gif" alt=""></p>
-<h3 id="AutoFileName"><a href="https://packagecontrol.io/packages/AutoFileName" target="_blank" rel="external">AutoFileName</a></h3><ul>
-<li><p>简介：自动完成文件名的输入，如图片选取等</p>
-</li>
-<li><p>使用：输入”/”即可看到相对于本项目文件夹的其他文件</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_autofilename.gif" alt=""></p>
-<h3 id="AngularJS">AngularJS</h3><ul>
-<li>简介：对AngularJS函数进行智能提示</li>
-</ul>
-<h3 id="JSLint"><a href="">JSLint</a></h3><ul>
-<li><p>简介：对js代码进行质量检测</p>
-</li>
-<li><p>使用：按下 <code>Shift + Ctrl + P</code> 调出命令面板，找到JSLint: Run JSLint，按下Enter，JSLint会输出结果到状态栏</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_03144051_IHwI.png" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="编码（Encoding）"><a name="chart3">编码（Encoding）</a></h2><h3 id="ConvertToUTF8"><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="external">ConvertToUTF8</a></h3><ul>
-<li><p>简介：Sublime Text默认不支持UTF8编码，通过本插件可以将GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等编码格式文件自动转换为UTF8格式。</p>
-</li>
-<li><p>使用：安装插件自动转换为UTF8格式</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_uy67y.gif" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="版本控制（Version_Control）"><a name="chart4">版本控制（Version Control）</a></h2><h3 id="Git"><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="external">Git</a></h3><ul>
-<li><p>简介：实现了Git的基本功能</p>
-</li>
-<li><p>使用：<a href="https://github.com/kemayo/sublime-text-git/wiki" target="_blank" rel="external">https://github.com/kemayo/sublime-text-git/wiki</a></p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_git.png" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="前端必备（Web_UI）"><a name="chart5">前端必备（Web UI）</a></h2><h3 id="Emmet"><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">Emmet</a></h3><ul>
-<li><p>简介：Emmet前身是前端神器zen coding，可以大幅度提高前端开发效率。你可以使用仿CSS选择器的语法来动态生成代码，编写HTML/CSS时有较明显的优势。</p>
-</li>
-<li><p>使用：使用方法请参照教程<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="external">http://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
-</li>
-</ul>
-<h3 id="ColorPicker"><a href="https://github.com/weslly/ColorPicker" target="_blank" rel="external">ColorPicker</a></h3><ul>
-<li><p>简介：需要输入颜色时，可直接调出windows调色板选取颜色</p>
-</li>
-<li><p>使用：快捷键Windows: <code>Ctrl + Shift + C</code></p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_iY1DDCRG5TsyR.png" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="功能增强（Enhancement）"><a name="chart6">功能增强（Enhancement）</a></h2><h3 id="Markdown_Preview"><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">Markdown Preview</a></h3><ul>
-<li><p>简介：可以直接打开浏览器预览markdown文件</p>
-</li>
-<li><p>使用：安装完插件重启后，按 <code>Ctrl + Shift + P</code> ，选择Set Syntax:Markdown</p>
-</li>
-</ul>
-<h3 id="DocBlockr"><a href="https://github.com/NikhilKalige/docblockr" target="_blank" rel="external">DocBlockr</a></h3><ul>
-<li><p>简介：生成注释，包括函数名，参数，返回值等</p>
-</li>
-<li><p>使用：输入/<em>、/*</em>然后回车，还有很多用法，请参照<a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="external">https://sublime.wbond.net/packages/DocBlockr</a></p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_function-template.gif" alt=""></p>
-<h3 id="IMESupport"><a href="https://github.com/chikatoike/IMESupport" target="_blank" rel="external">IMESupport</a></h3><ul>
-<li><p>简介：使用中文输入法时，可以实现光标跟随（默认不可以）</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_c1608aa0gw1e9dmrd3vxpg209y08d75x.gif" alt=""></p>
-<h3 id="SideBarEnhancements"><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="external">SideBarEnhancements</a></h3><ul>
-<li><p>简介：SideBarEnhancements是一个可以自定义打开方式快捷键的工具包。他可以定义不同的快捷键打开不同的浏览器。</p>
-</li>
-<li><p>使用：安装插件并重启后，配置用户快捷键</p>
-</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "keys": ["f4"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Mozilla Firefox/firefox.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "keys": ["f5"], "command": "side_bar_files_open_with",</span><br><span class="line">         "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files/Internet Explorer/iexplore.exe",</span><br><span class="line">            "extensions":" .*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "keys": ["f6"], "command": "side_bar_files_open_with",</span><br><span class="line">        "args": &#123;</span><br><span class="line">            "paths": [],</span><br><span class="line">            "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",</span><br><span class="line">            "extensions":".*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="FileDiffs"><a href="https://github.com/colinta/SublimeFileDiffs" target="_blank" rel="external">FileDiffs</a></h3><ul>
-<li><p>简介：比较当前文件与选中的代码、剪切板中代码、另一文件、未保存文件之间的差别。</p>
-</li>
-<li><p>使用：右键标签页，出现FileDiffs Menu或者Diff with Tab，对应文件比较即可</p>
-</li>
-<li><p>效果：</p>
-</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_diff.gif" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="个人插件快捷键配置（Personal_Settings）"><a name="chart7">个人插件快捷键配置（Personal Settings）</a></h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[</span><br><span class="line">    // layout</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+q"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+w"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+e"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+r"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+y"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+u"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>": <span class="value">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+t"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"set_layout"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>":</span><br><span class="line">        <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">cols</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">rows</span>": <span class="value">[<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</span>,</span><br><span class="line">            "<span class="attribute">cells</span>":</span><br><span class="line">            <span class="value">[</span><br><span class="line">                [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">            ]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f4"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f5"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">         "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">" .*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"f6"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"side_bar_files_open_with"</span></span>,</span><br><span class="line">        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">[]</span>,</span><br><span class="line">            "<span class="attribute">application</span>": <span class="value"><span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span></span>,</span><br><span class="line">            "<span class="attribute">extensions</span>":<span class="value"><span class="string">".*"</span></span><br><span class="line">        </span>&#125;</span><br><span class="line">     </span>&#125;,</span><br><span class="line">    //删除多余空格</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+d"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"delete_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //是否开启TrailingSpacer</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+o"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"toggle_trailing_spaces"</span> </span>&#125;,</span><br><span class="line">    //自动对齐</span><br><span class="line">    &#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+shift+a"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"alignment"</span> </span>&#125;,</span><br><span class="line">    //文件夹中查找内容</span><br><span class="line">    &#123;"<span class="attribute">keys</span>":<span class="value">[<span class="string">"ctrl+alt+f"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"show_panel"</span></span>, "<span class="attribute">args</span>": <span class="value">&#123;"<span class="attribute">panel</span>": <span class="value"><span class="string">"find_in_files"</span></span>&#125;</span>&#125;,</span><br><span class="line"></span><br><span class="line">    //代码跳转</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"navigate_to_definition"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+q"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"jump_prev"</span></span>,</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+e"</span>]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">     //一键格式化js代码</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+alt+l"</span>]</span>,</span><br><span class="line">        "<span class="attribute">command</span>": <span class="value"><span class="string">"js_format"</span></span>,</span><br><span class="line">        "<span class="attribute">context</span>": <span class="value">[&#123;"<span class="attribute">key</span>": <span class="value"><span class="string">"selector"</span></span>, "<span class="attribute">operator</span>": <span class="value"><span class="string">"equal"</span></span>, "<span class="attribute">operand</span>": <span class="value"><span class="string">"source.js,source.json"</span></span>&#125;]</span><br><span class="line">    </span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
-<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2015/07/31/Sublime_basic/">Sublime Text 入门篇</a></p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  格式化（Format）</a></p>
-<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
-<p><a href="#chart3">3.  编码（Encoding）</a></p>
-<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
-<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
-<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
-<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
-<hr>]]>
-    
-    </summary>
-    
-      <category term="Sublime Text" scheme="http://gitqh.github.io/tags/Sublime-Text/"/>
-    
-      <category term="Tools" scheme="http://gitqh.github.io/categories/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Sublime Text 入门篇]]></title>
-    <link href="http://gitqh.github.io/2015/08/05/Sublime_basic/"/>
-    <id>http://gitqh.github.io/2015/08/05/Sublime_basic/</id>
-    <published>2015-08-05T14:52:56.917Z</published>
-    <updated>2015-07-31T13:52:38.307Z</updated>
-    <content type="html"><![CDATA[<p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  安装（Installation）</a></p>
-<p><a href="#chart2">2.  窗口（Window）</a></p>
-<p><a href="#chart3">3.  主题（Theme）</a></p>
-<p><a href="#chart4">4.  编辑（Editing）</a></p>
-<p><a href="#chart5">5.  插件（Plug-in）</a></p>
-<p><a href="#chart6">6.  编码（Coding）</a></p>
-<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
-<p><a href="#chart8">8.  引用（General）</a></p>
-<hr>
-<a id="more"></a>
-<h2 id="安装（Installation）"><a name="chart1">安装（Installation）</a></h2><p>目前最新的版本是<a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text3</a>，在Sublime官网可以下载，本文以windows环境下安装为例。注意，如果需要右键单击文件时能够直接使用Sublime Text打开，可在安装时勾选Add to explorer context menu。</p>
-<h3 id="添加到App_Paths">添加到App Paths</h3><p>使用windows快捷键 <code>Win + R</code> 运行<strong>Regedit</strong>打开注册表，</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-13_23-47-12.png" alt=""></p>
-<p>查找到目录<strong>HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/App Paths</strong>，新建项，命名为sub.exe，项值填写sublime的安装位置（例如 C:\Program Files\Sublime Text 3\sublime_text.exe），</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-14_22-26-19.png" alt=""></p>
-<p>之后可以使用windows快捷键 <code>Win + R</code>运行<strong>sub</strong>直接启动Sublime Text。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-18_19-20-33.png" alt=""></p>
-<h3 id="安装Package_Control">安装Package Control</h3><p>Package Control作为Sublime Text的插件管理器，可以方便的安装、查看、卸载Sublime Text中的插件，Sublime Text3安装方法如下：</p>
-<ul>
-<li><p>使用 <code>Ctrl + `</code> 打开Sublime Text控制台。</p>
-</li>
-<li><p>将下面的代码粘贴到控制台里：</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'7183a2d3e96f11eeadd761d777e62404'</span> + <span class="string">'e330c659d4bb41d3bdf022e94cab3cd0'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装完成后，使用 <code>Ctrl + Shift + P</code> 打开命令板，输入PC出现Package Control，可依照提示进行相应的操作。</li>
-</ul>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_2015-07-15-12-45.png" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="窗口与标签（Windows_And_Tabs）"><a name="chart2">窗口与标签（Windows And Tabs）</a></h2><p>Sublime Text是一个多窗口多标签编辑器，可以同时打开多个窗口，也可以在一个窗口中打开多个标签。（注：Sublime Text部分快捷键与搜狗输入法快捷键冲突，个人建议禁用全部搜狗输入法快捷键）。</p>
-<h3 id="窗口（Window）">窗口（Window）</h3><p>使用快捷键 <code>Ctrl + Shift + N</code> 创建一个新窗口；使用快捷键 <code>Alt + F4</code> 关闭Sublime Text</p>
-<p>编码时分屏是最常用的功能，使用快捷键 <code>Alt + Shift + 2</code> 进行左右分屏， <code>Alt + Shift + 8</code> 进行上下分屏， <code>Alt + Shift + 5</code> 进行上下左右分屏（即分为四屏）。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_lAvhuX6.gif" alt=""></p>
-<h3 id="标签（Tab）">标签（Tab）</h3><p>标签部分的快捷键与大部分浏览器标签快捷键类似，使用 <code>Ctrl + N</code> 在当前窗口创建一个新标签， <code>Ctrl + W</code> 关闭当前标签， <code>Ctrl + Tab</code> 切换到下一个标签（右侧标签）， <code>Ctrl + Shift + Tab</code> 切换到上一个标签（左侧标签）， <code>Ctrl + Shift + T</code> 恢复刚关闭的标签。</p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="主题（Theme）"><a name="chart3">主题（Theme）</a></h2><p>Sublime Text有很多第三方主题：<a href="[https://sublime.wbond.net/browse/labels/theme]">[https://sublime.wbond.net/browse/labels/theme]</a>，可按照自己喜好下载</p>
-<h3 id="设置（Settings）">设置（Settings）</h3><p>可增加如下设置，优化显示效果：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 设置Sans-serif（无衬线）等宽字体，以便阅读</span><br><span class="line">"font_face": "YaHei Consolas Hybrid",</span><br><span class="line">"font_size": 12,</span><br><span class="line">// 使光标闪动更加柔和</span><br><span class="line">"caret_style": "phase",</span><br><span class="line">// 高亮当前行</span><br><span class="line">"highlight_line": true,</span><br><span class="line">// 高亮有修改的标签</span><br><span class="line">"highlight_modified_tabs": true,</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="编辑（Editing）"><a name="chart4">编辑（Editing）</a></h2><h3 id="文件夹（Folders）">文件夹（Folders）</h3><p>Sublime Text在 <code>File</code> 下选择 <code>Open Folder</code> 可以打开侧边栏，侧边栏列出了当前打开的文件和文件夹的文件，使用 <code>Ctrl + K</code> , <code>Ctrl + B</code> 显示或隐藏侧栏，使用 <code>Ctrl + P</code> 可以快速跳转到文件夹里的文件。</p>
-<h3 id="基本操作(Basic_Operation)">基本操作(Basic Operation)</h3><p><code>Ctrl + Enter</code> 在当前行下面新增一行然后跳至该行； <code>Ctrl + Shift + Enter</code> 在当前行上面增加一行并跳至该行。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_rvzS9Ok.gif" alt=""></p>
-<p><code>Ctrl + ←/→</code> 进行逐词移动，相应的， <code>Ctrl + Shift + ←/→</code> 进行逐词选择。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_jFnTDl3.gif" alt=""></p>
-<p><code>Ctrl + ↑/↓</code> 移动当前显示区域， <code>Ctrl + Shift + ↑/↓</code> 移动当前行。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_v31pd3k.gif" alt=""></p>
-<p><code>alt + .</code> ：自动补全标签</p>
-<p><code>Ctrl + d</code> :删除整行</p>
-<h3 id="选择（Selecting）">选择（Selecting）</h3><p>Sublime Text的一大亮点是支持多重选择——同时选择多个区域，然后同时进行编辑。</p>
-<p><code>Ctrl + D</code> 选择当前光标所在的词并高亮该词所有出现的位置，再次 <code>Ctrl + D</code> 选择该词出现的下一个位置，在多重选词的过程中，使用 <code>Ctrl + K</code> 进行跳过，使用 <code>Ctrl + U</code> 进行回退，使用 <code>Esc</code> 退出多重编辑。</p>
-<p><code>Ctrl + Shift + L</code> 可以将当前选中区域打散，然后进行同时编辑， <code>Ctrl + J</code> 可以把当前选中区域合并为一行。</p>
-<h3 id="查找替换（Finding_And_Replacing）">查找替换（Finding And Replacing）</h3><p>Sublime Text的查找功能主要包括<strong>快速查找</strong>、<strong>标准查找</strong>和<strong>文件夹查找</strong>三种类型。</p>
-<h4 id="快速查找替换">快速查找替换</h4><p>我们可以使用 <code>Shift + ←/→</code> 或 <code>Ctrl + D</code> 选中关键字，然后 <code>F3</code> 跳到其下一个出现位置， <code>Shift + F3</code> 跳到其上一个出现位置，此外还可以用 <code>Alt + F3</code> 选中其出现的所有位置（之后可以进行多重编辑，也就是快速替换）。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_6AaBiRS.jpg" alt=""></p>
-<h4 id="标准查找替换">标准查找替换</h4><p>当搜索某个已知但不在当前显示区域的关键字，这时可以使用 <code>Ctrl + F</code> 调出搜索框进行搜索，使用 <code>Ctrl + H</code> 进行替换。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_4NnE9SN.jpg" alt=""></p>
-<h5 id="关键字查找替换">关键字查找替换</h5><p>在搜索框输入关键字后 <code>Enter</code> 跳至关键字当前光标的下一个位置， <code>Shift + Enter</code> 跳至上一个位置，<code>Alt + Enter</code> 选中其出现的所有位置。</p>
-<p>Sublime Text的查找有不同的模式： <code>Alt + C</code> 切换大小写敏感（Case-sensitive）模式， <code>Alt + W</code> 切换整字匹配（Whole matching）模式，除此之外Sublime Text还支持在选中范围内搜索（Search in selection），这个功能没有对应的快捷键，但可以通过以下配置项自动开启:</p>
-<p><code>&quot;auto_find_in_selection&quot;: true</code></p>
-<h5 id="正则表达式查找替换">正则表达式查找替换</h5><p>Sublime Text中使用 <code>Alt + R</code> 切换正则匹配模式的开启/关闭。Sublime Text的使用<a href="http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html" target="_blank" rel="external">Boost里的Perl正则表达式风格</a>。</p>
-<p>关于正则表达式本文不做详述，请参照<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">正则表达式30分钟入门教程</a>。</p>
-<h4 id="文件夹查找替换">文件夹查找替换</h4><p>使用 <code>Ctrl + Shift + F</code> 开启文件夹查找替换（注意此快捷键和搜狗输入法的简繁切换快捷键有冲突）。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_05Fchle.jpg" alt=""></p>
-<h3 id="跳转（Jumping）">跳转（Jumping）</h3><p>实际编码中，跳转是非常实用的一个功能，可以有效的帮你脱离鼠标，更快的提高工作效率。跳转主要分为<strong>跳转到文件</strong>、<strong>跳转到符号</strong>、<strong>跳转到某行</strong>、<strong>组合跳转</strong>四中类型。</p>
-<h4 id="跳转到文件">跳转到文件</h4><p><code>Ctrl + P</code> 会列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后 <code>Enter</code> 跳转至该文件。</p>
-<p>需要注意的是，Sublime Text使用模糊字符串匹配（Fuzzy String Matching），可以通过文件名的前缀、首字母或是某部分进行匹配：例如，<code>EIS</code> 、 <code>Eclip</code> 和 <code>Stupid</code> 都可以匹配 <code>EclipseIsStupid.java</code> 。</p>
-<h4 id="跳转到符号">跳转到符号</h4><p><code>Ctrl + R</code> 可以列出当前文件中的符号（例如类名和函数名，但无法精确到变量名），输入符号名称 <code>Enter</code> 即可以跳转到该处。此外，还可以使用 <code>F12</code> 快速跳转到当前光标所在符号的定义处。</p>
-<h4 id="跳转到某行">跳转到某行</h4><p><code>Ctrl + G</code> 然后输入行号以跳转到指定行</p>
-<h4 id="组合跳转">组合跳转</h4><p>在 <code>Ctrl + P</code> 匹配到文件后，我们可以进行后续输入以跳转到更精确的位置：</p>
-<ul>
-<li><p><code>@</code> 符号跳转：输入 <code>@symbol</code> 跳转到 <code>symbol</code> 符号所在的位置</p>
-</li>
-<li><p><code>#</code> 关键字跳转：输入 <code>#keyword</code> 跳转到 <code>keyword</code> 所在的位置</p>
-</li>
-<li><p><code>:</code> 行号跳转：输入 <code>:80</code> 跳转到文件的第80行。</p>
-</li>
-</ul>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="插件（Plug-in）"><a name="chart5">插件（Plug-in）</a></h2><p>请参照<a href="/2015/07/31/Sublime_plugin">Sublime Text插件篇</a>。</p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="编码（Coding）"><a name="chart6">编码（Coding）</a></h2><h3 id="代码规范（Code_Style_Guideline）">代码规范（Code Style Guideline）</h3><p>可参照如下进行设置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 设置tab的大小为2</span><br><span class="line">"tab_size": 2,</span><br><span class="line">// 使用空格代替tab</span><br><span class="line">"translate_tabs_to_spaces": true,</span><br><span class="line">// 添加行宽标尺</span><br><span class="line">"rulers": [80, 100],</span><br><span class="line">// 显示空白字符</span><br><span class="line">"draw_white_space": "all",</span><br><span class="line">// 保存时自动去除行末空白</span><br><span class="line">"trim_trailing_white_space_on_save": true,</span><br><span class="line">// 保存时自动增加文件末尾换行</span><br><span class="line">"ensure_newline_at_eof_on_save": true,</span><br></pre></td></tr></table></figure>
-<h3 id="格式化（Formatting）">格式化（Formatting）</h3><p>Sublime Text基本的手动格式化操作包括： <code>Ctrl + [</code> 向左缩进， <code>Ctrl + ]</code> 向右缩进，此外 <code>Ctrl + Shift + V</code> 可以以当前缩进粘贴代码。</p>
-<h3 id="自动完成（Auto_Completion）">自动完成（Auto Completion）</h3><p>Sublime Text 支持一定的自动完成，按 <code>Tab</code> 自动补全。</p>
-<h3 id="括号（Brackets）">括号（Brackets）</h3><p>编写代码时会碰到大量的括号，利用 <code>Ctrl + M</code> 可以快速的在起始括号和结尾括号间切换， <code>Ctrl + Shift + M</code> 则可以快速选择括号间的内容，对于缩进型语言（例如Python）则可以使用 <code>Ctrl + Shift + J</code> 。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Sublime_oxWjAo9.gif" alt=""></p>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="快捷键（Shortcuts）"><a name="chart7">快捷键（Shortcuts）</a></h2><p>下面列出的快捷键为windows平台下的快捷键，Linux与OS X快捷键请参考<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_win.html" target="_blank" rel="external">Windows/Linux快捷键</a>和<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_osx.html" target="_blank" rel="external">OS X快捷键</a>。</p>
-<h3 id="通用（General）">通用（General）</h3><ul>
-<li><p><code>↑↓←→</code> :上下左右移动光标</p>
-</li>
-<li><p><code>Alt</code> :调出菜单</p>
-</li>
-<li><p><code>Ctrl + Shift + P</code> :调出命令板（Command Palette）</p>
-</li>
-<li><p><code>Ctrl + `</code> :调出控制台</p>
-</li>
-</ul>
-<h3 id="编辑（Editing）-1">编辑（Editing）</h3><ul>
-<li><p><code>Ctrl + Enter</code> :在当前行下面新增一行然后跳至该行</p>
-</li>
-<li><p><code>Ctrl + Shift + Enter</code> :在当前行上面增加一行并跳至该行</p>
-</li>
-<li><p><code>Ctrl + ←/→</code> :进行逐词移动</p>
-</li>
-<li><p><code>Ctrl + Shift + ←/→</code> :进行逐词选择</p>
-</li>
-<li><p><code>Ctrl + ↑/↓</code> :移动当前显示区域</p>
-</li>
-<li><p><code>Ctrl + Shift + ↑/↓</code> :移动当前行</p>
-</li>
-</ul>
-<h3 id="选择（Selecting）-1">选择（Selecting）</h3><ul>
-<li><p><code>Ctrl + D</code> :选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + D选择该词出现的下一个位置，在多重选词的过程中，使用 <code>Ctrl + K</code> 进行跳过，使用 <code>Ctrl + U</code> 进行回退，使用 <code>Esc</code> 退出多重编辑</p>
-</li>
-<li><p><code>Ctrl + Shift + L</code> :将当前选中区域打散</p>
-</li>
-<li><p><code>Ctrl + J</code> :把当前选中区域合并为一行</p>
-</li>
-<li><p><code>Ctrl + M</code> :在起始括号和结尾括号间切换</p>
-</li>
-<li><p><code>Ctrl + Shift + M</code> :快速选择括号间的内容</p>
-</li>
-<li><p><code>Ctrl + Shift + J</code> :快速选择同缩进的内容</p>
-</li>
-<li><p><code>Ctrl + Shift + Space</code> :快速选择当前作用域（Scope）的内容</p>
-</li>
-</ul>
-<h3 id="查找替换（Finding_And_Replacing）-1">查找替换（Finding And Replacing）</h3><ul>
-<li><p><code>F3</code> :跳至当前关键字下一个位置</p>
-</li>
-<li><p><code>Shift + F3</code> :跳到当前关键字上一个位置</p>
-</li>
-<li><p><code>Alt + F3</code> :选中当前关键字出现的所有位置</p>
-</li>
-<li><p><code>Ctrl + Shift + F</code> :多文件搜索及替换</p>
-</li>
-<li><p><code>Ctrl + F/H</code> :进行标准查找/替换，之后` :</p>
-<ul>
-<li><p><code>Alt + C</code> :切换大小写敏感（Case-sensitive）模式</p>
-</li>
-<li><p><code>Alt + W</code> :切换整字匹配（Whole matching）模式</p>
-</li>
-<li><p><code>Alt + R</code> :切换正则匹配（Regex matching）模式</p>
-</li>
-<li><p><code>Ctrl + Shift + H</code> :替换当前关键字</p>
-</li>
-<li><p><code>Ctrl + Alt + Enter</code> :替换所有关键字匹配</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="跳转（Jumping）-1">跳转（Jumping）</h3><ul>
-<li><p><code>Ctrl + P</code> :跳转到指定文件，输入文件名后可以` :</p>
-<ul>
-<li><p><code>@ 符号跳转</code> :输入@symbol跳转到symbol符号所在的位置</p>
-</li>
-<li><p><code># 关键字跳转</code> :输入#keyword跳转到keyword所在的位置</p>
-</li>
-<li><p><code>: 行号跳转</code> :输入:12跳转到文件的第12行。</p>
-</li>
-</ul>
-</li>
-<li><p><code>Ctrl + R</code> :跳转到指定符号</p>
-</li>
-<li><p><code>Ctrl + G</code> :跳转到指定行号</p>
-</li>
-</ul>
-<h3 id="窗口（Window）-1">窗口（Window）</h3><ul>
-<li><p><code>Ctrl + Shift + N</code> :创建一个新窗口</p>
-</li>
-<li><p><code>Ctrl + N</code> :在当前窗口创建一个新标签</p>
-</li>
-<li><p><code>Ctrl + W</code> :关闭当前标签，当窗口内没有标签时会关闭该窗口</p>
-</li>
-<li><p><code>Ctrl + Shift + T</code> :恢复刚刚关闭的标签</p>
-</li>
-<li><p><code>Ctrl + Tab</code> :切换到下一个标签（右侧标签）</p>
-</li>
-<li><p><code>Ctrl + Shift + Tab</code> :切换到上一个标签（左侧标签）</p>
-</li>
-<li><p><code>Ctrl + Shift + T</code> :恢复刚刚关闭的标签</p>
-</li>
-</ul>
-<h3 id="屏幕（Screen）">屏幕（Screen）</h3><ul>
-<li><p><code>F11</code> :切换普通全屏</p>
-</li>
-<li><p><code>Shift + F11</code> :切换无干扰全屏</p>
-</li>
-<li><p><code>Alt + Shift + 2</code> :进行左右分屏</p>
-</li>
-<li><p><code>Alt + Shift + 8</code> :进行上下分屏</p>
-</li>
-<li><p><code>`Alt + Shift + 5</code> :`进行上下左右分屏<br>分屏之后，使用Ctrl + 数字键跳转到指定屏，使用Ctrl + Shift + 数字键将当前屏移动到指定屏</p>
-</li>
-</ul>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-<hr>
-<h2 id="引用（Reference）"><a name="chart8">引用（Reference）</a></h2><p>本文撰写的过程中，参考了以下几位博主的文章，在此附上引用，并致谢：</p>
-<ul>
-<li><p><a href="http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html" target="_blank" rel="external">http://www.cnblogs.com/figure9/p/sublime-text-complete-guide.html</a></p>
-</li>
-<li><p><a href="http://caibaojian.com/sublime-text2-toturial.html" target="_blank" rel="external">http://caibaojian.com/sublime-text2-toturial.html</a></p>
-</li>
-<li><p><a href="http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/" target="_blank" rel="external">http://lucifr.com/2011/08/31/sublime-text-2-tricks-and-tips/</a></p>
-</li>
-</ul>
-<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  安装（Installation）</a></p>
-<p><a href="#chart2">2.  窗口（Window）</a></p>
-<p><a href="#chart3">3.  主题（Theme）</a></p>
-<p><a href="#chart4">4.  编辑（Editing）</a></p>
-<p><a href="#chart5">5.  插件（Plug-in）</a></p>
-<p><a href="#chart6">6.  编码（Coding）</a></p>
-<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
-<p><a href="#chart8">8.  引用（General）</a></p>
-<hr>]]>
-    
-    </summary>
-    
-      <category term="Sublime Text" scheme="http://gitqh.github.io/tags/Sublime-Text/"/>
     
       <category term="Tools" scheme="http://gitqh.github.io/categories/Tools/"/>
     
