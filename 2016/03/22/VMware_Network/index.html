@@ -16,17 +16,33 @@ var _hmt = _hmt || [];
 <head>
   <meta charset="utf-8">
   
-  <title>qh&#39;s blog</title>
+  <title>VMware通过NAT模式配置集群 | qh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET | MongoDB">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qh's blog">
-<meta property="og:url" content="http://gitqh.github.io/index.html">
+  <meta name="description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
+
+目录1.  背景知识 
+ VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。
+1.bridged(桥接模式)在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMware通过NAT模式配置集群">
+<meta property="og:url" content="http://gitqh.github.io/2016/03/22/VMware_Network/index.html">
 <meta property="og:site_name" content="qh's blog">
-<meta property="og:description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET | MongoDB">
+<meta property="og:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
+
+目录1.  背景知识 
+ VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。
+1.bridged(桥接模式)在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareHost-only.jpg">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareNAT.jpg">
+<meta property="og:updated_time" content="2016-03-23T13:33:39.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qh's blog">
-<meta name="twitter:description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET | MongoDB">
+<meta name="twitter:title" content="VMware通过NAT模式配置集群">
+<meta name="twitter:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
+
+目录1.  背景知识 
+ VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。
+1.bridged(桥接模式)在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，">
   
     <link rel="alternative" href="/atom.xml" title="qh&#39;s blog" type="application/atom+xml">
   
@@ -86,63 +102,7 @@ var _hmt = _hmt || [];
 </header>
 
     <div class="outer">
-      <section id="main">
-  
-    <article id="post-gmail_register" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/19/gmail_register/" class="article-date">
-  <time datetime="2016-10-19T06:30:26.500Z" itemprop="datePublished">2016-10-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/skill/">skill</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/19/gmail_register/">教你注册gmail （20161019亲测有效）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。</p>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2016/10/19/gmail_register/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2016/10/19/gmail_register/" data-id="ciugjhw5000007073ors2e4vk" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2016/10/19/gmail_register/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soft-skill/">soft skill</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-VMware_Network" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-VMware_Network" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/22/VMware_Network/" class="article-date">
   <time datetime="2016-03-22T10:47:46.000Z" itemprop="datePublished">2016-03-22</time>
@@ -159,8 +119,8 @@ var _hmt = _hmt || [];
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/VMware_Network/">VMware通过NAT模式配置集群</a>
+    <h1 class="article-title" itemprop="name">
+      VMware通过NAT模式配置集群
     </h1>
   
 
@@ -281,382 +241,33 @@ tcpdump -i eth0 -nnX port 21
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Sublime_plugin" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/22/Sublime_plugin/" class="article-date">
-  <time datetime="2016-03-22T08:53:58.932Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2016/10/19/gmail_register/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
         
+          教你注册gmail （20161019亲测有效）
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/Sublime_plugin/">Sublime Text 插件篇</a>
-    </h1>
   
+    <a href="/2016/03/22/Sublime_plugin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Sublime Text 插件篇</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
-<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a></p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  格式化（Format）</a></p>
-<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
-<p><a href="#chart3">3.  编码（Encoding）</a></p>
-<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
-<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
-<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
-<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2016/03/22/Sublime_plugin/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_plugin/" data-id="ciugjf58j000f4c73gdruxzdh" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2016/03/22/Sublime_plugin/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-Sublime_basic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/22/Sublime_basic/" class="article-date">
-  <time datetime="2016-03-22T08:53:57.906Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  安装（Installation）</a></p>
-<p><a href="#chart2">2.  窗口（Window）</a></p>
-<p><a href="#chart3">3.  主题（Theme）</a></p>
-<p><a href="#chart4">4.  编辑（Editing）</a></p>
-<p><a href="#chart5">5.  插件（Plug-in）</a></p>
-<p><a href="#chart6">6.  编码（Coding）</a></p>
-<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
-<p><a href="#chart8">8.  引用（General）</a></p>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2016/03/22/Sublime_basic/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_basic/" data-id="ciugjf58o000j4c73k7tkj3hm" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2016/03/22/Sublime_basic/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Redis_MasterSlave_Deploy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/08/Redis_MasterSlave_Deploy/" class="article-date">
-  <time datetime="2015-08-08T08:22:47.091Z" itemprop="datePublished">2015-08-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Redis/">Redis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/08/Redis_MasterSlave_Deploy/">Vmware搭建Redis主从配置实验环境</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> Redis </strong>（REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括<strong>string</strong>(字符串)、<strong>list</strong>(链表)、<strong>set</strong>(集合)、<strong>zset</strong>(sorted set：有序集合)和<strong>hash</strong>（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系统，能支持每秒15万以上的读写速率。</p>
-<p>本文记录了自己在vmware虚拟机中搭建Redis主从集群的经验，希望能为想深入学习Redis的朋友提供一些帮助。</p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  部署环境说明 </a></p>
-<p><a href="#chart2">2.  Vmware准备 </a></p>
-<p><a href="#chart3">3.  Redis下载 </a></p>
-<p><a href="#chart4">4.  Redis编译安装 </a></p>
-<p><a href="#chart5">5.  克隆搭建从服务器 </a></p>
-<p><a href="#chart6">6.  Redis配置 </a></p>
-<p><a href="#chart7">7.  Redis服务启动 </a></p>
-<p><a href="#chart8">8.  Redis测试 </a></p>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/08/Redis_MasterSlave_Deploy/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/" data-id="ciugjf58r000m4c73jmbe6ck4" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis-Master—Slave/">Redis Master—Slave</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Windows_delete" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/05/Windows_delete/" class="article-date">
-  <time datetime="2015-08-05T14:52:56.948Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Windows/">Windows</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/Windows_delete/">解决Windows文件名过长无法删除问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。</p>
-<p>借此机会，总结一下Windows下文件无法删除的解决方法。</p>
-<hr>
-<h2 id="问题">问题</h2><p>Windows下文件无法删除的原因主要有以下两种：</p>
-<ol>
-<li><p>文件名称过长</p>
-</li>
-<li><p>文件目录嵌套过深</p>
-</li>
-</ol>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/05/Windows_delete/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2015/08/05/Windows_delete/" data-id="ciugjf58600024c738gpwamu6" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2015/08/05/Windows_delete/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Tools_software_I" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/05/Tools_software_I/" class="article-date">
-  <time datetime="2015-08-05T14:52:56.932Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/Tools_software_I/">程序员开发利器软件篇（一）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用合适的工作做合适的事情，想成为一名高效的工程师，充分利用已有的工具可以帮你事半功倍。本系列计划分为硬件篇与软件篇，<br>旨在帮你打造Widows平台下的高效工作环境，希望能够为你节省工作中的点滴时间，去更好的享受生活。</p>
-<hr>
-<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  everything </a></p>
-<p><a href="#chart2">2.  Filelocator Pro</a></p>
-<p><a href="#chart3">3.  dexpot </a></p>
-<p><a href="#chart4">4.  EmEditor </a></p>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/05/Tools_software_I/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2015/08/05/Tools_software_I/" data-id="ciugjf58h000a4c732uft7jhl" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2015/08/05/Tools_software_I/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/">Software</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Docker_basic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/05/Docker_basic/" class="article-date">
-  <time datetime="2015-08-05T14:52:56.901Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Virtualization/">Virtualization</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/Docker_basic/">Docker 入门篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。</p>
-<hr>
-<h2 id="1-Docker是什么？">1.Docker是什么？</h2><ul>
-<li><p><strong>Docker</strong>是2013年dotCloud公司的一个业余项目，采用<strong>go</strong>语言实现，在github进行维护。</p>
-</li>
-<li><p>项目的目标是<strong>实现轻量级的操作系统虚拟化解决方案</strong>，Docker的基础是<strong>Linux容器</strong>等技术，目前只能在linux平台工作。</p>
-</li>
-<li><p>目前，微软与Docker公司建立了新的合作伙伴关系，以便在Windows Server上增加对Docker工具的支持，微软开发技术公司将向Docker客户端贡献代码。</p>
-</li>
-</ul>
-<hr>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/05/Docker_basic/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gitqh.github.io/2015/08/05/Docker_basic/" data-id="ciugjf58u000r4c739utk78cg" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://gitqh.github.io/2015/08/05/Docker_basic/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/22/VMware_Network/" data-title="VMware通过NAT模式配置集群" data-url="http://gitqh.github.io/2016/03/22/VMware_Network/"></div>
+  </section>
 </section>
       
       <aside id="sidebar">
