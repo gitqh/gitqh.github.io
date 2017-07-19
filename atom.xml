@@ -59,11 +59,12 @@
     <link href="http://gitqh.github.io/2016/03/22/VMware_Network/"/>
     <id>http://gitqh.github.io/2016/03/22/VMware_Network/</id>
     <published>2016-03-22T10:47:46.000Z</published>
-    <updated>2016-03-23T13:33:39.123Z</updated>
+    <updated>2017-07-19T01:27:37.001Z</updated>
     <content type="html"><![CDATA[<p>进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过<strong>VMware</strong>构建一个分布式集群的虚拟环境并完成网络配置的全过程。</p>
 <hr>
 <h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  背景知识 </a></p>
 <p> VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
+<a id="more"></a>
 <h3 id="1-bridged(桥接模式)">1.bridged(桥接模式)</h3><p>在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。在此种模式下，虚拟机内部的网卡（例如linux下的eth0)直接连到了物理网卡所在的网络上，可以想象为虚拟机和host机处于对等的地位，在网络关系上是平等的，没有谁在谁后面的问题。该种方式配置简单，但无法对虚拟机的网络进行控制，另外需要占用额外的IP地址，因此并不推荐选取该种方式进行实验。</p>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg" alt=""></p>
 <h3 id="2-host-only(主机模式)">2.host-only(主机模式)</h3><p>在某些特殊的网络调试环境中，要求将真实环境和虚拟环境隔离开，这时你就可采用host-only模式。在host-only模式中，所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的。</p>
@@ -159,7 +160,9 @@ tcpdump -i eth0 -nnX port 21
     <summary type="html">
     <![CDATA[<p>进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过<strong>VMware</strong>构建一个分布式集群的虚拟环境并完成网络配置的全过程。</p>
 <hr>
-<h2 id="目录"><a name="catalog">目录</a></h2><]]>
+<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  背景知识 </a></p>
+<p> VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>]]>
+    
     </summary>
     
       <category term="VMware" scheme="http://gitqh.github.io/tags/VMware/"/>

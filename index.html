@@ -125,7 +125,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2016/10/19/gmail_register/" data-id="ciugjhw5000007073ors2e4vk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2016/10/19/gmail_register/" data-id="cj5ac7zu30002pguxa8psgq1l" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -170,105 +170,18 @@ var _hmt = _hmt || [];
       
         <p>进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过<strong>VMware</strong>构建一个分布式集群的虚拟环境并完成网络配置的全过程。</p>
 <hr>
-<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  背景知识 </a></p>
+<h2 id="目录"><a name="catalog">目录</h2><p><a href="#chart1">1.  背景知识 </a></p>
 <p> VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
-<h3 id="1-bridged(桥接模式)">1.bridged(桥接模式)</h3><p>在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。在此种模式下，虚拟机内部的网卡（例如linux下的eth0)直接连到了物理网卡所在的网络上，可以想象为虚拟机和host机处于对等的地位，在网络关系上是平等的，没有谁在谁后面的问题。该种方式配置简单，但无法对虚拟机的网络进行控制，另外需要占用额外的IP地址，因此并不推荐选取该种方式进行实验。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg" alt=""></p>
-<h3 id="2-host-only(主机模式)">2.host-only(主机模式)</h3><p>在某些特殊的网络调试环境中，要求将真实环境和虚拟环境隔离开，这时你就可采用host-only模式。在host-only模式中，所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的。</p>
-<p>在host-only模式下，虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。该种方式下虚拟机与主机通信使用虚拟网卡VMNet1，缺点是虚拟机不能访问公网。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareHost-only.jpg" alt=""></p>
-<h3 id="3-NAT(网络地址转换模式)">3.NAT(网络地址转换模式)</h3><p>使用NAT模式，就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。也就是说，使用NAT模式可以实现在虚拟系统里访问互联网。NAT模式下的虚拟系统的TCP/IP配置信息是由VMnet8(NAT)虚拟网络的DHCP服务器提供的，无法进行手工修改，因此虚拟系统也就无法和本局域网中的其他真实主机进行通讯。采用NAT模式最大的优势是虚拟系统接入互联网非常简单，你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可。</p>
-<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareNAT.jpg" alt=""></p>
-<p>提示：以上所提到的NAT模式下的VMnet8虚拟网络，host-only模式下的VMnet1虚拟网络，以及bridged模式下的VMnet0虚拟网络，都是由VMWare虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟网络则不提供。</p>
-<hr>
-<p><a href="#chart2">2.  实验目标 </a></p>
-<p>构建基于NAT模式的虚拟机集群（包含3台虚拟机），并进行测试验证。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">虚拟机主机</th>
-<th style="text-align:center">操作系统</th>
-<th>IP地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">node1</td>
-<td style="text-align:center">CentOS6.6</td>
-<td>192.168.124.201</td>
-</tr>
-<tr>
-<td style="text-align:right">node2</td>
-<td style="text-align:center">CentOS6.6</td>
-<td>192.168.124.202</td>
-</tr>
-<tr>
-<td style="text-align:right">node3</td>
-<td style="text-align:center">CentOS6.6</td>
-<td>192.168.124.203</td>
-</tr>
-</tbody>
-</table>
-<p><a href="#chart3">3.  拷贝虚拟机 </a><br>　　<br>将一台已安装CentOS6.6的VMware虚拟机复制两次，并导入VMware。<br>虚拟机通过复制得到，会出现UUID冲突的问题，可通过以下方式解决：</p>
-<p><em>1.删除mac地址行</em></p>
-<pre><code><span class="regexp">/etc/</span>sysconfig<span class="regexp">/network-scripts/i</span>fcfg-eth0
-</code></pre><p><em>2.删除网卡和mac地址绑定文件</em></p>
-<pre><code><span class="keyword">rm</span> -rf /etc/udev/rules.<span class="keyword">d</span>/70-persistent-<span class="keyword">net</span>.rules
-</code></pre><p><em>3.重启系统</em></p>
-<pre><code><span class="title">shutdown</span> -r
-</code></pre><hr>
-<p><a href="#chart4">4.  修改主机名 </a></p>
-<pre><code>vi <span class="regexp">/etc/</span>hosts
-</code></pre><p>分别修改三台虚拟机主机名为node1，node2，node3，保存重启生效</p>
-<hr>
-<p><a href="#chart5">5.  修改网卡信息文件 </a></p>
-<ol>
-<li><p>查看本机VMnet8的ip相关信息，确定三台虚拟机的ip及网关，网关配置为VMnet8的ip（切记）</p>
-</li>
-<li><p>通过上述方式修改MAC地址信息，并配置IPADDR及NETMASK,以及GATEWAY，选择启OOTPROTO为none（默认static），选择启动网络时即启动网卡ONBOOT=yes，重启网络服务network。重启后可在虚拟机网络编辑器中确认网关及可用网段，如有问题，可直接修改。</p>
-</li>
-</ol>
-<hr>
-<p><a href="#chart6">6.  测试验证 </a></p>
-<p>| Tables | Are | Cool | | ——————- |:——————-:| ——-:| | col 3 is | right-aligned | $1600 | | col 2 is | centered | $12 | | zebra stripes | are neat | $1 |</p>
-<hr>
-<p><a href="#chart7">7.  常用命令 </a></p>
-<pre><code>ifdown 网卡设备名 #禁用该网卡设备
-
-ifup 网卡设备名 #启用该网卡设备
-
-netstat 选项
--<span class="ruby">t：列出<span class="constant">TCP</span>协议端口
-</span>-<span class="ruby">u：列出<span class="constant">UDP</span>协议端口
-</span>-<span class="ruby">n：不使用域名与服务名，而使用<span class="constant">IP</span>地址与端口号
-</span>-<span class="ruby">l：列出在监听状态的网络服务
-</span>-<span class="ruby">a：列出所用的网络连接
-</span>
-traceroute [选项] IP或域名 #路由跟踪命令
--<span class="ruby">n：使用<span class="constant">IP</span>，不使用域名，速度更快
-</span>
-tcpdump -i eth0 -nnX port 21
--<span class="ruby">i：指定网卡接口
-</span>-<span class="ruby">nn：将数据包中的域名与服务转为<span class="constant">IP</span>和端口
-</span>-<span class="ruby"><span class="constant">X</span>：以<span class="number">16</span>进制和<span class="constant">ASCII</span>码显示数据包neir
-</span>port：指定监听端口
-</code></pre><hr>
-<p><a href="#chart8">8.  出现问题 </a></p>
-<p>1.虚拟机找不到eth0网卡，出现原因：复制导致虚拟机会将源机的MAC地址作为eth0，后配置的MAC地址vmware会生成一个新网卡eth1,解决方式：打开文件/etc/udev/rules.d/70-persistent-net.rules，删除eth0相关信息，将eth1的NAME改为eth0，重启网络服务</p>
-<p>2.虚拟机无法与主机通信，出现原因：vmware默认将网关配置为192.168.XX.2，局域网中没有该服务器<br>解决方式：修改vmware的网关配置，将其配置为本机的VMnet8网卡对应的IP</p>
-<p>3.虚拟机的ip地址与配置的ip不一致，图像化桌面中出现auth eth0网卡。出现原因： 网卡信息文件ifcfg-eth0中有多余的HWADDR地址，与MAC地址不同。<br>解决方式：删除HWADDR行，重启网络服务</p>
-<hr>
-<p><a href="#chart9">9.  补充知识 </a></p>
-<p>HWADDR以AA:BB:CC:DD:EE:FF形式表示以太网设备的硬件地址.在有多个网卡设备的机器上，这个字段是非常有用的，它保证设备接口被分配了正确的设备名 ，而不考虑每个网卡模块被配置的加载顺序.这个字段不能和MACADDR一起使用.</p>
-<p>MACADDR以AA:BB:CC:DD:EE:FF形式表示以太网设备的硬件地址.在有多个网卡设备的机器上.这个字段用于给一个接口分配一个MAC地址，覆盖物理分配的MAC地址 . 这个字段不能和HWADDR一起使用.</p>
-<p>前者是用来根据HWADDR绑定ethX名称的，后者才是真正用来修改MAC地址的</p>
-<hr>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/03/22/VMware_Network/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2016/03/22/VMware_Network/" data-id="ciugjf58e00054c73cxi15u8u" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2016/03/22/VMware_Network/" data-id="cj5ac7zub000apguxcu178xyd" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -331,7 +244,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_plugin/" data-id="ciugjf58j000f4c73gdruxzdh" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_plugin/" data-id="cj5ac7zug000kpguxkvvy7xo7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -394,7 +307,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_basic/" data-id="ciugjf58o000j4c73k7tkj3hm" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2016/03/22/Sublime_basic/" data-id="cj5ac7zui000opguxulvgc6mk" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -458,7 +371,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/" data-id="ciugjf58r000m4c73jmbe6ck4" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2015/08/08/Redis_MasterSlave_Deploy/" data-id="cj5ac7zuk000rpgux737snvji" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -521,7 +434,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2015/08/05/Windows_delete/" data-id="ciugjf58600024c738gpwamu6" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2015/08/05/Windows_delete/" data-id="cj5ac7zu90007pguxyqmddz6k" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -578,7 +491,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2015/08/05/Tools_software_I/" data-id="ciugjf58h000a4c732uft7jhl" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2015/08/05/Tools_software_I/" data-id="cj5ac7zud000fpguxmejtpw5f" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -641,7 +554,7 @@ tcpdump -i eth0 -nnX port 21
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gitqh.github.io/2015/08/05/Docker_basic/" data-id="ciugjf58u000r4c739utk78cg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gitqh.github.io/2015/08/05/Docker_basic/" data-id="cj5ac7zum000wpguxiqio9rab" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -750,7 +663,7 @@ tcpdump -i eth0 -nnX port 21
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 qh<br>
+      &copy; 2017 qh<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
