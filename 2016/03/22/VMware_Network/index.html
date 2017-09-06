@@ -1,141 +1,377 @@
-
 <!DOCTYPE html>
-<html>
-
-<script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?cd971688ac0d7782b21aa2b3b1110b11";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
-<head>
-  <meta charset="utf-8">
+
   
-  <title>VMware通过NAT模式配置集群 | qh&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
 
-目录1.  背景知识 
- VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="VMware," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="qh's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。  目录1.  背景知识   VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+<meta name="keywords" content="VMware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VMware通过NAT模式配置集群">
 <meta property="og:url" content="http://gitqh.github.io/2016/03/22/VMware_Network/index.html">
-<meta property="og:site_name" content="qh's blog">
-<meta property="og:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
-
-目录1.  背景知识 
- VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+<meta property="og:site_name" content="qh&#39;s blog">
+<meta property="og:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。  目录1.  背景知识   VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg">
 <meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareHost-only.jpg">
 <meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareNAT.jpg">
 <meta property="og:updated_time" content="2017-07-19T01:27:37.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMware通过NAT模式配置集群">
-<meta name="twitter:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。
+<meta name="twitter:description" content="进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过VMware构建一个分布式集群的虚拟环境并完成网络配置的全过程。  目录1.  背景知识   VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+<meta name="twitter:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg">
 
-目录1.  背景知识 
- VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gitqh.github.io/2016/03/22/VMware_Network/"/>
+
+
+
+
+
+  <title>VMware通过NAT模式配置集群 | qh's blog</title>
   
-    <link rel="alternative" href="/atom.xml" title="qh&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
-<body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">qh&#39;s blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">think twice before action</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        <a id="nav-github-link" class="nav-icon" title="Github" href="https://github.com/gitqh/gitqh.github.io"></a>
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
-          <input name=tn type=hidden value="bds">
-          <input name=cl type=hidden value="3">
-          <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="gitqh.github.io">
-        </form>
-      </div>
-    </div>
-  </div>
-</header>
 
-    <div class="outer">
-      <section id="main"><article id="post-VMware_Network" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/22/VMware_Network/" class="article-date">
-  <time datetime="2016-03-22T10:47:46.000Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Network/">Network</a>
-  </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      VMware通过NAT模式配置集群
-    </h1>
+  
+    
   
 
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">qh's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">think twice before action</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/03/22/VMware_Network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qh's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VMware通过NAT模式配置集群</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-22T18:47:46+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Network/" itemprop="url" rel="index">
+                    <span itemprop="name">Network</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <p>进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过<strong>VMware</strong>构建一个分布式集群的虚拟环境并完成网络配置的全过程。</p>
 <hr>
-<h2 id="目录"><a name="catalog">目录</a></h2><p><a href="#chart1">1.  背景知识 </a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  背景知识 </a></p>
 <p> VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
 <a id="more"></a>
-<h3 id="1-bridged(桥接模式)">1.bridged(桥接模式)</h3><p>在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。在此种模式下，虚拟机内部的网卡（例如linux下的eth0)直接连到了物理网卡所在的网络上，可以想象为虚拟机和host机处于对等的地位，在网络关系上是平等的，没有谁在谁后面的问题。该种方式配置简单，但无法对虚拟机的网络进行控制，另外需要占用额外的IP地址，因此并不推荐选取该种方式进行实验。</p>
+<p>###1.bridged(桥接模式)</p>
+<p>在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。在此种模式下，虚拟机内部的网卡（例如linux下的eth0)直接连到了物理网卡所在的网络上，可以想象为虚拟机和host机处于对等的地位，在网络关系上是平等的，没有谁在谁后面的问题。该种方式配置简单，但无法对虚拟机的网络进行控制，另外需要占用额外的IP地址，因此并不推荐选取该种方式进行实验。</p>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMware%E6%A1%A5%E6%8E%A5.jpg" alt=""></p>
-<h3 id="2-host-only(主机模式)">2.host-only(主机模式)</h3><p>在某些特殊的网络调试环境中，要求将真实环境和虚拟环境隔离开，这时你就可采用host-only模式。在host-only模式中，所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的。</p>
+<p>###2.host-only(主机模式)</p>
+<p>在某些特殊的网络调试环境中，要求将真实环境和虚拟环境隔离开，这时你就可采用host-only模式。在host-only模式中，所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的。</p>
 <p>在host-only模式下，虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。该种方式下虚拟机与主机通信使用虚拟网卡VMNet1，缺点是虚拟机不能访问公网。</p>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareHost-only.jpg" alt=""></p>
-<h3 id="3-NAT(网络地址转换模式)">3.NAT(网络地址转换模式)</h3><p>使用NAT模式，就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。也就是说，使用NAT模式可以实现在虚拟系统里访问互联网。NAT模式下的虚拟系统的TCP/IP配置信息是由VMnet8(NAT)虚拟网络的DHCP服务器提供的，无法进行手工修改，因此虚拟系统也就无法和本局域网中的其他真实主机进行通讯。采用NAT模式最大的优势是虚拟系统接入互联网非常简单，你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可。</p>
+<p>###3.NAT(网络地址转换模式)</p>
+<p>使用NAT模式，就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。也就是说，使用NAT模式可以实现在虚拟系统里访问互联网。NAT模式下的虚拟系统的TCP/IP配置信息是由VMnet8(NAT)虚拟网络的DHCP服务器提供的，无法进行手工修改，因此虚拟系统也就无法和本局域网中的其他真实主机进行通讯。采用NAT模式最大的优势是虚拟系统接入互联网非常简单，你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可。</p>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/VMwareNAT.jpg" alt=""></p>
 <p>提示：以上所提到的NAT模式下的VMnet8虚拟网络，host-only模式下的VMnet1虚拟网络，以及bridged模式下的VMnet0虚拟网络，都是由VMWare虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟网络则不提供。</p>
 <hr>
@@ -169,14 +405,14 @@ var _hmt = _hmt || [];
 </table>
 <p><a href="#chart3">3.  拷贝虚拟机 </a><br>　　<br>将一台已安装CentOS6.6的VMware虚拟机复制两次，并导入VMware。<br>虚拟机通过复制得到，会出现UUID冲突的问题，可通过以下方式解决：</p>
 <p><em>1.删除mac地址行</em></p>
-<pre><code><span class="regexp">/etc/</span>sysconfig<span class="regexp">/network-scripts/i</span>fcfg-eth0
+<pre><code>/etc/sysconfig/network-scripts/ifcfg-eth0
 </code></pre><p><em>2.删除网卡和mac地址绑定文件</em></p>
-<pre><code><span class="keyword">rm</span> -rf /etc/udev/rules.<span class="keyword">d</span>/70-persistent-<span class="keyword">net</span>.rules
+<pre><code>rm -rf /etc/udev/rules.d/70-persistent-net.rules
 </code></pre><p><em>3.重启系统</em></p>
-<pre><code><span class="title">shutdown</span> -r
+<pre><code>shutdown -r
 </code></pre><hr>
 <p><a href="#chart4">4.  修改主机名 </a></p>
-<pre><code>vi <span class="regexp">/etc/</span>hosts
+<pre><code>vi /etc/hosts
 </code></pre><p>分别修改三台虚拟机主机名为node1，node2，node3，保存重启生效</p>
 <hr>
 <p><a href="#chart5">5.  修改网卡信息文件 </a></p>
@@ -188,7 +424,7 @@ var _hmt = _hmt || [];
 </ol>
 <hr>
 <p><a href="#chart6">6.  测试验证 </a></p>
-<p>| Tables | Are | Cool | | ——————- |:——————-:| ——-:| | col 3 is | right-aligned | $1600 | | col 2 is | centered | $12 | | zebra stripes | are neat | $1 |</p>
+<p>| Tables | Are | Cool | | ————- |:————-:| —–:| | col 3 is | right-aligned | $1600 | | col 2 is | centered | $12 | | zebra stripes | are neat | $1 |</p>
 <hr>
 <p><a href="#chart7">7.  常用命令 </a></p>
 <pre><code>ifdown 网卡设备名 #禁用该网卡设备
@@ -196,20 +432,20 @@ var _hmt = _hmt || [];
 ifup 网卡设备名 #启用该网卡设备
 
 netstat 选项
--<span class="ruby">t：列出<span class="constant">TCP</span>协议端口
-</span>-<span class="ruby">u：列出<span class="constant">UDP</span>协议端口
-</span>-<span class="ruby">n：不使用域名与服务名，而使用<span class="constant">IP</span>地址与端口号
-</span>-<span class="ruby">l：列出在监听状态的网络服务
-</span>-<span class="ruby">a：列出所用的网络连接
-</span>
+-t：列出TCP协议端口
+-u：列出UDP协议端口
+-n：不使用域名与服务名，而使用IP地址与端口号
+-l：列出在监听状态的网络服务
+-a：列出所用的网络连接
+
 traceroute [选项] IP或域名 #路由跟踪命令
--<span class="ruby">n：使用<span class="constant">IP</span>，不使用域名，速度更快
-</span>
+-n：使用IP，不使用域名，速度更快
+
 tcpdump -i eth0 -nnX port 21
--<span class="ruby">i：指定网卡接口
-</span>-<span class="ruby">nn：将数据包中的域名与服务转为<span class="constant">IP</span>和端口
-</span>-<span class="ruby"><span class="constant">X</span>：以<span class="number">16</span>进制和<span class="constant">ASCII</span>码显示数据包neir
-</span>port：指定监听端口
+-i：指定网卡接口
+-nn：将数据包中的域名与服务转为IP和端口
+-X：以16进制和ASCII码显示数据包neir
+port：指定监听端口
 </code></pre><hr>
 <p><a href="#chart8">8.  出现问题 </a></p>
 <p>1.虚拟机找不到eth0网卡，出现原因：复制导致虚拟机会将源机的MAC地址作为eth0，后配置的MAC地址vmware会生成一个新网卡eth1,解决方式：打开文件/etc/udev/rules.d/70-persistent-net.rules，删除eth0相关信息，将eth1的NAME改为eth0，重启网络服务</p>
@@ -224,208 +460,357 @@ tcpdump -i eth0 -nnX port 21
 
       
     </div>
-    <footer class="article-footer">
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
       
-        <a data-url="http://gitqh.github.io/2016/03/22/VMware_Network/" data-id="cj5ac7zub000apguxcu178xyd" class="article-share-link" data-share="baidu">分享到</a>
+        <div class="post-tags">
+          
+            <a href="/tags/VMware/" rel="tag"># VMware</a>
+          
+        </div>
       
 
       
-        <a href="http://gitqh.github.io/2016/03/22/VMware_Network/#ds-thread" class="article-comment-link">评论</a>
+      
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VMware/">VMware</a></li></ul>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/Tools_software_I/" rel="prev" title="程序员开发利器软件篇（一）">
+                程序员开发利器软件篇（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
-    <a href="/2016/10/19/gmail_register/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
         
-          教你注册gmail （20161019亲测有效）
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="qh" />
+          <p class="site-author-name" itemprop="name">qh</p>
+           
+              <p class="site-description motion-element" itemprop="description">qh's blog | java | elasticsearch | lucene | .NET | MongoDB</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2016/03/22/Sublime_plugin/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">Sublime Text 插件篇</div>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/22/VMware_Network/" data-title="VMware通过NAT模式配置集群" data-url="http://gitqh.github.io/2016/03/22/VMware_Network/"></div>
-  </section>
-</section>
-      
-      <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Virtualization/">Virtualization</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis-Master—Slave/">Redis Master—Slave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/">Software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/soft-skill/">soft skill</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Redis-Master—Slave/" style="font-size: 10px;">Redis Master—Slave</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Sublime-Text/" style="font-size: 20px;">Sublime Text</a> <a href="/tags/VMware/" style="font-size: 10px;">VMware</a> <a href="/tags/soft-skill/" style="font-size: 10px;">soft skill</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/19/gmail_register/">教你注册gmail （20161019亲测有效）</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/22/VMware_Network/">VMware通过NAT模式配置集群</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/22/Sublime_plugin/">Sublime Text 插件篇</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/08/Redis_MasterSlave_Deploy/">Vmware搭建Redis主从配置实验环境</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">友情链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://tool.oschina.net/apidocs" target="_blank">常用API文档</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-      
-    </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 qh<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
-      .
-      Hosted by <a href="https://gitcafe.com" target="_blank">GitCafe Pages</a>
-    </div>
-  </div>
-</footer>
-
-  </div>
-  <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-  <!-- totop start -->
-<div id="totop">
-<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qh</span>
 </div>
 
-<!-- totop end -->
 
-<!-- 多说公共js代码 start -->
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"gitqh"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共js代码 end -->
-
-
-<!-- 百度分享 start -->
-
-<div id="article-share-box" class="article-share-box">
-  <div id="bdshare" class="bdsharebuttonbox article-share-links">
-    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
-    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
-    <a class="article-share-more" data-cmd="more" title="更多"></a>
-  </div>
-</div>
-<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-<!-- 百度分享 end -->
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
-<script src="/js/script.js" type="text/javascript"></script>
 
-</div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

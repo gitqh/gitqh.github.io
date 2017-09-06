@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Redis Master—Slave," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="qh's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储">
+<meta name="keywords" content="Redis Master—Slave">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vmware搭建Redis主从配置实验环境">
+<meta property="og:url" content="http://gitqh.github.io/2016/08/06/Redis_MasterSlave_Deploy/index.html">
+<meta property="og:site_name" content="qh&#39;s blog">
+<meta property="og:description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-11-30.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-27-10.png">
+<meta property="og:updated_time" content="2015-08-08T08:22:47.091Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vmware搭建Redis主从配置实验环境">
+<meta name="twitter:description" content="Redis （REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括string(字符串)、list(链表)、set(集合)、zset(sorted set：有序集合)和hash（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储">
+<meta name="twitter:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-11-30.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gitqh.github.io/2016/08/06/Redis_MasterSlave_Deploy/"/>
+
+
+
+
+
+  <title>Vmware搭建Redis主从配置实验环境 | qh's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">qh's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">think twice before action</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Redis_MasterSlave_Deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qh's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vmware搭建Redis主从配置实验环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
+                2016-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> Redis </strong>（REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括<strong>string</strong>(字符串)、<strong>list</strong>(链表)、<strong>set</strong>(集合)、<strong>zset</strong>(sorted set：有序集合)和<strong>hash</strong>（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系统，能支持每秒15万以上的读写速率。</p>
+<p>本文记录了自己在vmware虚拟机中搭建Redis主从集群的经验，希望能为想深入学习Redis的朋友提供一些帮助。</p>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  部署环境说明 </a></p>
+<p><a href="#chart2">2.  Vmware准备 </a></p>
+<p><a href="#chart3">3.  Redis下载 </a></p>
+<p><a href="#chart4">4.  Redis编译安装 </a></p>
+<p><a href="#chart5">5.  克隆搭建从服务器 </a></p>
+<p><a href="#chart6">6.  Redis配置 </a></p>
+<p><a href="#chart7">7.  Redis服务启动 </a></p>
+<p><a href="#chart8">8.  Redis测试 </a></p>
+<hr>
+<a id="more"></a>
+<h2 id="1-安装环境说明"><a href="#1-安装环境说明" class="headerlink" title="1.安装环境说明"></a><a name="chart1">1.安装环境说明</a></h2><p>目的：搭建一主两从的Redis集群环境</p>
+<p>版本说明：</p>
+<ul>
+<li><p><code>Vmware：11.1.2</code></p>
+</li>
+<li><p><code>CentOS：6.5</code></p>
+</li>
+<li><p><code>Redis：3.0.3</code></p>
+</li>
+</ul>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="2-Vmware准备"><a href="#2-Vmware准备" class="headerlink" title="2. Vmware准备"></a><a name="chart2">2. Vmware准备</a></h2><ul>
+<li><p>使用Vmware新建一台虚拟机，安装CentOS6.5（或者克隆之前安装过的某台虚拟机），作为Redis主Server</p>
+</li>
+<li><p>修改主Server的网络配置，Vmware克隆的虚拟机会出现无法找到eth0网卡的问题</p>
+<ul>
+<li><p>原因：很多Linux distribution使用udev动态管理设备文件，并根据设备的信息对其进行持久化命名。例如在 Debian etch中，udev会在系统引导的过程中识别网卡，将mac地址和网卡名称对应起来记录在udev的规则脚本中。而VMware会自动生成虚拟机的mac地址。这样，由于基本系统的虚拟机已经记录了该虚拟机的网卡mac地址对应于网卡eth0，在克隆出的虚拟机中由于mac地址发生改变，udev会自动将该mac对应于网卡eth1。以此类推，udev会记录所有已经识别的mac与网卡名的关系，所以每次克隆网卡名称会自动加1，而其实kernel仅仅只识别到一张网卡，跟网卡名相关的网络配置也未发生任何变化。</p>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li><p>执行命令<code>vi /etc/udev/rules.d/70-persistent-net.rules</code>，删除跟NAME=”eth0″相关的行，将eth1相关信息中的eth1替换为eth0</p>
+</li>
+<li><p>接着执行命令<code>reboot</code>,重启系统：</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关闭防火墙</p>
+</li>
+</ul>
+<p>切换至命令行界面，执行<code>Service iptables stop</code>（注意：该方法重启后失效）</p>
+<ul>
+<li>查看主机IP</li>
+</ul>
+<p>执行命令<code>ifconfig</code>，记录主机的局域网IP，本机测试IP为192.168.1.102</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-11-30.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="3-Redis下载"><a href="#3-Redis下载" class="headerlink" title="3. Redis下载"></a><a name="chart3">3. Redis下载</a></h2><p>Redis的下载地址：<a href="http://redis.io/download" target="_blank" rel="external">http://redis.io/download</a>，建议下载Stable稳定版<strong>redis-3.0.3.tar.gz</strong></p>
+<p>下载后可使用Vmware Tools或者Xftp等工具发送到虚拟机中</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="4-Redis编译安装"><a href="#4-Redis编译安装" class="headerlink" title="4. Redis编译安装"></a><a name="chart4">4. Redis编译安装</a></h2><ul>
+<li>解压缩：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">tar xzvf redis-2.0.0-rc4.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>编译：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">make</div></pre></td></tr></table></figure>
+<ul>
+<li>安装：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">cd</span> ./src</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>  安装完成后，会在src目录下生成可执行文件，分别是redis-server、redis-cli、redis-benchmark、redis-stat，它们的作用如下：</p>
+<blockquote>
+<ul>
+<li>redis-server：Redis服务器的daemon启动程序</li>
+<li>redis-cli：Redis命令行操作工具。当然，你也可以用telnet根据其纯文本协议来操作</li>
+<li>redis-benchmark：Redis性能测试工具，测试Redis在你的系统及你的配置下的读写性能</li>
+<li>redis-stat：Redis状态检测工具，可以检测Redis当前状态参数及延迟状况</li>
+</ul>
+</blockquote>
+<ul>
+<li>拷贝：</li>
+</ul>
+<p>为了便于管理，我们建立如下目录<code>/home/redis/bin</code>与<code>/home/redis/etc</code>，将可执行文件及配置文件redis.conf分别拷贝至bin与etc目录下</p>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/Rdies_MasterSlave_deploy_2015-08-02_16-27-10.png" alt=""></p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="5-克隆搭建从服务器"><a href="#5-克隆搭建从服务器" class="headerlink" title="5. 克隆搭建从服务器"></a><a name="chart5">5. 克隆搭建从服务器</a></h2><p>将主Server关机后，克隆两台从Server，修改网络配置并关闭防火墙。</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="6-优化系统配置"><a href="#6-优化系统配置" class="headerlink" title="6. 优化系统配置"></a><a name="chart6">6. 优化系统配置</a></h2><p>查看系统配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysctl.conf</div></pre></td></tr></table></figure>
+<p>添加<code>vm.overcommit_memory=1</code></p>
+<p>刷新配置使之生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sysctl vm.overcommit_memory=1</div></pre></td></tr></table></figure>
+<p>补充介绍：</p>
+<ul>
+<li>如果内存情况比较紧张的话，需要设定内核参数：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/vm/overcommit_memory</div></pre></td></tr></table></figure>
+<ul>
+<li><p>内核参数说明如下：</p>
+<p><code>&gt;overcommit_memory</code>文件指定了内核针对内存分配的策略，其值可以是0、1、2。</p>
+<ul>
+<li><p>0， 表示内核将检查是否有足够的可用内存供应用进程使用；如果有足够的可用内存，内存申请允许；否则，内存申请失败，并把错误返回给应用进程。</p>
+</li>
+<li><p>1， 表示内核允许分配所有的物理内存，而不管当前的内存状态如何。</p>
+</li>
+<li><p>2， 表示内核允许分配超过所有物理内存和交换空间总和的内存</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="7-Redis配置"><a href="#7-Redis配置" class="headerlink" title="7. Redis配置"></a><a name="chart7">7. Redis配置</a></h2><p>编辑<code>redis.conf</code>配置文件（/etc/redis.conf），按需求做出适当调整，主要参数意义如下所示：</p>
+<blockquote>
+<ul>
+<li><code>daemonize：是否以后台daemon方式运行</code></li>
+<li><code>pidfile：pid文件位置</code></li>
+<li><code>port：监听的端口号</code></li>
+<li><code>timeout：请求超时时间</code></li>
+<li><code>loglevel：log信息级别</code></li>
+<li><code>logfile：log文件位置</code></li>
+<li><code>databases：开启数据库的数量</code></li>
+<li><code>save X X：保存快照的频率，第一个X表示多长时间，第二个X表示执行多少次写操作。在一定时间内执行一定数量的写操作时，自动保存快照。可设置多个条件。</code></li>
+<li><code>rdbcompression：是否使用压缩</code></li>
+<li><code>dbfilename：数据快照文件名（只是文件名，不包括目录）</code></li>
+<li><code>dir：数据快照的保存目录（这个是目录）</code></li>
+<li><code>appendonly：是否开启appendonlylog，开启的话每次写操作会记一条log，这会提高数据抗风险能力，但影响效率。</code></li>
+<li><code>appendfsync：appendonlylog如何同步到磁盘（三个选项，分别是每次写都强制调用fsync、每秒启用一次fsync、不调用fsync等待系统自己同步）</code></li>
+<li><code>masterauth：主Server的密码</code></li>
+</ul>
+</blockquote>
+<p>此处修改主服务器的选项为后台启动，密码为123456`</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">daemonize yes</div><div class="line">requirepass 123456</div></pre></td></tr></table></figure>
+<p>修改从服务器的选项为后台启动，slaveof填写主机IP，端口默认为6379，密码为123456</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">daemonize yes</div><div class="line">slaveof 192.168.1.102 6379</div><div class="line">masterauth 123456</div></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="7-Redis服务启动"><a href="#7-Redis服务启动" class="headerlink" title="7. Redis服务启动"></a><a name="chart7">7. Redis服务启动</a></h2><p>在一主两从三台虚拟机上分别执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/home/redis/bin/redis-server /home/redis/etc/redis.conf</div></pre></td></tr></table></figure>
+<p>可通过命令查看是否正常启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#检测后台进程是否存在</span></div><div class="line">ps -ef |grep redis</div><div class="line"><span class="comment">#检测6379端口是否在监听</span></div><div class="line">netstat -lntp | grep 6379</div></pre></td></tr></table></figure>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+<hr>
+<h2 id="8-Redis测试"><a href="#8-Redis测试" class="headerlink" title="8. Redis测试"></a><a name="chart8">8. Redis测试</a></h2><p>执行命令启动redis命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/home/redis/bin/redis-cli</div></pre></td></tr></table></figure>
+<p>在主Server上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> name jack</div></pre></td></tr></table></figure>
+<p>然后在从Server上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">get name</div></pre></td></tr></table></figure>
+<p>如能正确返回name值则说明主从环境搭建成功</p>
+<p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis-Master—Slave/" rel="tag"># Redis Master—Slave</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/06/Sublime_basic/" rel="next" title="Sublime Text 入门篇">
+                <i class="fa fa-chevron-left"></i> Sublime Text 入门篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/Docker_basic/" rel="prev" title="Docker 入门篇">
+                Docker 入门篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="qh" />
+          <p class="site-author-name" itemprop="name">qh</p>
+           
+              <p class="site-description motion-element" itemprop="description">qh's blog | java | elasticsearch | lucene | .NET | MongoDB</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装环境说明"><span class="nav-number">2.</span> <span class="nav-text">1.安装环境说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Vmware准备"><span class="nav-number">3.</span> <span class="nav-text">2. Vmware准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Redis下载"><span class="nav-number">4.</span> <span class="nav-text">3. Redis下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Redis编译安装"><span class="nav-number">5.</span> <span class="nav-text">4. Redis编译安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-克隆搭建从服务器"><span class="nav-number">6.</span> <span class="nav-text">5. 克隆搭建从服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-优化系统配置"><span class="nav-number">7.</span> <span class="nav-text">6. 优化系统配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Redis配置"><span class="nav-number">8.</span> <span class="nav-text">7. Redis配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Redis服务启动"><span class="nav-number">9.</span> <span class="nav-text">7. Redis服务启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Redis测试"><span class="nav-number">10.</span> <span class="nav-text">8. Redis测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qh</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
