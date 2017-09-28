@@ -96,16 +96,17 @@
 
 
 
-<meta name="description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET">
-<meta property="og:type" content="website">
+<meta name="description" content="1. Java关键字final、static使用总结final final：终态，可以修饰非抽象类、非抽象类成员方法和变量 final类：不能被继承，没有子类，final类中的方法默认是final的。如果一个类不需要有子类，且类的实现细节不允许改变，并且这个类不会被扩展，可以设计为final类 final方法：不能被子类的方法覆盖，可以被继承。final方法使用原因：1.锁定方法，防止继承类修改；">
+<meta property="og:type" content="article">
 <meta property="og:title" content="qh&#39;s blog">
-<meta property="og:url" content="http://gitqh.github.io/index.html">
+<meta property="og:url" content="http://gitqh.github.io/2017/09/11/Java_Interview/index.html">
 <meta property="og:site_name" content="qh&#39;s blog">
-<meta property="og:description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET">
+<meta property="og:description" content="1. Java关键字final、static使用总结final final：终态，可以修饰非抽象类、非抽象类成员方法和变量 final类：不能被继承，没有子类，final类中的方法默认是final的。如果一个类不需要有子类，且类的实现细节不允许改变，并且这个类不会被扩展，可以设计为final类 final方法：不能被子类的方法覆盖，可以被继承。final方法使用原因：1.锁定方法，防止继承类修改；">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-28T03:49:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="qh&#39;s blog">
-<meta name="twitter:description" content="qh&apos;s blog | java | elasticsearch | lucene | .NET">
+<meta name="twitter:description" content="1. Java关键字final、static使用总结final final：终态，可以修饰非抽象类、非抽象类成员方法和变量 final类：不能被继承，没有子类，final类中的方法默认是final的。如果一个类不需要有子类，且类的实现细节不允许改变，并且这个类不会被扩展，可以设计为final类 final方法：不能被子类的方法覆盖，可以被继承。final方法使用原因：1.锁定方法，防止继承类修改；">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://gitqh.github.io/"/>
+  <link rel="canonical" href="http://gitqh.github.io/2017/09/11/Java_Interview/"/>
 
 
 
 
 
-  <title>qh's blog</title>
+  <title> | qh's blog</title>
   
 
 
@@ -165,9 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,156 +249,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2017/09/11/Gmail_Register/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/Gmail_Register/" itemprop="url">教你注册gmail （20161019亲测有效）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-11T15:17:34+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skill/" itemprop="url" rel="index">
-                    <span itemprop="name">skill</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/Gmail_Register/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -429,9 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/Java_Interview/" itemprop="url">Unbenannt</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -481,9 +331,7 @@
       
 
       
-        
-          
-            <h2 id="1-Java关键字final、static使用总结"><a href="#1-Java关键字final、static使用总结" class="headerlink" title="1. Java关键字final、static使用总结"></a>1. Java关键字final、static使用总结</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ul>
+        <h2 id="1-Java关键字final、static使用总结"><a href="#1-Java关键字final、static使用总结" class="headerlink" title="1. Java关键字final、static使用总结"></a>1. Java关键字final、static使用总结</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ul>
 <li>final：终态，可以修饰非抽象类、非抽象类成员方法和变量</li>
 <li>final类：不能被继承，没有子类，final类中的方法默认是final的。如果一个类不需要有子类，且类的实现细节不允许改变，并且这个<br>类不会被扩展，可以设计为final类</li>
 <li>final方法：不能被子类的方法覆盖，可以被继承。final方法使用原因：1.锁定方法，防止继承类修改；2.高效，编译器遇到final方法会转入内嵌机制，提高执行效率</li>
@@ -737,8 +585,6 @@
 <h2 id="32-针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小"><a href="#32-针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小" class="headerlink" title="32.针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小"></a>32.针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小</h2><p>如果是CPU密集型应用，则线程池大小设置为N+1<br>如果是IO密集型应用，则线程池大小设置为2N+1<br>最佳线程数目 = （（线程等待时间+线程CPU时间）/线程CPU时间 ）<em> CPU数目<br>最佳线程数目 = （线程等待时间与线程CPU时间之比 + 1）</em> CPU数目<br>（1）高并发、任务执行时间短的业务，线程池线程数可以设置为CPU核数+1，减少线程上下文的切换<br>（2）并发不高、任务执行时间长的业务要区分开看：<br>　　a）假如是业务时间长集中在IO操作上，也就是IO密集型的任务，因为IO操作并不占用CPU，所以不要让所有的CPU闲下来，可以适当加大线程池中的线程数目，让CPU处理更多的业务<br>　　b）假如是业务时间长集中在计算操作上，也就是计算密集型任务，这个就没办法了，和（1）一样吧，线程池中的线程数设置得少一些，减少线程上下文的切换<br>（3）并发高、业务执行时间长，解决这种类型任务的关键不在于线程池而在于整体架构的设计，看看这些业务里面某些数据是否能做缓存是第一步，增加服务器是第二步，至于线程池的设置，设置参考（2）。最后，业务执行时间长的问题，也可能需要分析一下，看看能不能使用中间件对任务进行拆分和解耦。</p>
 <h2 id="33-JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息"><a href="#33-JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息" class="headerlink" title="33.JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息"></a>33.JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息</h2><p>spring ioc 加载类，可以获取类或接口声明的所有方法，包括公共，保护，默认访问和私有方法，但不包括继承的方法。</p>
 
-          
-        
       
     </div>
     
@@ -755,168 +601,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Docker_basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Docker_basic/" itemprop="url">Docker 入门篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
+              <a href="/2016/08/06/Docker_basic/" rel="next" title="Docker 入门篇">
+                <i class="fa fa-chevron-left"></i> Docker 入门篇
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/09/11/Gmail_Register/" rel="prev" title="教你注册gmail （20161019亲测有效）">
+                教你注册gmail （20161019亲测有效） <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Virtualization/" itemprop="url" rel="index">
-                    <span itemprop="name">Virtualization</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。</p>
-<hr>
-<h2 id="1-Docker是什么？"><a href="#1-Docker是什么？" class="headerlink" title="1.Docker是什么？"></a>1.Docker是什么？</h2><ul>
-<li><p><strong>Docker</strong>是2013年dotCloud公司的一个业余项目，采用<strong>go</strong>语言实现，在github进行维护。</p>
-</li>
-<li><p>项目的目标是<strong>实现轻量级的操作系统虚拟化解决方案</strong>，Docker的基础是<strong>Linux容器</strong>等技术，目前只能在linux平台工作。</p>
-</li>
-<li><p>目前，微软与Docker公司建立了新的合作伙伴关系，以便在Windows Server上增加对Docker工具的支持，微软开发技术公司将向Docker客户端贡献代码。</p>
-</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Docker_basic/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -926,936 +636,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Tools_software_I/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Tools_software_I/" itemprop="url">程序员开发利器软件篇（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>用合适的工作做合适的事情，想成为一名高效的工程师，充分利用已有的工具可以帮你事半功倍。本系列计划分为硬件篇与软件篇，<br>旨在帮你打造Widows平台下的高效工作环境，希望能够为你节省工作中的点滴时间，去更好的享受生活。</p>
-<hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  everything </a></p>
-<p><a href="#chart2">2.  Filelocator Pro</a></p>
-<p><a href="#chart3">3.  dexpot </a></p>
-<p><a href="#chart4">4.  EmEditor </a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Tools_software_I/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Sublime_basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Sublime_basic/" itemprop="url">Sublime Text 入门篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Sublime Text作为一款优秀的跨平台（Linus、OS X、Windows）编辑器，因其具有可扩展性强，学习曲线平滑等优点，在前端开发中具有较为明显的优势。本文以Sublime Text3为例，与大家分享一些有关Sublime Text的经验与技巧。</p>
-<hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  安装（Installation）</a></p>
-<p><a href="#chart2">2.  窗口（Window）</a></p>
-<p><a href="#chart3">3.  主题（Theme）</a></p>
-<p><a href="#chart4">4.  编辑（Editing）</a></p>
-<p><a href="#chart5">5.  插件（Plug-in）</a></p>
-<p><a href="#chart6">6.  编码（Coding）</a></p>
-<p><a href="#chart7">7.  快捷键（Shortcuts）</a></p>
-<p><a href="#chart8">8.  引用（General）</a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Sublime_basic/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Sublime_plugin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Sublime_plugin/" itemprop="url">Sublime Text 插件篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Sublime Text支持丰富的扩展及插件，使其在前端开发与编写动态语言时具有可以媲美IDE的效率。本文以Sublime Text3为例，分类别对常用插件进行简单的介绍。</p>
-<p><strong>建议：</strong>阅读本文前，请先阅读<a href="/2016/03/22/Sublime_basic/">Sublime Text 入门篇</a></p>
-<hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  格式化（Format）</a></p>
-<p><a href="#chart2">2.  智能提示（Intelligent Prompt）</a></p>
-<p><a href="#chart3">3.  编码（Encoding）</a></p>
-<p><a href="#chart4">4.  版本控制（Version Control）</a></p>
-<p><a href="#chart5">5.  前端必备（Web UI）</a></p>
-<p><a href="#chart6">6.  功能增强（Enhancement）</a></p>
-<p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Sublime_plugin/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Windows_delete/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Windows_delete/" itemprop="url">解决Windows文件名过长无法删除问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index">
-                    <span itemprop="name">Windows</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。</p>
-<p>借此机会，总结一下Windows下文件无法删除的解决方法。</p>
-<hr>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Windows下文件无法删除的原因主要有以下两种：</p>
-<ol>
-<li><p>文件名称过长</p>
-</li>
-<li><p>文件目录嵌套过深</p>
-</li>
-</ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Windows_delete/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/08/06/Redis_MasterSlave_Deploy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/06/Redis_MasterSlave_Deploy/" itemprop="url">Vmware搭建Redis主从配置实验环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-06T21:15:43+08:00">
-                2016-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Redis/" itemprop="url" rel="index">
-                    <span itemprop="name">Redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong> Redis </strong>（REmote DIctionary Server）是一个类似于Memcached的Key-Value存储系统。相比Memcached，它支持更丰富的数据结构，包括<strong>string</strong>(字符串)、<strong>list</strong>(链表)、<strong>set</strong>(集合)、<strong>zset</strong>(sorted set：有序集合)和<strong>hash</strong>（哈希类型），并提供了数据持久化机制，在某些场景下，你完全可以把它当做非关系型数据库来使用。它是一个高性能的存储系统，能支持每秒15万以上的读写速率。</p>
-<p>本文记录了自己在vmware虚拟机中搭建Redis主从集群的经验，希望能为想深入学习Redis的朋友提供一些帮助。</p>
-<hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  部署环境说明 </a></p>
-<p><a href="#chart2">2.  Vmware准备 </a></p>
-<p><a href="#chart3">3.  Redis下载 </a></p>
-<p><a href="#chart4">4.  Redis编译安装 </a></p>
-<p><a href="#chart5">5.  克隆搭建从服务器 </a></p>
-<p><a href="#chart6">6.  Redis配置 </a></p>
-<p><a href="#chart7">7.  Redis服务启动 </a></p>
-<p><a href="#chart8">8.  Redis测试 </a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/06/Redis_MasterSlave_Deploy/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2016/03/22/VMware_Network/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qh's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/22/VMware_Network/" itemprop="url">VMware通过NAT模式配置集群</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-22T18:47:46+08:00">
-                2016-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network/" itemprop="url" rel="index">
-                    <span itemprop="name">Network</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>进行分布式系统开发的过程中经常会需要构建分布式测试环境，本文主要介绍通过<strong>VMware</strong>构建一个分布式集群的虚拟环境并完成网络配置的全过程。</p>
-<hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="catalog">目录</a></h2><p><a href="#chart1">1.  背景知识 </a></p>
-<p> VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/03/22/VMware_Network/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1863,6 +648,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1883,8 +672,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -1953,6 +751,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Java关键字final、static使用总结"><span class="nav-number">1.</span> <span class="nav-text">1. Java关键字final、static使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final"><span class="nav-number">1.1.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number">1.2.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-final"><span class="nav-number">1.3.</span> <span class="nav-text">static final</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-匿名内部类是什么？如何访问在其外面定义的变量。"><span class="nav-number">2.</span> <span class="nav-text">2. 匿名内部类是什么？如何访问在其外面定义的变量。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类的创建"><span class="nav-number">2.1.</span> <span class="nav-text">匿名内部类的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用原则"><span class="nav-number">2.3.</span> <span class="nav-text">使用原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.4.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何理解分布式锁"><span class="nav-number">3.</span> <span class="nav-text">3. 如何理解分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁"><span class="nav-number">3.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁的类型"><span class="nav-number">3.2.</span> <span class="nav-text">锁的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式锁"><span class="nav-number">3.3.</span> <span class="nav-text">分布式锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-mysql两种引擎InnoDB与MyISAM对比"><span class="nav-number">4.</span> <span class="nav-text">4. mysql两种引擎InnoDB与MyISAM对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-jvm加载一个类的过程，双亲委派模型中有哪些方法"><span class="nav-number">5.</span> <span class="nav-text">5. jvm加载一个类的过程，双亲委派模型中有哪些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jvm类加载机制："><span class="nav-number">5.1.</span> <span class="nav-text">jvm类加载机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双亲委派模型"><span class="nav-number">5.2.</span> <span class="nav-text">双亲委派模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-JVM内存结构"><span class="nav-number">6.</span> <span class="nav-text">6. JVM内存结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-GC算法"><span class="nav-number">7.</span> <span class="nav-text">7. GC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象存活"><span class="nav-number">7.1.</span> <span class="nav-text">判断对象存活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">7.2.</span> <span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器–垃圾收集算法的具体实现"><span class="nav-number">7.3.</span> <span class="nav-text">垃圾收集器–垃圾收集算法的具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS和G1的比较，以及G1的缺点，S0、S1要解决什么样的问题"><span class="nav-number">7.4.</span> <span class="nav-text">CMS和G1的比较，以及G1的缺点，S0、S1要解决什么样的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗"><span class="nav-number">8.</span> <span class="nav-text">8. 线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-mysql的查询慢了，如何优化索引"><span class="nav-number">9.</span> <span class="nav-text">9.mysql的查询慢了，如何优化索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"><span class="nav-number">10.</span> <span class="nav-text">10.Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题"><span class="nav-number">11.</span> <span class="nav-text">11.InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一级别-Read-Uncommitted（读取未提交内容）"><span class="nav-number">11.1.</span> <span class="nav-text">第一级别 Read Uncommitted（读取未提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二级别-Read-Committed（读取提交内容）"><span class="nav-number">11.2.</span> <span class="nav-text">第二级别 Read Committed（读取提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三级别-Repeatable-Read-（可重复读）"><span class="nav-number">11.3.</span> <span class="nav-text">第三级别 Repeatable Read （可重复读）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四级别-Serializable-（可串行化）"><span class="nav-number">11.4.</span> <span class="nav-text">第四级别 Serializable  （可串行化）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的"><span class="nav-number">12.</span> <span class="nav-text">12.分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用数据库的auto-increment生成主键"><span class="nav-number">12.1.</span> <span class="nav-text">使用数据库的auto_increment生成主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点批量ID生成服务"><span class="nav-number">12.2.</span> <span class="nav-text">单点批量ID生成服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuid"><span class="nav-number">12.3.</span> <span class="nav-text">uuid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取当前毫秒数-微秒数"><span class="nav-number">12.4.</span> <span class="nav-text">取当前毫秒数/微秒数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SnowFlake算法-twitter开源的分布式ID生成算法"><span class="nav-number">12.5.</span> <span class="nav-text">SnowFlake算法 twitter开源的分布式ID生成算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-linux进程间的通信方式"><span class="nav-number">13.</span> <span class="nav-text">13.linux进程间的通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-mysql索引失效的几种情况"><span class="nav-number">14.</span> <span class="nav-text">14.mysql索引失效的几种情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-数据库范式"><span class="nav-number">15.</span> <span class="nav-text">15.数据库范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-InnoDB主键索引与普通索引的区别和查询时的过程"><span class="nav-number">16.</span> <span class="nav-text">16.InnoDB主键索引与普通索引的区别和查询时的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-sql查询两个数据集的补集"><span class="nav-number">17.</span> <span class="nav-text">17.sql查询两个数据集的补集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-mysql索引B-tree的原理"><span class="nav-number">18.</span> <span class="nav-text">18.mysql索引B-tree的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-如何分库分表"><span class="nav-number">19.</span> <span class="nav-text">19.如何分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分表"><span class="nav-number">19.1.</span> <span class="nav-text">分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分库"><span class="nav-number">19.2.</span> <span class="nav-text">分库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-Linux下如何进行进程调度的"><span class="nav-number">20.</span> <span class="nav-text">20.Linux下如何进行进程调度的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-redis-memcached区别，应用场景"><span class="nav-number">21.</span> <span class="nav-text">21.redis memcached区别，应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-如何解决Cookie盗取问题"><span class="nav-number">22.</span> <span class="nav-text">22.如何解决Cookie盗取问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-线程同步工具类"><span class="nav-number">23.</span> <span class="nav-text">23.线程同步工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-给你三个线程，分别处理任务，再交给主线程，你如何实现。"><span class="nav-number">24.</span> <span class="nav-text">24.给你三个线程，分别处理任务，再交给主线程，你如何实现。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-线程池底层实现"><span class="nav-number">25.</span> <span class="nav-text">25.线程池底层实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-servlet生命周期"><span class="nav-number">26.</span> <span class="nav-text">26.servlet生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-创建多线程的几种方式及区别"><span class="nav-number">27.</span> <span class="nav-text">27.创建多线程的几种方式及区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-wait-sleep区别"><span class="nav-number">28.</span> <span class="nav-text">28.wait,sleep区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-多线程实现同步方式–阻塞-互斥-同步，非阻塞同步"><span class="nav-number">29.</span> <span class="nav-text">29.多线程实现同步方式–阻塞(互斥)同步，非阻塞同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30-java8的新特性，做一个List到Map的转换"><span class="nav-number">30.</span> <span class="nav-text">30.java8的新特性，做一个List到Map的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31-java线程池的实现，以及溢出的时候的抛弃策略"><span class="nav-number">31.</span> <span class="nav-text">31.java线程池的实现，以及溢出的时候的抛弃策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小"><span class="nav-number">32.</span> <span class="nav-text">32.针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息"><span class="nav-number">33.</span> <span class="nav-text">33.JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2066,10 +880,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
