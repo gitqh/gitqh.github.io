@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="soft skill," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -96,18 +96,23 @@
 
 
 
-<meta name="description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
-<meta name="keywords" content="soft skill">
+<meta name="description" content="今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。 借此机会，总结一下Windows下文件无法删除的解决方法。  问题Windows下文件无法删除的原因主要有以下两种：  文件名称过长  文件目录嵌套过深">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教你注册gmail （20161019亲测有效）">
-<meta property="og:url" content="http://gitqh.github.io/2017/09/11/Gmail_Register/index.html">
+<meta property="og:title" content="解决Windows文件名过长无法删除问题">
+<meta property="og:url" content="http://gitqh.github.io/2017/09/11/Windows_delete/index.html">
 <meta property="og:site_name" content="qh&#39;s blog">
-<meta property="og:description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
+<meta property="og:description" content="今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。 借此机会，总结一下Windows下文件无法删除的解决方法。  问题Windows下文件无法删除的原因主要有以下两种：  文件名称过长  文件目录嵌套过深">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-10-19T05:57:44.000Z">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_17-46-38.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-05-17.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-06-25.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-00-31.png">
+<meta property="og:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-01-37.png">
+<meta property="og:updated_time" content="2015-07-28T13:47:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教你注册gmail （20161019亲测有效）">
-<meta name="twitter:description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
+<meta name="twitter:title" content="解决Windows文件名过长无法删除问题">
+<meta name="twitter:description" content="今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。 借此机会，总结一下Windows下文件无法删除的解决方法。  问题Windows下文件无法删除的原因主要有以下两种：  文件名称过长  文件目录嵌套过深">
+<meta name="twitter:image" content="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_17-46-38.png">
 
 
 
@@ -136,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://gitqh.github.io/2017/09/11/Gmail_Register/"/>
+  <link rel="canonical" href="http://gitqh.github.io/2017/09/11/Windows_delete/"/>
 
 
 
 
 
-  <title>教你注册gmail （20161019亲测有效） | qh's blog</title>
+  <title>解决Windows文件名过长无法删除问题 | qh's blog</title>
   
 
 
@@ -265,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2017/09/11/Gmail_Register/">
+    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2017/09/11/Windows_delete/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qh">
@@ -282,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">教你注册gmail （20161019亲测有效）</h1>
+          <h1 class="post-title" itemprop="name headline">解决Windows文件名过长无法删除问题</h1>
         
 
         <div class="post-meta">
@@ -317,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skill/" itemprop="url" rel="index">
-                    <span itemprop="name">skill</span>
+                  <a href="/categories/Windows/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows</span>
                   </a>
                 </span>
 
@@ -354,26 +359,47 @@
       
 
       
-        <p>在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。</p>
+        <p>今天在windows平台下学习yeoman的时候遇到一个问题，yeoman通过generator生成的项目中的依赖模块层级太深，无法删除。</p>
+<p>借此机会，总结一下Windows下文件无法删除的解决方法。</p>
+<hr>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Windows下文件无法删除的原因主要有以下两种：</p>
+<ol>
+<li><p>文件名称过长</p>
+</li>
+<li><p>文件目录嵌套过深</p>
+</li>
+</ol>
 <hr>
 <a id="more"></a>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li><p>chrome浏览器升级到最新版</p>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><p>Linux文件名的长度限制是255个字符</p>
 </li>
-<li><p>有自由翻墙的VPN</p>
+<li><p>windows下完全限定文件名必须少于260个字符，目录名必须小于248个字符。</p>
 </li>
 </ul>
 <hr>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>连接VPN</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1-文件名称过长"><a href="#1-文件名称过长" class="headerlink" title="1. 文件名称过长"></a>1. 文件名称过长</h3><p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_17-46-38.png" alt=""></p>
+<ul>
+<li><p>在文件所在目录点击 <code>shift + 鼠标右键</code> ，选择<strong>在当前目录打开命令行窗口</strong></p>
 </li>
-<li><p>打开chrome 设置-&gt;登录-&gt;登录chrome （这一步最为关键）</p>
+<li><p>使用命令 <code>dir /x</code> ，显示系统长文件名对应的缩短文件名（在文件大小和原文件名之间会有一个缩短名称）</p>
 </li>
-<li><p>填入要注册的gmail账户</p>
-</li>
-<li><p>验证手机号，选择中国，即可收到短信</p>
-</li>
-</ol>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-05-17.png" alt=""></p>
+<ul>
+<li>使用del命令+短文件名进行删除，删除后按 <code>F5</code> 进行刷新，可以发现文件已经被删掉了</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-06-25.png" alt=""></p>
+<hr>
+<h3 id="2-文件目录嵌套过深"><a href="#2-文件目录嵌套过深" class="headerlink" title="2. 文件目录嵌套过深"></a>2. 文件目录嵌套过深</h3><p>对于文件目录嵌套过深的问题，可以自上问下逐级修改文件夹名称为短名称，如”\1\1…”等，但如果文件数较多，使用该方法工作量就太大了，下面另辟蹊径，借用压缩软件<strong>winrar</strong>来解决该问题。</p>
+<ul>
+<li>安装<a href="http://www.winrar.com.cn/" target="_blank" rel="external">winrar</a>，右键点击待删除文件，选择添加到压缩文件</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-00-31.png" alt=""></p>
+<ul>
+<li>选择压缩后删除原来的文件</li>
+</ul>
+<p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/windows_delete_2015-07-26_18-01-37.png" alt=""></p>
 
       
     </div>
@@ -389,12 +415,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/soft-skill/" rel="tag"># soft skill</a>
-          
-        </div>
-      
 
       
       
@@ -404,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/Java_Interview/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/03/22/VMware_Network/" rel="next" title="VMware通过NAT模式配置集群">
+                <i class="fa fa-chevron-left"></i> VMware通过NAT模式配置集群
               </a>
             
           </div>
@@ -414,8 +434,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/11/Docker_basic/" rel="prev" title="Docker 入门篇">
-                Docker 入门篇 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/11/Sublime_plugin/" rel="prev" title="Sublime Text 插件篇">
+                Sublime Text 插件篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">2.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-文件名称过长"><span class="nav-number">3.1.</span> <span class="nav-text">1. 文件名称过长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-文件目录嵌套过深"><span class="nav-number">3.2.</span> <span class="nav-text">2. 文件目录嵌套过深</span></a></li></ol></li></ol></div>
             
 
           </div>

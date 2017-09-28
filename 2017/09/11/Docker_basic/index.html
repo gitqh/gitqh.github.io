@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="soft skill," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -96,18 +96,17 @@
 
 
 
-<meta name="description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
-<meta name="keywords" content="soft skill">
+<meta name="description" content="Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。  1.Docker是什么？ Docker是2013年dotCloud公司的一个业余项目，采用go语言实现，在github进行维护。  项目的目标是实现轻量级的操作系统虚拟化解决方案，Docker的基础是Linux容器等技术，目前只能在linux平台工作。  目前，微软与D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教你注册gmail （20161019亲测有效）">
-<meta property="og:url" content="http://gitqh.github.io/2017/09/11/Gmail_Register/index.html">
+<meta property="og:title" content="Docker 入门篇">
+<meta property="og:url" content="http://gitqh.github.io/2017/09/11/Docker_basic/index.html">
 <meta property="og:site_name" content="qh&#39;s blog">
-<meta property="og:description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
+<meta property="og:description" content="Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。  1.Docker是什么？ Docker是2013年dotCloud公司的一个业余项目，采用go语言实现，在github进行维护。  项目的目标是实现轻量级的操作系统虚拟化解决方案，Docker的基础是Linux容器等技术，目前只能在linux平台工作。  目前，微软与D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-10-19T05:57:44.000Z">
+<meta property="og:updated_time" content="2015-07-28T14:30:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教你注册gmail （20161019亲测有效）">
-<meta name="twitter:description" content="在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。">
+<meta name="twitter:title" content="Docker 入门篇">
+<meta name="twitter:description" content="Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。  1.Docker是什么？ Docker是2013年dotCloud公司的一个业余项目，采用go语言实现，在github进行维护。  项目的目标是实现轻量级的操作系统虚拟化解决方案，Docker的基础是Linux容器等技术，目前只能在linux平台工作。  目前，微软与D">
 
 
 
@@ -136,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://gitqh.github.io/2017/09/11/Gmail_Register/"/>
+  <link rel="canonical" href="http://gitqh.github.io/2017/09/11/Docker_basic/"/>
 
 
 
 
 
-  <title>教你注册gmail （20161019亲测有效） | qh's blog</title>
+  <title>Docker 入门篇 | qh's blog</title>
   
 
 
@@ -265,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2017/09/11/Gmail_Register/">
+    <link itemprop="mainEntityOfPage" href="http://gitqh.github.io/2017/09/11/Docker_basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qh">
@@ -282,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">教你注册gmail （20161019亲测有效）</h1>
+          <h1 class="post-title" itemprop="name headline">Docker 入门篇</h1>
         
 
         <div class="post-meta">
@@ -317,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skill/" itemprop="url" rel="index">
-                    <span itemprop="name">skill</span>
+                  <a href="/categories/Virtualization/" itemprop="url" rel="index">
+                    <span itemprop="name">Virtualization</span>
                   </a>
                 </span>
 
@@ -354,26 +353,52 @@
       
 
       
-        <p>在注册gmail验证手机号码的时候，大家经常遇到提示“此号码不能用于验证”的问题，上午摸索出一个可行的方法，分享给大家。</p>
+        <p>Docker是2014年较为热门的技术，本文作为一篇入门教程，通过以下四个问题的解答，希望能够使读者对Docker有一些认识。</p>
 <hr>
-<a id="more"></a>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li><p>chrome浏览器升级到最新版</p>
+<h2 id="1-Docker是什么？"><a href="#1-Docker是什么？" class="headerlink" title="1.Docker是什么？"></a>1.Docker是什么？</h2><ul>
+<li><p><strong>Docker</strong>是2013年dotCloud公司的一个业余项目，采用<strong>go</strong>语言实现，在github进行维护。</p>
 </li>
-<li><p>有自由翻墙的VPN</p>
+<li><p>项目的目标是<strong>实现轻量级的操作系统虚拟化解决方案</strong>，Docker的基础是<strong>Linux容器</strong>等技术，目前只能在linux平台工作。</p>
+</li>
+<li><p>目前，微软与Docker公司建立了新的合作伙伴关系，以便在Windows Server上增加对Docker工具的支持，微软开发技术公司将向Docker客户端贡献代码。</p>
 </li>
 </ul>
 <hr>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>连接VPN</p>
-</li>
-<li><p>打开chrome 设置-&gt;登录-&gt;登录chrome （这一步最为关键）</p>
-</li>
-<li><p>填入要注册的gmail账户</p>
-</li>
-<li><p>验证手机号，选择中国，即可收到短信</p>
-</li>
-</ol>
+<a id="more"></a>
+<h2 id="2-Docker与传统虚拟化解决方案相比，优势在哪里？"><a href="#2-Docker与传统虚拟化解决方案相比，优势在哪里？" class="headerlink" title="2.Docker与传统虚拟化解决方案相比，优势在哪里？"></a>2.Docker与传统虚拟化解决方案相比，优势在哪里？</h2><p>Docker通过容器在操作系统层面实现虚拟化，传统方式则是在硬件层面通过虚拟机形式实现。</p>
+<hr>
+<h2 id="3-Docker解决了哪些实际问题？"><a href="#3-Docker解决了哪些实际问题？" class="headerlink" title="3.Docker解决了哪些实际问题？"></a>3.Docker解决了哪些实际问题？</h2><ul>
+<li>更快速的交付和部署</li>
+</ul>
+<p>对开发和运维（devop）人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。开发者可以使用一个标准的镜像来构建一套开发容器，开发完成之后，运维人员可以直接使用这个容器来部署代码。 Docker可以快速创建容器，快速迭代应用程序，并让整个过程全程可见，使团队中的其他成员更容易理解应用程序是如何创建和工作的。Docker容器的启动时间是秒级的，大量地节约开发、测试、部署的时间。</p>
+<ul>
+<li>更高效的虚拟化</li>
+</ul>
+<p>Docker容器运行不需要hypervisor支持，它是内核级的虚拟化，有更高的性能和效率。</p>
+<p>Hypervisor是一种运行在物理服务器和操作系统之间的中间软件层,可允许多个操作系统和应用共享一套基础物理硬件，因此也可以看作是虚拟环境中的“元”操作系统，它可以协调访问服务器上的所有物理设备和虚拟机，也叫虚拟机监视器（Virtual Machine Monitor）</p>
+<ul>
+<li>更轻松的迁移与扩展</li>
+</ul>
+<p>Docker 容器几乎可以在任意的平台上运行，包括物理机、虚拟机、公有云、私有云、个人电脑、服务器等。 这种兼容性可以让用户把一个应用程序从一个平台直接迁移到另外一个。</p>
+<ul>
+<li>更简单的管理</li>
+</ul>
+<p>使用Docker，所有的修改都以增量的方式被分发和更新，从而实现自动化并且高效的管理。</p>
+<hr>
+<h2 id="4-Docker引入了哪些技术？"><a href="#4-Docker引入了哪些技术？" class="headerlink" title="4.Docker引入了哪些技术？"></a>4.Docker引入了哪些技术？</h2><ul>
+<li>镜像</li>
+</ul>
+<p>Docker 镜像就是一个只读的模板。例如：一个镜像可以包含一个完整的ubuntu操作系统环境，里面仅安装了 Apache 或用户需要的其它应用程序。</p>
+<p>镜像可以用来创建 Docker 容器。Docker 提供了一个很简单的机制来创建镜像或者更新现有的镜像，用户也可以从仓库下载已经做好的镜像来直接使用。</p>
+<ul>
+<li>容器</li>
+</ul>
+<p>Docker 利用容器来运行应用。容器是从镜像创建的运行实例。它可以被启动、开始、停止、删除。每个容器都是相互隔离的、保证安全的平台。</p>
+<p>可以把容器看做是一个简易版的Linux环境（包括root用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序。</p>
+<ul>
+<li>仓库</li>
+</ul>
+<p>与github仓库的托管服务类似，docker hub，dockerpoo是目前比较常用的公开仓库，用户可以实现上传或下载。</p>
 
       
     </div>
@@ -389,12 +414,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/soft-skill/" rel="tag"># soft skill</a>
-          
-        </div>
-      
 
       
       
@@ -404,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/Java_Interview/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/09/11/Gmail_Register/" rel="next" title="教你注册gmail （20161019亲测有效）">
+                <i class="fa fa-chevron-left"></i> 教你注册gmail （20161019亲测有效）
               </a>
             
           </div>
@@ -413,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/11/Docker_basic/" rel="prev" title="Docker 入门篇">
-                Docker 入门篇 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Docker是什么？"><span class="nav-number">1.</span> <span class="nav-text">1.Docker是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Docker与传统虚拟化解决方案相比，优势在哪里？"><span class="nav-number">2.</span> <span class="nav-text">2.Docker与传统虚拟化解决方案相比，优势在哪里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Docker解决了哪些实际问题？"><span class="nav-number">3.</span> <span class="nav-text">3.Docker解决了哪些实际问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Docker引入了哪些技术？"><span class="nav-number">4.</span> <span class="nav-text">4.Docker引入了哪些技术？</span></a></li></ol></div>
             
 
           </div>
