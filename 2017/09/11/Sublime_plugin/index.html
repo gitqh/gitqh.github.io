@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -75,7 +50,22 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Sublime Text," />
@@ -85,11 +75,6 @@
 
 
   <link rel="alternate" href="/atom.xml" title="qh's blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -129,11 +114,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -166,12 +152,6 @@
 
 
 
-
-
-
-
-
-
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -181,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -232,17 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
+            Archives
           </a>
         </li>
       
@@ -306,7 +276,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-11T15:17:34+08:00">
                 2017-09-11
@@ -327,7 +297,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -380,44 +350,44 @@
 <p><a href="#chart7">7.  个人插件快捷键配置（Personal Settings）</a></p>
 <hr>
 <a id="more"></a>
-<h2 id="格式化（Format）"><a href="#格式化（Format）" class="headerlink" title="格式化（Format）"></a><a name="chart1">格式化（Format）</a></h2><h3 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="external">Alignment</a></h3><ul>
+<h2 id="格式化（Format）"><a href="#格式化（Format）" class="headerlink" title="格式化（Format）"></a><a name="chart1">格式化（Format）</a></h2><h3 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="noopener">Alignment</a></h3><ul>
 <li><p>简介：变量定义太多，可以一键使 “=” 对齐</p>
 </li>
 <li><p>使用：默认快捷键 <code>Ctrl + Alt + A</code> 与qq截屏快捷键冲突，可以设置其他快捷键如 <code>Ctrl + Shift + Alt + A</code></p>
 </li>
 </ul>
 <p><img src="/temp/sublime_plugin/align.gif" alt=""></p>
-<h3 id="TrailingSpacers"><a href="#TrailingSpacers" class="headerlink" title="TrailingSpacers"></a><a href="https://github.com/SublimeText/TrailingSpaces" target="_blank" rel="external">TrailingSpacers</a></h3><ul>
+<h3 id="TrailingSpacers"><a href="#TrailingSpacers" class="headerlink" title="TrailingSpacers"></a><a href="https://github.com/SublimeText/TrailingSpaces" target="_blank" rel="noopener">TrailingSpacers</a></h3><ul>
 <li><p>简介：TrailingSpacers这款插件可以高亮显示多余的空格及空行，并可以一键删除。</p>
 </li>
 <li><p>使用：安装插件需重启Sublime，可在快捷键配置文件Key Binding-User中设置快捷键 <code>Ctrl + Alt + D</code></p>
 </li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+d"</span>],</div><div class="line">    <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+d"</span>],</span><br><span class="line">    <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>效果：</li>
 </ul>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_spac.gif" alt=""></p>
-<h3 id="JSFormat"><a href="#JSFormat" class="headerlink" title="JSFormat"></a><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="external">JSFormat</a></h3><ul>
+<h3 id="JSFormat"><a href="#JSFormat" class="headerlink" title="JSFormat"></a><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="noopener">JSFormat</a></h3><ul>
 <li><p>简介：JSFormat插件可以帮助我们将经过压缩或混淆处理的js代码处理为标准格式，包括换行及缩进。</p>
 </li>
 <li><p>使用：在已压缩的JS文件中，右键选择jsFormat或者使用自定义快捷键 <code>Ctrl + Alt + L</code></p>
 </li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+l"</span>],</div><div class="line">    <span class="attr">"command"</span>: <span class="string">"js_format"</span>,</div><div class="line">    <span class="attr">"context"</span>: [&#123;<span class="attr">"key"</span>: <span class="string">"selector"</span>, <span class="attr">"operator"</span>: <span class="string">"equal"</span>, <span class="attr">"operand"</span>: <span class="string">"source.js,source.json"</span>&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+l"</span>],</span><br><span class="line">    <span class="attr">"command"</span>: <span class="string">"js_format"</span>,</span><br><span class="line">    <span class="attr">"context"</span>: [&#123;<span class="attr">"key"</span>: <span class="string">"selector"</span>, <span class="attr">"operator"</span>: <span class="string">"equal"</span>, <span class="attr">"operand"</span>: <span class="string">"source.js,source.json"</span>&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>效果：</li>
 </ul>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_jsFormat.gif" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="智能提示（Intelligent-Prompt）"><a href="#智能提示（Intelligent-Prompt）" class="headerlink" title="智能提示（Intelligent Prompt）"></a><a name="chart2">智能提示（Intelligent Prompt）</a></h2><h3 id="LESS"><a href="#LESS" class="headerlink" title="LESS"></a><a href="https://packagecontrol.io/packages/LESS" target="_blank" rel="external">LESS</a></h3><ul>
+<h2 id="智能提示（Intelligent-Prompt）"><a href="#智能提示（Intelligent-Prompt）" class="headerlink" title="智能提示（Intelligent Prompt）"></a><a name="chart2">智能提示（Intelligent Prompt）</a></h2><h3 id="LESS"><a href="#LESS" class="headerlink" title="LESS"></a><a href="https://packagecontrol.io/packages/LESS" target="_blank" rel="noopener">LESS</a></h3><ul>
 <li><p>简介：使用该插件，可以支持less语法高亮</p>
 </li>
 <li><p>使用：打开.less文件或者使用快捷键 <code>Ctrl + Shift + P</code>，输入SSL</p>
 </li>
 </ul>
-<h3 id="Bracket-Highlighter"><a href="#Bracket-Highlighter" class="headerlink" title="Bracket Highlighter"></a><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">Bracket Highlighter</a></h3><ul>
+<h3 id="Bracket-Highlighter"><a href="#Bracket-Highlighter" class="headerlink" title="Bracket Highlighter"></a><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="noopener">Bracket Highlighter</a></h3><ul>
 <li><p>简介：可匹配[], (), {}, “”, ”, <tag></tag>，高亮标记，便于查看起始和结束标记</p>
 </li>
 <li><p>使用：点击对应代码</p>
@@ -426,14 +396,14 @@
 </li>
 </ul>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_highlight.gif" alt=""></p>
-<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="external">jQuery</a></h3><ul>
+<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="noopener">jQuery</a></h3><ul>
 <li><p>简介：对jQuery函数进行智能提示</p>
 </li>
 <li><p>效果：</p>
 </li>
 </ul>
 <p><img src="/temp/sublime_plugin/jquery.gif" alt=""></p>
-<h3 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a><a href="https://packagecontrol.io/packages/AutoFileName" target="_blank" rel="external">AutoFileName</a></h3><ul>
+<h3 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a><a href="https://packagecontrol.io/packages/AutoFileName" target="_blank" rel="noopener">AutoFileName</a></h3><ul>
 <li><p>简介：自动完成文件名的输入，如图片选取等</p>
 </li>
 <li><p>使用：输入”/”即可看到相对于本项目文件夹的其他文件</p>
@@ -456,7 +426,7 @@
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_03144051_IHwI.png" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="编码（Encoding）"><a href="#编码（Encoding）" class="headerlink" title="编码（Encoding）"></a><a name="chart3">编码（Encoding）</a></h2><h3 id="ConvertToUTF8"><a href="#ConvertToUTF8" class="headerlink" title="ConvertToUTF8"></a><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="external">ConvertToUTF8</a></h3><ul>
+<h2 id="编码（Encoding）"><a href="#编码（Encoding）" class="headerlink" title="编码（Encoding）"></a><a name="chart3">编码（Encoding）</a></h2><h3 id="ConvertToUTF8"><a href="#ConvertToUTF8" class="headerlink" title="ConvertToUTF8"></a><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">ConvertToUTF8</a></h3><ul>
 <li><p>简介：Sublime Text默认不支持UTF8编码，通过本插件可以将GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等编码格式文件自动转换为UTF8格式。</p>
 </li>
 <li><p>使用：安装插件自动转换为UTF8格式</p>
@@ -467,10 +437,10 @@
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_uy67y.gif" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="版本控制（Version-Control）"><a href="#版本控制（Version-Control）" class="headerlink" title="版本控制（Version Control）"></a><a name="chart4">版本控制（Version Control）</a></h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="external">Git</a></h3><ul>
+<h2 id="版本控制（Version-Control）"><a href="#版本控制（Version-Control）" class="headerlink" title="版本控制（Version Control）"></a><a name="chart4">版本控制（Version Control）</a></h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="noopener">Git</a></h3><ul>
 <li><p>简介：实现了Git的基本功能</p>
 </li>
-<li><p>使用：<a href="https://github.com/kemayo/sublime-text-git/wiki" target="_blank" rel="external">https://github.com/kemayo/sublime-text-git/wiki</a></p>
+<li><p>使用：<a href="https://github.com/kemayo/sublime-text-git/wiki" target="_blank" rel="noopener">https://github.com/kemayo/sublime-text-git/wiki</a></p>
 </li>
 <li><p>效果：</p>
 </li>
@@ -478,13 +448,13 @@
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_git.png" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="前端必备（Web-UI）"><a href="#前端必备（Web-UI）" class="headerlink" title="前端必备（Web UI）"></a><a name="chart5">前端必备（Web UI）</a></h2><h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">Emmet</a></h3><ul>
+<h2 id="前端必备（Web-UI）"><a href="#前端必备（Web-UI）" class="headerlink" title="前端必备（Web UI）"></a><a name="chart5">前端必备（Web UI）</a></h2><h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="noopener">Emmet</a></h3><ul>
 <li><p>简介：Emmet前身是前端神器zen coding，可以大幅度提高前端开发效率。你可以使用仿CSS选择器的语法来动态生成代码，编写HTML/CSS时有较明显的优势。</p>
 </li>
-<li><p>使用：使用方法请参照教程<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="external">http://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
+<li><p>使用：使用方法请参照教程<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="noopener">http://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
 </li>
 </ul>
-<h3 id="ColorPicker"><a href="#ColorPicker" class="headerlink" title="ColorPicker"></a><a href="https://github.com/weslly/ColorPicker" target="_blank" rel="external">ColorPicker</a></h3><ul>
+<h3 id="ColorPicker"><a href="#ColorPicker" class="headerlink" title="ColorPicker"></a><a href="https://github.com/weslly/ColorPicker" target="_blank" rel="noopener">ColorPicker</a></h3><ul>
 <li><p>简介：需要输入颜色时，可直接调出windows调色板选取颜色</p>
 </li>
 <li><p>使用：快捷键Windows: <code>Ctrl + Shift + C</code></p>
@@ -495,36 +465,36 @@
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_iY1DDCRG5TsyR.png" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="功能增强（Enhancement）"><a href="#功能增强（Enhancement）" class="headerlink" title="功能增强（Enhancement）"></a><a name="chart6">功能增强（Enhancement）</a></h2><h3 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">Markdown Preview</a></h3><ul>
+<h2 id="功能增强（Enhancement）"><a href="#功能增强（Enhancement）" class="headerlink" title="功能增强（Enhancement）"></a><a name="chart6">功能增强（Enhancement）</a></h2><h3 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="noopener">Markdown Preview</a></h3><ul>
 <li><p>简介：可以直接打开浏览器预览markdown文件</p>
 </li>
 <li><p>使用：安装完插件重启后，按 <code>Ctrl + Shift + P</code> ，选择Set Syntax:Markdown</p>
 </li>
 </ul>
-<h3 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a><a href="https://github.com/NikhilKalige/docblockr" target="_blank" rel="external">DocBlockr</a></h3><ul>
+<h3 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a><a href="https://github.com/NikhilKalige/docblockr" target="_blank" rel="noopener">DocBlockr</a></h3><ul>
 <li><p>简介：生成注释，包括函数名，参数，返回值等</p>
 </li>
-<li><p>使用：输入/<em>、/*</em>然后回车，还有很多用法，请参照<a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="external">https://sublime.wbond.net/packages/DocBlockr</a></p>
+<li><p>使用：输入/*、/**然后回车，还有很多用法，请参照<a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="noopener">https://sublime.wbond.net/packages/DocBlockr</a></p>
 </li>
 <li><p>效果：</p>
 </li>
 </ul>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_function-template.gif" alt=""></p>
-<h3 id="IMESupport"><a href="#IMESupport" class="headerlink" title="IMESupport"></a><a href="https://github.com/chikatoike/IMESupport" target="_blank" rel="external">IMESupport</a></h3><ul>
+<h3 id="IMESupport"><a href="#IMESupport" class="headerlink" title="IMESupport"></a><a href="https://github.com/chikatoike/IMESupport" target="_blank" rel="noopener">IMESupport</a></h3><ul>
 <li><p>简介：使用中文输入法时，可以实现光标跟随（默认不可以）</p>
 </li>
 <li><p>效果：</p>
 </li>
 </ul>
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_c1608aa0gw1e9dmrd3vxpg209y08d75x.gif" alt=""></p>
-<h3 id="SideBarEnhancements"><a href="#SideBarEnhancements" class="headerlink" title="SideBarEnhancements"></a><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="external">SideBarEnhancements</a></h3><ul>
+<h3 id="SideBarEnhancements"><a href="#SideBarEnhancements" class="headerlink" title="SideBarEnhancements"></a><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="noopener">SideBarEnhancements</a></h3><ul>
 <li><p>简介：SideBarEnhancements是一个可以自定义打开方式快捷键的工具包。他可以定义不同的快捷键打开不同的浏览器。</p>
 </li>
 <li><p>使用：安装插件并重启后，配置用户快捷键</p>
 </li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //firefox</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f4"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">        <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    // ie</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f5"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">         <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">" .*"</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    // chrome</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f6"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">        <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="FileDiffs"><a href="#FileDiffs" class="headerlink" title="FileDiffs"></a><a href="https://github.com/colinta/SublimeFileDiffs" target="_blank" rel="external">FileDiffs</a></h3><ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f4"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">        <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f5"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">         <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">" .*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f6"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">        <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileDiffs"><a href="#FileDiffs" class="headerlink" title="FileDiffs"></a><a href="https://github.com/colinta/SublimeFileDiffs" target="_blank" rel="noopener">FileDiffs</a></h3><ul>
 <li><p>简介：比较当前文件与选中的代码、剪切板中代码、另一文件、未保存文件之间的差别。</p>
 </li>
 <li><p>使用：右键标签页，出现FileDiffs Menu或者Diff with Tab，对应文件比较即可</p>
@@ -535,7 +505,7 @@
 <p><img src="http://7xkd5g.com1.z0.glb.clouddn.com/SublimePlugin_diff.gif" alt=""></p>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 <hr>
-<h2 id="个人插件快捷键配置（Personal-Settings）"><a href="#个人插件快捷键配置（Personal-Settings）" class="headerlink" title="个人插件快捷键配置（Personal Settings）"></a><a name="chart7">个人插件快捷键配置（Personal Settings）</a></h2><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[</div><div class="line">    // layout</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+q"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+w"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+e"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+r"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+y"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+u"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+t"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</div><div class="line">        <span class="attr">"args"</span>:</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</div><div class="line">            <span class="attr">"cells"</span>:</div><div class="line">            [</div><div class="line">                [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>],</div><div class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    //firefox</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f4"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">        <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    // ie</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f5"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">         <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">" .*"</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    // chrome</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f6"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">        <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></div><div class="line">        &#125;</div><div class="line">     &#125;,</div><div class="line">    //删除多余空格</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+d"</span>], <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span> &#125;,</div><div class="line">    //是否开启TrailingSpacer</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+o"</span>], <span class="attr">"command"</span>: <span class="string">"toggle_trailing_spaces"</span> &#125;,</div><div class="line">    //自动对齐</div><div class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+shift+a"</span>], <span class="attr">"command"</span>: <span class="string">"alignment"</span> &#125;,</div><div class="line">    //文件夹中查找内容</div><div class="line">    &#123;<span class="attr">"keys"</span>:[<span class="string">"ctrl+alt+f"</span>], <span class="attr">"command"</span>: <span class="string">"show_panel"</span>, <span class="attr">"args"</span>: &#123;<span class="attr">"panel"</span>: <span class="string">"find_in_files"</span>&#125;&#125;,</div><div class="line"></div><div class="line">    //代码跳转</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"navigate_to_definition"</span>,</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+q"</span>]</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"jump_prev"</span>,</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+e"</span>]</div><div class="line">    &#125;,</div><div class="line">     //一键格式化js代码</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+l"</span>],</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"js_format"</span>,</div><div class="line">        <span class="attr">"context"</span>: [&#123;<span class="attr">"key"</span>: <span class="string">"selector"</span>, <span class="attr">"operator"</span>: <span class="string">"equal"</span>, <span class="attr">"operand"</span>: <span class="string">"source.js,source.json"</span>&#125;]</div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<h2 id="个人插件快捷键配置（Personal-Settings）"><a href="#个人插件快捷键配置（Personal-Settings）" class="headerlink" title="个人插件快捷键配置（Personal Settings）"></a><a name="chart7">个人插件快捷键配置（Personal Settings）</a></h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[</span><br><span class="line">    // layout</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+q"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+w"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+e"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+r"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+y"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+u"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.33</span>, <span class="number">0.66</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>: [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+t"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"set_layout"</span>,</span><br><span class="line">        <span class="attr">"args"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"cols"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"rows"</span>: [<span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>],</span><br><span class="line">            <span class="attr">"cells"</span>:</span><br><span class="line">            [</span><br><span class="line">                [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //firefox</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f4"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">        <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ie</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f5"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">         <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files/Internet Explorer/iexplore.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">" .*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // chrome</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"f6"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">        <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"paths"</span>: [],</span><br><span class="line">            <span class="attr">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,</span><br><span class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">        &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">    //删除多余空格</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+d"</span>], <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span> &#125;,</span><br><span class="line">    //是否开启TrailingSpacer</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+o"</span>], <span class="attr">"command"</span>: <span class="string">"toggle_trailing_spaces"</span> &#125;,</span><br><span class="line">    //自动对齐</span><br><span class="line">    &#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+shift+a"</span>], <span class="attr">"command"</span>: <span class="string">"alignment"</span> &#125;,</span><br><span class="line">    //文件夹中查找内容</span><br><span class="line">    &#123;<span class="attr">"keys"</span>:[<span class="string">"ctrl+alt+f"</span>], <span class="attr">"command"</span>: <span class="string">"show_panel"</span>, <span class="attr">"args"</span>: &#123;<span class="attr">"panel"</span>: <span class="string">"find_in_files"</span>&#125;&#125;,</span><br><span class="line"></span><br><span class="line">    //代码跳转</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"navigate_to_definition"</span>,</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+q"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"jump_prev"</span>,</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+e"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">     //一键格式化js代码</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+l"</span>],</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"js_format"</span>,</span><br><span class="line">        <span class="attr">"context"</span>: [&#123;<span class="attr">"key"</span>: <span class="string">"selector"</span>, <span class="attr">"operator"</span>: <span class="string">"equal"</span>, <span class="attr">"operand"</span>: <span class="string">"source.js,source.json"</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p><a href="#catalog"><p style="text-align: right">回到目录</p></a></p>
 
       
@@ -567,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/Windows_delete/" rel="next" title="解决Windows文件名过长无法删除问题">
-                <i class="fa fa-chevron-left"></i> 解决Windows文件名过长无法删除问题
+              <a href="/2017/09/11/Tools_software_I/" rel="next" title="程序员开发利器软件篇（一）">
+                <i class="fa fa-chevron-left"></i> 程序员开发利器软件篇（一）
               </a>
             
           </div>
@@ -577,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/11/Redis_MasterSlave_Deploy/" rel="prev" title="Vmware搭建Redis主从配置实验环境">
-                Vmware搭建Redis主从配置实验环境 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/11/Java_Interview/" rel="prev" title="Java面试题">
+                Java面试题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,9 +577,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -632,82 +602,94 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="qh" />
-          <p class="site-author-name" itemprop="name">qh</p>
-           
-              <p class="site-description motion-element" itemprop="description">qh's blog | java | elasticsearch | lucene | .NET</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">qh</p>
+              <p class="site-description motion-element" itemprop="description">qh's blog | java | big data | devops | cloud</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">Artikel</span>
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
 
           
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.himateng.com/" title="小马哥的管理日记" target="_blank">小马哥的管理日记</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
-              
-            </div>
-          
 
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -740,30 +722,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">qh</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -774,6 +762,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -808,46 +798,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -878,16 +880,25 @@
 
 
 
-  
 
 
 
 
 
-  
 
   
 
+
+
+
+
+  
+
+  
+
+  
+
+  
   
 
   

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -75,7 +50,22 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -89,11 +79,6 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
-
-
 
 
 <meta name="description" content="收集的Java经典面试题">
@@ -103,7 +88,7 @@
 <meta property="og:site_name" content="qh&#39;s blog">
 <meta property="og:description" content="收集的Java经典面试题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-28T05:22:00.000Z">
+<meta property="og:updated_time" content="2017-10-08T07:39:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试题">
 <meta name="twitter:description" content="收集的Java经典面试题">
@@ -114,11 +99,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -151,12 +137,6 @@
 
 
 
-
-
-
-
-
-
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -166,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -217,17 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
+            Archives
           </a>
         </li>
       
@@ -291,7 +261,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-11T15:17:34+08:00">
                 2017-09-11
@@ -312,7 +282,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -382,13 +352,13 @@
 <li>匿名内部类不能是public，protected，private，static</li>
 <li>只能创建一个实例</li>
 <li>一个匿名内部类一定在new后面，用其隐含实现一个接口或一个类</li>
-<li>匿名内部类为局部内部类，所以局部内部类的所有限制都对其生效<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3>通过代码块完成初始化<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OutClass</span> &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> InnerClass <span class="title">getInnerClass</span>(<span class="params">final <span class="keyword">int</span> age,final String name</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass() &#123;</div><div class="line">            <span class="keyword">int</span> age_ ;</div><div class="line">            String name_;</div><div class="line">            <span class="comment">//构造代码块完成初始化工作</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(&lt; age &amp;&amp; age &lt; &#123;</div><div class="line">                    age_ = age;</div><div class="line">                    name_ = name;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> name_;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> age_;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</div><div class="line">        OutClass <span class="keyword">out</span> = <span class="keyword">new</span> OutClass();</div><div class="line">        InnerClass inner_= <span class="keyword">out</span>.getInnerClass( <span class="string">"chenssy"</span>);</div><div class="line">        System.<span class="keyword">out</span>.println(inner_getName());</div><div class="line"></div><div class="line">        InnerClass inner_= <span class="keyword">out</span>.getInnerClass(, <span class="string">"chenssy"</span>);</div><div class="line">        System.<span class="keyword">out</span>.println(inner_getName());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>匿名内部类为局部内部类，所以局部内部类的所有限制都对其生效<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3>通过代码块完成初始化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class OutClass &#123;</span><br><span class="line">    public InnerClass getInnerClass(final int age, final String name)&#123;</span><br><span class="line">        return new InnerClass() &#123;</span><br><span class="line">            int age_ ;</span><br><span class="line">            String name_;</span><br><span class="line">            //构造代码块完成初始化工作</span><br><span class="line">            &#123;</span><br><span class="line">                if( 18 &lt; age &amp;&amp; age &lt; 36) &#123;</span><br><span class="line">                    age_ = age;</span><br><span class="line">                    name_ = name;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            public String getName() &#123;</span><br><span class="line">                return name_;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            public int getAge() &#123;</span><br><span class="line">                return age_;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        OutClass out = new OutClass();</span><br><span class="line">        InnerClass inner_= out.getInnerClass( &quot;chenssy&quot;);</span><br><span class="line">        System.out.println(inner_.getName());</span><br><span class="line"></span><br><span class="line">        InnerClass inner_= out.getInnerClass( &quot;chenssy&quot;);</span><br><span class="line">        System.out.println(inner_.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="如何理解分布式锁"><a href="#如何理解分布式锁" class="headerlink" title="如何理解分布式锁"></a>如何理解分布式锁</h2><h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>对共享资源的竞争过程就是并发，对共享资源数据进行访问保护的最直接方法就是引入锁</p>
 <h3 id="锁的类型"><a href="#锁的类型" class="headerlink" title="锁的类型"></a>锁的类型</h3><ul>
 <li>自旋锁（Spin Lock)<br>自旋锁如果已经被别的线程获取，调用者会一直循环看该自旋锁的持有者是否已经释放了锁<br>自旋锁是一种非阻塞锁，如果某线程需要获取自旋锁，但该锁已经被其他线程占用时，该线程不会<br>被挂起，而是不断消耗CPU时间，不停尝试获取自旋锁</li>
-<li>互斥锁（Mutex Lock）<br>互斥锁是阻塞锁，当某线程无法获取互斥锁时，该线程会被直接挂起，不再消耗CPU时间，当其他线程<br>释放互斥锁时，操作系统会唤醒那个被挂起的线程<br>阻塞锁不会导致CPU占用率过高，但进入时间以及恢复时间都比自旋锁略慢，竞争激励的情况下阻塞锁的性能要明显高于自旋锁<br>Synchronized<br>ReentrantLock<br>Object.wait()/nofity()<br>LockSupport.park()/unpart()<br>多核处理器，根据预计线程等待锁时间来选择使用自旋锁或互斥锁</li>
+<li>互斥锁（Mutex Lock）<br>互斥锁是阻塞锁，当某线程无法获取互斥锁时，该线程会被直接挂起，不再消耗CPU时间，当其他线程<br>释放互斥锁时，操作系统会唤醒那个被挂起的线程<br>阻塞锁不会导致CPU占用率过高，但进入时间以及恢复时间都比自旋锁略慢，竞争激励的情况下阻塞锁的性能要明显高于自旋锁<br>Synchronized<br>ReentrantLock<br>Object.wait()/nofity()<br>LockSupport.park()/unpark()<br>多核处理器，根据预计线程等待锁时间来选择使用自旋锁或互斥锁</li>
 <li>可重入锁（Reentrant Lock）<br>可重入锁是一种特殊的互斥锁，可以被同一个线程多次获取，而不会产生死锁<br>首先是互斥锁：A不释放，B无法获取<br>其次，可以被同一线程多次持有，A在释放锁之前又一次请求获取该锁，是可以成功的<br>Synchronized<br>ReentrantLock</li>
 <li>轻量级锁（Lightweight Lock）&amp;偏向锁（Biased Lock）<br>java锁状态：无锁，偏向锁，轻量级锁，重量级锁；且锁状态不能降级</li>
 <li>JUC(Semaphore，CountDownLatch，CyclicBarrier)<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3></li>
@@ -407,7 +377,7 @@
 <li>如果BootStrapClassLoader加载失败（例如在$JAVA_HOME/jre/lib里未查找到该class），会使用ExtClassLoader来尝试加载；</li>
 <li>若ExtClassLoader也加载失败，则会使用AppClassLoader来加载，如果AppClassLoader也加载失败，则会报出异常ClassNotFoundException</li>
 </ul>
-<h2 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h2><p>[<a href="http://kd.comzglb.clouddn.com/java-memory-model.png" target="_blank" rel="external">http://kd.comzglb.clouddn.com/java-memory-model.png</a>]</p>
+<h2 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h2><p>[<a href="http://kd.comzglb.clouddn.com/java-memory-model.png]" target="_blank" rel="noopener">http://kd.comzglb.clouddn.com/java-memory-model.png]</a></p>
 <ul>
 <li>Heap（堆内存）: 垃圾收集器管理的主要区域，GC堆，堆中没有内存完成实例分配，并且堆也无法扩展时，会抛出OutOfMemoryError异常<ul>
 <li>年轻代:默认比例 1<ul>
@@ -423,7 +393,7 @@
 <li>Thread..N(栈) : java虚拟机栈和本地方法栈，用于方法的执行<ul>
 <li>java栈</li>
 <li>本地方法栈</li>
-<li>程序计数器:唯一没有规定任何OutOfMemoryError情况的区域<br>[<a href="http://kd.comzglb.clouddn.com/jvm-area-ration.png" target="_blank" rel="external">http://kd.comzglb.clouddn.com/jvm-area-ration.png</a>]<br>控制参数：<br>-Xms设置堆的最小空间大小。<br>-Xmx设置堆的最大空间大小。<br>-XX:NewSize设置新生代最小空间大小。<br>-XX:MaxNewSize设置新生代最大空间大小。<br>-XX:PermSize设置永久代最小空间大小。<br>-XX:MaxPermSize设置永久代最大空间大小。<br>-Xss设置每个线程的堆栈大小。</li>
+<li>程序计数器:唯一没有规定任何OutOfMemoryError情况的区域<br>[<a href="http://kd.comzglb.clouddn.com/jvm-area-ration.png]" target="_blank" rel="noopener">http://kd.comzglb.clouddn.com/jvm-area-ration.png]</a><br>控制参数：<br>-Xms设置堆的最小空间大小。<br>-Xmx设置堆的最大空间大小。<br>-XX:NewSize设置新生代最小空间大小。<br>-XX:MaxNewSize设置新生代最大空间大小。<br>-XX:PermSize设置永久代最小空间大小。<br>-XX:MaxPermSize设置永久代最大空间大小。<br>-Xss设置每个线程的堆栈大小。</li>
 </ul>
 </li>
 </ul>
@@ -456,7 +426,7 @@
 <li>调整order by limit的顺序</li>
 <li>查看索引是否符合索引建立原则：最左前缀匹配，mysql会已知向右匹配知道遇到范围查询（&gt;,&lt;,between,like)停止；= 和in可以乱序； 选择区分度高的列建立索引  索引列不能参与计算；尽量扩展索引  not in !=不会使用索引</li>
 </ul>
-<h2 id="Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"><a href="#Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的" class="headerlink" title="Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"></a>Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的</h2><p>应该使用小结果集驱动大结果集，join通过嵌套循环实现的，驱动结果集越大，需要虚幻次数越多。</p>
+<h2 id="Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"><a href="#Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的" class="headerlink" title="Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"></a>Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的</h2><p>应该使用小结果集驱动大结果集，join通过嵌套循环实现的，驱动结果集越大，需要循环次数越多。</p>
 <h2 id="InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题"><a href="#InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题" class="headerlink" title="InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题"></a>InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题</h2><ul>
 <li>第一级别 Read Uncommitted-RU   读取未提交内容</li>
 <li>第二级别 Read Committed-RC     读取提交内容</li>
@@ -581,12 +551,68 @@
 <li>前端控制器进行视图渲染，视图渲染就是将模型数据(在ModelAndView对象中)填充到request域中。</li>
 <li>前端控制器向用户响应结果。</li>
 </ul>
-<h2 id="Full-GC和Minor-GC区别，各自触发条件"><a href="#Full-GC和Minor-GC区别，各自触发条件" class="headerlink" title="Full GC和Minor GC区别，各自触发条件"></a>Full GC和Minor GC区别，各自触发条件</h2><h3 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h3><p>从年轻代空间（包括 Eden 和 Survivor 区域）回收内存被称为 Minor GC。<br>有一些值得注意的问题：</p>
+<h2 id="Full-GC和Minor-GC区别，各自触发条件"><a href="#Full-GC和Minor-GC区别，各自触发条件" class="headerlink" title="Full GC和Minor GC区别，各自触发条件"></a>Full GC和Minor GC区别，各自触发条件</h2><h3 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h3><p>从年轻代空间（包括 Eden 和 Survivor 区域）回收内存被称为 Minor GC。<br>触发条件：<br>有一些值得注意的问题：</p>
 <ul>
 <li>当 JVM 无法为一个新的对象分配空间时会触发 Minor GC，比如当 Eden 区满了。所以分配率越高，越频繁执行 Minor GC。</li>
 <li>内存池被填满的时候，其中的内容全部会被复制，指针会从0开始跟踪空闲内存。Eden 和 Survivor 区进行了标记和复制操作，取代了经典的标记、扫描、压缩、清理操作。所以 Eden 和 Survivor 区不存在内存碎片。写指针总是停留在所使用内存池的顶部。</li>
 <li>执行 Minor GC 操作时，不会影响到永久代。从永久代到年轻代的引用被当成 GC roots，从年轻代到永久代的引用在标记阶段被直接忽略掉。</li>
 <li>质疑常规的认知，所有的 Minor GC 都会触发“全世界的暂停（stop-the-world）”，停止应用程序的线程。对于大部分应用程序，停顿导致的延迟都是可以忽略不计的。其中的真相就是，大部分 Eden 区中的对象都能被认为是垃圾，永远也不会被复制到 Survivor 区或者老年代空间。如果正好相反，Eden 区大部分新生对象不符合 GC 条件，Minor GC 执行时暂停的时间将会长很多。<br>每次 Minor GC 会清理年轻代的内存。<h3 id="Major-GC-Full-GC"><a href="#Major-GC-Full-GC" class="headerlink" title="Major GC/Full GC"></a>Major GC/Full GC</h3>Major GC 是清理永久代。<br>Full GC 是清理整个堆空间—包括年轻代和永久代。</li>
+</ul>
+<h2 id="JMM内存模型，如何保证缓存一致性"><a href="#JMM内存模型，如何保证缓存一致性" class="headerlink" title="JMM内存模型，如何保证缓存一致性"></a>JMM内存模型，如何保证缓存一致性</h2><p>JMM是Java程序对线程如何交互的统一的约定协议<br>Happens-Before 顺序: 保证了一个线程的操作结果能够对另一个线程可见<br>synchronized关键字提供互斥区和内存可见性, 防止重排序<br>volatile提供内存可见性,防止重排序，保证64位元素(double、long)的原子性读写</p>
+<h2 id="CMS垃圾回收器及其应用场景"><a href="#CMS垃圾回收器及其应用场景" class="headerlink" title="CMS垃圾回收器及其应用场景"></a>CMS垃圾回收器及其应用场景</h2><p>老年代 集中在互联网站或B/S系统服务端上的Java应用</p>
+<h2 id="hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环"><a href="#hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环" class="headerlink" title="hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环"></a>hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环</h2><p>将相同hash值的对象组织成一个链表放在hash值对应的槽位。</p>
+<h2 id="java跳表的并发问题"><a href="#java跳表的并发问题" class="headerlink" title="java跳表的并发问题"></a>java跳表的并发问题</h2><p>Skip list的性质</p>
+<ul>
+<li>由很多层结构组成，level是通过一定的概率随机产生的。</li>
+<li>每一层都是一个有序的链表，默认是升序</li>
+<li>最底层(Level 1)的链表包含所有元素。</li>
+<li>如果一个元素出现在Level i 的链表中，则它在Level i 之下的链表也都会出现。</li>
+<li>每个节点包含两个指针，一个指向同一链表中的下一个元素，一个指向下面一层的元素。<br>ConcurrentSkipListMap具有Skip list的性质 ，并且适用于大规模数据的并发访问。多个线程可以安全地并发执行插入、移除、更新和访问操作。与其他有锁机制的数据结构在巨大的压力下相比有优势。</li>
+</ul>
+<h2 id="NIO-BIO-AIO"><a href="#NIO-BIO-AIO" class="headerlink" title="NIO,BIO,AIO"></a>NIO,BIO,AIO</h2><p>BIO，同步阻塞式IO，简单理解：一个连接一个线程<br>NIO，同步非阻塞IO，简单理解：一个请求一个线程<br>AIO，异步非阻塞IO，简单理解：一个有效请求一个线程<br>BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4以前的唯一选择，但程序直观简单易理解。<br>NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器，并发局限于应用中，编程比较复杂，JDK1.4开始支持。<br>AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。</p>
+<h2 id="什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤"><a href="#什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤" class="headerlink" title="什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤"></a>什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤</h2><p>二叉平衡树，又称AVL树。它或者是一棵空树，或者是具有下列性质的树：</p>
+<ul>
+<li>具备二叉排序树的所有性质；</li>
+<li>左子树和右子树深度差的绝对值不超过1；</li>
+<li>左子树和右子树都是二叉平衡树。<br>根节点插入，判断是否存在，否则左子树递归查找插入，如插入未成功，则在右子树递归查找插入。插入结束后判断是否需要自旋</li>
+</ul>
+<h2 id="什么是一致性hash"><a href="#什么是一致性hash" class="headerlink" title="什么是一致性hash"></a>什么是一致性hash</h2><p>环形分段hash，防止hash偏斜，可通过物理节点虚拟出虚拟节点来解决</p>
+<h2 id="Arraylist如何实现排序"><a href="#Arraylist如何实现排序" class="headerlink" title="Arraylist如何实现排序"></a>Arraylist如何实现排序</h2><p>Collections.sort() 方法对 ArrayList 的元素或者任何其他 List 的实现提供的可比较的元素进行排序，这意味着这些元素的类需要实现 java.lang 包中的 Comparable 接口<br>一种是使用 Comparable 另一种是使用 Comparator。你最应该记住的就是一个 Comparable 对象可以说“我可以自己与另外一个对象比较”，而一个 Comparator 对象可以说“我可以比较两个不同的对象”</p>
+<h2 id="Zookeeper的使用场景"><a href="#Zookeeper的使用场景" class="headerlink" title="Zookeeper的使用场景"></a>Zookeeper的使用场景</h2><ul>
+<li>数据发布与订阅（配置中心）：发布与订阅模型，即所谓的配置中心，顾名思义就是发布者将数据发布到ZK节点上，供订阅者动态获取数据，实现配置信息的集中式管理和动态更新。例如全局的配置信息，服务式服务框架的服务地址列表等就非常适合使用。</li>
+<li>负载均衡 kafka：这里说的负载均衡是指软负载均衡。在分布式环境中，为了保证高可用性，通常同一个应用或同一个服务的提供方都会部署多份，达到对等服务。而消费者就须要在这些对等的服务器中选择一个来执行相关的业务逻辑，其中比较典型的是消息中间件中的生产者，消费者负载均衡。</li>
+<li>命名服务（naming service）dubbo：命名服务也是分布式系统中比较常见的一类场景。在分布式系统中，通过使用命名服务，客户端应用能够根据指定名字来获取资源或服务的地址，提供者等信息。被命名的实体通常可以是集群中的机器，提供的服务地址，远程对象等等——这些我们都可以统称他们为名字（Name）。其中较为常见的就是一些分布式服务框架中的服务地址列表。通过调用ZK提供的创建节点的API，能够很容易创建一个全局唯一的path，这个path就可以作为一个名称。<br>Dubbo中使用ZooKeeper来作为其命名服务，维护全局的服务地址列表</li>
+<li>集群管理与Master选举</li>
+<li>分布式锁</li>
+<li>分布式队列</li>
+<li>分布式通知/协调</li>
+</ul>
+<h2 id="spring的annotation实现"><a href="#spring的annotation实现" class="headerlink" title="spring的annotation实现"></a>spring的annotation实现</h2><p>注解（Annotation）提供了一种安全的类似注释的机制，为我们在代码中添加信息提供了一种形式化得方法，使我们可以在稍后某个时刻方便的使用这些数据（通过解析注解来使用这些数据），用来将任何的信息或者元数据与程序元素（类、方法、成员变量等）进行关联。其实就是更加直观更加明了的说明，这些说明信息与程序业务逻辑没有关系，并且是供指定的工具或框架使用的。Annotation像一种修饰符一样，应用于包、类型、构造方法、方法、成员变量、参数及本地变量的申明语句中。<br>Annotation其实是一种接口。通过java的反射机制相关的API来访问Annotation信息。相关类（框架或工具中的类）根据这些信息来决定如何使用该程序元素或改变它们的行为。Java语言解释器在工作时会忽略这些Annotation，因此在JVM中这些Annotation是“不起作用”的，只能通过配套的工具才能对这些Annotation类型的信息进行访问和处理。</p>
+<h2 id="spring的Bean的生命周期"><a href="#spring的Bean的生命周期" class="headerlink" title="spring的Bean的生命周期"></a>spring的Bean的生命周期</h2><ul>
+<li>实例化BeanFactoryPostProcessor实现类</li>
+<li>执行BeanFactoryPostProcessor的postProcessBeanFactory方法</li>
+<li>实例化BeanPostProcessor实现类</li>
+<li>实例化InstantiationAwareBeanPostProcessorAdapter实现类</li>
+<li>执行InstantiationAwareBeanPostProcessor的postProcessBeforeInstantiation方法</li>
+<li>执行Bean构造器</li>
+<li>执行InstantiationAwareBeanPostProcessor的postProcessPropertyValues方法</li>
+<li>为Bean注入属性</li>
+<li>调用BeanNameAware的setBeanName方法</li>
+<li>调用BeanFactoryAware的setBeanFactory方法</li>
+</ul>
+<h2 id="内存溢出的原因是什么，排查方法有哪些"><a href="#内存溢出的原因是什么，排查方法有哪些" class="headerlink" title="内存溢出的原因是什么，排查方法有哪些"></a>内存溢出的原因是什么，排查方法有哪些</h2><ul>
+<li>是否App中的类中和引用变量过多使用了Static修饰 如public staitc Student s</li>
+<li>是否App中使用了大量的递归或无限递归（递归中用到了大量的建新的对象）</li>
+<li>是否App中使用了大量循环或死循环（循环中用到了大量的新建的对象）</li>
+<li>检查App中是否使用了向数据库查询所有记录的方法。即一次性全部查询的方法，如果数据量超过10万多条了，就可能会造成内存溢出。所以在查询时应采用“分页查询”。</li>
+<li>检查是否使用了“非字面量字符串进行+”的操作。因为String类的内容是不可变的，每次运行”+”就会产生新的对象，如果过多会造成新String对象过多，从而导致JVM没有及时回收而出现内存溢出。</li>
+<li>使用 DDMS工具进行查找内存溢出的大概位置<br>排查方法：<a href="https://my.oschina.net/vbird/blog/1518938" target="_blank" rel="noopener">https://my.oschina.net/vbird/blog/1518938</a></li>
+</ul>
+<h2 id="jmap-jstat-jinfo-jps-jconsole-mat-jprofile"><a href="#jmap-jstat-jinfo-jps-jconsole-mat-jprofile" class="headerlink" title="jmap jstat jinfo jps jconsole mat jprofile"></a>jmap jstat jinfo jps jconsole mat jprofile</h2><h3 id="jmap：查看heap情况，如查看存活对象列表"><a href="#jmap：查看heap情况，如查看存活对象列表" class="headerlink" title="jmap：查看heap情况，如查看存活对象列表"></a>jmap：查看heap情况，如查看存活对象列表</h3><ul>
+<li>jmap -heap pid → 查看堆的使用状况信息</li>
+<li>jmap -histo:live pid | less → 堆中活动的对象以及大小</li>
+<li>jmap -dump:format=b,file=eclipse_heap.bin pid → Dump堆信息<h3 id="jstat：观察GC情况"><a href="#jstat：观察GC情况" class="headerlink" title="jstat：观察GC情况"></a>jstat：观察GC情况</h3>可以查看很多内容 jstat -gcutil -h 20 pid 1000 100 → 查看Java进程GC的情况，1000ms统计一次gc情况统计100次<h3 id="jstack：分析线程堆栈"><a href="#jstack：分析线程堆栈" class="headerlink" title="jstack：分析线程堆栈"></a>jstack：分析线程堆栈</h3>查看jvm线程运行状态，是否有死锁现象等等信息</li>
+<li>jstack pid → Dump线程信息<h3 id="jinfo，查看jvm配置信息"><a href="#jinfo，查看jvm配置信息" class="headerlink" title="jinfo，查看jvm配置信息"></a>jinfo，查看jvm配置信息</h3><h3 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h3><h3 id="jhat：分析dump的堆文件"><a href="#jhat：分析dump的堆文件" class="headerlink" title="jhat：分析dump的堆文件"></a>jhat：分析dump的堆文件</h3><h3 id="jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。"><a href="#jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。" class="headerlink" title="jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。"></a>jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。</h3>这个工具真正要做的功能是查看JMX Bean的信息，性能分析中并不关心JMX信息。</li>
 </ul>
 
       
@@ -612,8 +638,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/Sublime_basic/" rel="next" title="Sublime Text 入门篇">
-                <i class="fa fa-chevron-left"></i> Sublime Text 入门篇
+              <a href="/2017/09/11/Sublime_plugin/" rel="next" title="Sublime Text 插件篇">
+                <i class="fa fa-chevron-left"></i> Sublime Text 插件篇
               </a>
             
           </div>
@@ -622,8 +648,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/11/Gmail_Register/" rel="prev" title="教你注册gmail （20161019亲测有效）">
-                教你注册gmail （20161019亲测有效） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/11/Redis_MasterSlave_Deploy/" rel="prev" title="Vmware搭建Redis主从配置实验环境">
+                Vmware搭建Redis主从配置实验环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -652,9 +678,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -677,82 +703,94 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="qh" />
-          <p class="site-author-name" itemprop="name">qh</p>
-           
-              <p class="site-description motion-element" itemprop="description">qh's blog | java | elasticsearch | lucene | .NET</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">qh</p>
+              <p class="site-description motion-element" itemprop="description">qh's blog | java | big data | devops | cloud</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">Artikel</span>
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
 
           
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.himateng.com/" title="小马哥的管理日记" target="_blank">小马哥的管理日记</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
-              
-            </div>
-          
 
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -765,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java关键字final、static使用总结"><span class="nav-number">1.</span> <span class="nav-text">Java关键字final、static使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final"><span class="nav-number">1.1.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number">1.2.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-final"><span class="nav-number">1.3.</span> <span class="nav-text">static final</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类是什么？如何访问在其外面定义的变量。"><span class="nav-number">2.</span> <span class="nav-text">匿名内部类是什么？如何访问在其外面定义的变量。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类的创建"><span class="nav-number">2.1.</span> <span class="nav-text">匿名内部类的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用原则"><span class="nav-number">2.3.</span> <span class="nav-text">使用原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.4.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解分布式锁"><span class="nav-number">3.</span> <span class="nav-text">如何理解分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁"><span class="nav-number">3.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁的类型"><span class="nav-number">3.2.</span> <span class="nav-text">锁的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式锁"><span class="nav-number">3.3.</span> <span class="nav-text">分布式锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql两种引擎InnoDB与MyISAM对比"><span class="nav-number">4.</span> <span class="nav-text">mysql两种引擎InnoDB与MyISAM对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jvm加载一个类的过程，双亲委派模型中有哪些方法"><span class="nav-number">5.</span> <span class="nav-text">jvm加载一个类的过程，双亲委派模型中有哪些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jvm类加载机制："><span class="nav-number">5.1.</span> <span class="nav-text">jvm类加载机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双亲委派模型"><span class="nav-number">5.2.</span> <span class="nav-text">双亲委派模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存结构"><span class="nav-number">6.</span> <span class="nav-text">JVM内存结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC算法"><span class="nav-number">7.</span> <span class="nav-text">GC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象存活"><span class="nav-number">7.1.</span> <span class="nav-text">判断对象存活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">7.2.</span> <span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器–垃圾收集算法的具体实现"><span class="nav-number">7.3.</span> <span class="nav-text">垃圾收集器–垃圾收集算法的具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS和G比较，以及G缺点，SS解决什么样的问题"><span class="nav-number">7.4.</span> <span class="nav-text">CMS和G比较，以及G缺点，SS解决什么样的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗"><span class="nav-number">8.</span> <span class="nav-text">线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql的查询慢了，如何优化索引"><span class="nav-number">9.</span> <span class="nav-text">mysql的查询慢了，如何优化索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"><span class="nav-number">10.</span> <span class="nav-text">Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题"><span class="nav-number">11.</span> <span class="nav-text">InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一级别-Read-Uncommitted（读取未提交内容）"><span class="nav-number">11.1.</span> <span class="nav-text">第一级别 Read Uncommitted（读取未提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二级别-Read-Committed（读取提交内容）"><span class="nav-number">11.2.</span> <span class="nav-text">第二级别 Read Committed（读取提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三级别-Repeatable-Read-（可重复读）"><span class="nav-number">11.3.</span> <span class="nav-text">第三级别 Repeatable Read （可重复读）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四级别-Serializable-（可串行化）"><span class="nav-number">11.4.</span> <span class="nav-text">第四级别 Serializable  （可串行化）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的"><span class="nav-number">12.</span> <span class="nav-text">分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用数据库的auto-increment生成主键"><span class="nav-number">12.1.</span> <span class="nav-text">使用数据库的auto_increment生成主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点批量ID生成服务"><span class="nav-number">12.2.</span> <span class="nav-text">单点批量ID生成服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuid"><span class="nav-number">12.3.</span> <span class="nav-text">uuid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取当前毫秒数-微秒数"><span class="nav-number">12.4.</span> <span class="nav-text">取当前毫秒数/微秒数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SnowFlake算法-twitter开源的分布式ID生成算法"><span class="nav-number">12.5.</span> <span class="nav-text">SnowFlake算法 twitter开源的分布式ID生成算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux进程间的通信方式"><span class="nav-number">13.</span> <span class="nav-text">linux进程间的通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql索引失效的几种情况"><span class="nav-number">14.</span> <span class="nav-text">mysql索引失效的几种情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库范式"><span class="nav-number">15.</span> <span class="nav-text">数据库范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB主键索引与普通索引的区别和查询时的过程"><span class="nav-number">16.</span> <span class="nav-text">InnoDB主键索引与普通索引的区别和查询时的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql查询两个数据集的补集"><span class="nav-number">17.</span> <span class="nav-text">sql查询两个数据集的补集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql索引B-tree的原理"><span class="nav-number">18.</span> <span class="nav-text">mysql索引B-tree的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何分库分表"><span class="nav-number">19.</span> <span class="nav-text">如何分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分表"><span class="nav-number">19.1.</span> <span class="nav-text">分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分库"><span class="nav-number">19.2.</span> <span class="nav-text">分库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下如何进行进程调度的"><span class="nav-number">20.</span> <span class="nav-text">Linux下如何进行进程调度的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-memcached区别，应用场景"><span class="nav-number">21.</span> <span class="nav-text">redis memcached区别，应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决Cookie盗取问题"><span class="nav-number">22.</span> <span class="nav-text">如何解决Cookie盗取问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步工具类"><span class="nav-number">23.</span> <span class="nav-text">线程同步工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给你三个线程，分别处理任务，再交给主线程，你如何实现。"><span class="nav-number">24.</span> <span class="nav-text">给你三个线程，分别处理任务，再交给主线程，你如何实现。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池底层实现"><span class="nav-number">25.</span> <span class="nav-text">线程池底层实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#servlet生命周期"><span class="nav-number">26.</span> <span class="nav-text">servlet生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建多线程的几种方式及区别"><span class="nav-number">27.</span> <span class="nav-text">创建多线程的几种方式及区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait-sleep区别"><span class="nav-number">28.</span> <span class="nav-text">wait,sleep区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程实现同步方式–阻塞-互斥-同步，非阻塞同步"><span class="nav-number">29.</span> <span class="nav-text">多线程实现同步方式–阻塞(互斥)同步，非阻塞同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java新特性，做一个List到Map的转换"><span class="nav-number">30.</span> <span class="nav-text">java新特性，做一个List到Map的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java线程池的实现，以及溢出的时候的抛弃策略"><span class="nav-number">31.</span> <span class="nav-text">java线程池的实现，以及溢出的时候的抛弃策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小"><span class="nav-number">32.</span> <span class="nav-text">针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息"><span class="nav-number">33.</span> <span class="nav-text">JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc原理"><span class="nav-number">34.</span> <span class="nav-text">springmvc原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-GC和Minor-GC区别，各自触发条件"><span class="nav-number">35.</span> <span class="nav-text">Full GC和Minor GC区别，各自触发条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC"><span class="nav-number">35.1.</span> <span class="nav-text">Minor GC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Major-GC-Full-GC"><span class="nav-number">35.2.</span> <span class="nav-text">Major GC/Full GC</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java关键字final、static使用总结"><span class="nav-number">1.</span> <span class="nav-text">Java关键字final、static使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final"><span class="nav-number">1.1.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number">1.2.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-final"><span class="nav-number">1.3.</span> <span class="nav-text">static final</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类是什么？如何访问在其外面定义的变量。"><span class="nav-number">2.</span> <span class="nav-text">匿名内部类是什么？如何访问在其外面定义的变量。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类的创建"><span class="nav-number">2.1.</span> <span class="nav-text">匿名内部类的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用原则"><span class="nav-number">2.3.</span> <span class="nav-text">使用原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.4.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解分布式锁"><span class="nav-number">3.</span> <span class="nav-text">如何理解分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁"><span class="nav-number">3.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁的类型"><span class="nav-number">3.2.</span> <span class="nav-text">锁的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式锁"><span class="nav-number">3.3.</span> <span class="nav-text">分布式锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql两种引擎InnoDB与MyISAM对比"><span class="nav-number">4.</span> <span class="nav-text">mysql两种引擎InnoDB与MyISAM对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jvm加载一个类的过程，双亲委派模型中有哪些方法"><span class="nav-number">5.</span> <span class="nav-text">jvm加载一个类的过程，双亲委派模型中有哪些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jvm类加载机制："><span class="nav-number">5.1.</span> <span class="nav-text">jvm类加载机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双亲委派模型"><span class="nav-number">5.2.</span> <span class="nav-text">双亲委派模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存结构"><span class="nav-number">6.</span> <span class="nav-text">JVM内存结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC算法"><span class="nav-number">7.</span> <span class="nav-text">GC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象存活"><span class="nav-number">7.1.</span> <span class="nav-text">判断对象存活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">7.2.</span> <span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器–垃圾收集算法的具体实现"><span class="nav-number">7.3.</span> <span class="nav-text">垃圾收集器–垃圾收集算法的具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS和G比较，以及G缺点，SS解决什么样的问题"><span class="nav-number">7.4.</span> <span class="nav-text">CMS和G比较，以及G缺点，SS解决什么样的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗"><span class="nav-number">8.</span> <span class="nav-text">线程同步与阻塞的关系，同步一定阻塞吗，阻塞一定同步吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql的查询慢了，如何优化索引"><span class="nav-number">9.</span> <span class="nav-text">mysql的查询慢了，如何优化索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的"><span class="nav-number">10.</span> <span class="nav-text">Join操作时内部的原理，Join的时候大表驱动小表还是小表驱动大表，走索引的时候的复杂度是怎样的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题"><span class="nav-number">11.</span> <span class="nav-text">InnoDB的四种隔离机制，RC和RR的区别，以及在使用的时候有什么感受和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一级别-Read-Uncommitted（读取未提交内容）"><span class="nav-number">11.1.</span> <span class="nav-text">第一级别 Read Uncommitted（读取未提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二级别-Read-Committed（读取提交内容）"><span class="nav-number">11.2.</span> <span class="nav-text">第二级别 Read Committed（读取提交内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三级别-Repeatable-Read-（可重复读）"><span class="nav-number">11.3.</span> <span class="nav-text">第三级别 Repeatable Read （可重复读）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四级别-Serializable-（可串行化）"><span class="nav-number">11.4.</span> <span class="nav-text">第四级别 Serializable  （可串行化）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的"><span class="nav-number">12.</span> <span class="nav-text">分布式主键生成方式有哪些中，优势和劣势是什么？SnowFlake算法具体是怎么实现的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用数据库的auto-increment生成主键"><span class="nav-number">12.1.</span> <span class="nav-text">使用数据库的auto_increment生成主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点批量ID生成服务"><span class="nav-number">12.2.</span> <span class="nav-text">单点批量ID生成服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuid"><span class="nav-number">12.3.</span> <span class="nav-text">uuid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取当前毫秒数-微秒数"><span class="nav-number">12.4.</span> <span class="nav-text">取当前毫秒数/微秒数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SnowFlake算法-twitter开源的分布式ID生成算法"><span class="nav-number">12.5.</span> <span class="nav-text">SnowFlake算法 twitter开源的分布式ID生成算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux进程间的通信方式"><span class="nav-number">13.</span> <span class="nav-text">linux进程间的通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql索引失效的几种情况"><span class="nav-number">14.</span> <span class="nav-text">mysql索引失效的几种情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库范式"><span class="nav-number">15.</span> <span class="nav-text">数据库范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB主键索引与普通索引的区别和查询时的过程"><span class="nav-number">16.</span> <span class="nav-text">InnoDB主键索引与普通索引的区别和查询时的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql查询两个数据集的补集"><span class="nav-number">17.</span> <span class="nav-text">sql查询两个数据集的补集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql索引B-tree的原理"><span class="nav-number">18.</span> <span class="nav-text">mysql索引B-tree的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何分库分表"><span class="nav-number">19.</span> <span class="nav-text">如何分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分表"><span class="nav-number">19.1.</span> <span class="nav-text">分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分库"><span class="nav-number">19.2.</span> <span class="nav-text">分库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下如何进行进程调度的"><span class="nav-number">20.</span> <span class="nav-text">Linux下如何进行进程调度的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-memcached区别，应用场景"><span class="nav-number">21.</span> <span class="nav-text">redis memcached区别，应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决Cookie盗取问题"><span class="nav-number">22.</span> <span class="nav-text">如何解决Cookie盗取问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步工具类"><span class="nav-number">23.</span> <span class="nav-text">线程同步工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给你三个线程，分别处理任务，再交给主线程，你如何实现。"><span class="nav-number">24.</span> <span class="nav-text">给你三个线程，分别处理任务，再交给主线程，你如何实现。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池底层实现"><span class="nav-number">25.</span> <span class="nav-text">线程池底层实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#servlet生命周期"><span class="nav-number">26.</span> <span class="nav-text">servlet生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建多线程的几种方式及区别"><span class="nav-number">27.</span> <span class="nav-text">创建多线程的几种方式及区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait-sleep区别"><span class="nav-number">28.</span> <span class="nav-text">wait,sleep区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程实现同步方式–阻塞-互斥-同步，非阻塞同步"><span class="nav-number">29.</span> <span class="nav-text">多线程实现同步方式–阻塞(互斥)同步，非阻塞同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java新特性，做一个List到Map的转换"><span class="nav-number">30.</span> <span class="nav-text">java新特性，做一个List到Map的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java线程池的实现，以及溢出的时候的抛弃策略"><span class="nav-number">31.</span> <span class="nav-text">java线程池的实现，以及溢出的时候的抛弃策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小"><span class="nav-number">32.</span> <span class="nav-text">针对不同场景，如何去设计线程池的大小，怎样计算线程池的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息"><span class="nav-number">33.</span> <span class="nav-text">JAVA反射机制，框架哪里设计过java的反射机制。通过反射调用一个方法，可以获取什么信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc原理"><span class="nav-number">34.</span> <span class="nav-text">springmvc原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-GC和Minor-GC区别，各自触发条件"><span class="nav-number">35.</span> <span class="nav-text">Full GC和Minor GC区别，各自触发条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC"><span class="nav-number">35.1.</span> <span class="nav-text">Minor GC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Major-GC-Full-GC"><span class="nav-number">35.2.</span> <span class="nav-text">Major GC/Full GC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMM内存模型，如何保证缓存一致性"><span class="nav-number">36.</span> <span class="nav-text">JMM内存模型，如何保证缓存一致性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMS垃圾回收器及其应用场景"><span class="nav-number">37.</span> <span class="nav-text">CMS垃圾回收器及其应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环"><span class="nav-number">38.</span> <span class="nav-text">hashmap，如何处理hash冲突，为什么hashmap允许null值，resize过程，多线程下resize为什么会出现死循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java跳表的并发问题"><span class="nav-number">39.</span> <span class="nav-text">java跳表的并发问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO-BIO-AIO"><span class="nav-number">40.</span> <span class="nav-text">NIO,BIO,AIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤"><span class="nav-number">41.</span> <span class="nav-text">什么是二叉平衡树，如何插入节点，删除节点，说出关键步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是一致性hash"><span class="nav-number">42.</span> <span class="nav-text">什么是一致性hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arraylist如何实现排序"><span class="nav-number">43.</span> <span class="nav-text">Arraylist如何实现排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的使用场景"><span class="nav-number">44.</span> <span class="nav-text">Zookeeper的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的annotation实现"><span class="nav-number">45.</span> <span class="nav-text">spring的annotation实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的Bean的生命周期"><span class="nav-number">46.</span> <span class="nav-text">spring的Bean的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存溢出的原因是什么，排查方法有哪些"><span class="nav-number">47.</span> <span class="nav-text">内存溢出的原因是什么，排查方法有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jmap-jstat-jinfo-jps-jconsole-mat-jprofile"><span class="nav-number">48.</span> <span class="nav-text">jmap jstat jinfo jps jconsole mat jprofile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jmap：查看heap情况，如查看存活对象列表"><span class="nav-number">48.1.</span> <span class="nav-text">jmap：查看heap情况，如查看存活对象列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstat：观察GC情况"><span class="nav-number">48.2.</span> <span class="nav-text">jstat：观察GC情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstack：分析线程堆栈"><span class="nav-number">48.3.</span> <span class="nav-text">jstack：分析线程堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jinfo，查看jvm配置信息"><span class="nav-number">48.4.</span> <span class="nav-text">jinfo，查看jvm配置信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jps"><span class="nav-number">48.5.</span> <span class="nav-text">jps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jhat：分析dump的堆文件"><span class="nav-number">48.6.</span> <span class="nav-text">jhat：分析dump的堆文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。"><span class="nav-number">48.7.</span> <span class="nav-text">jconsole，图形界面。可以持续收集内存、线程信息，并以曲线的方式显示出来。</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -785,30 +823,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">qh</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -819,6 +863,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -853,46 +899,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -923,16 +981,25 @@
 
 
 
-  
 
 
 
 
 
-  
 
   
 
+
+
+
+
+  
+
+  
+
+  
+
+  
   
 
   
